@@ -152,7 +152,6 @@ public class Shop {
 
     public static void loadShop() {
         String path = "./Resources/Shop/" + getItemType() + ".txt";
-        System.out.println(path);
         int numberOfLines = 0;
         try {
             numberOfLines = getLines(path);
@@ -263,7 +262,6 @@ public class Shop {
     public static void getItemNames() {
         listModel = new DefaultListModel();
         for (int i = 1; i < inventory.length-1; i++) {
-            System.out.println(getInventory()[i][1]);
             listModel.addElement(getInventory()[i][1].trim());
         }
 
