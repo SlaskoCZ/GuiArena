@@ -941,25 +941,25 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuArenaMenuButtonFightActionPerformed
 
     private void testMenuAddStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddStrActionPerformed
-        MessageWithInput messageWithInput = new MessageWithInput(this, true,"ADD "+testMenuAddStr.getText());
+        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddStr.getText());
         messageWithInput.setVisible(true);
         Metods.HeroStats.setStrenght(Metods.HeroStats.getStrenght() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddStrActionPerformed
 
     private void testMenuAddVitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddVitActionPerformed
-        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD "+testMenuAddVit.getText());
+        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddVit.getText());
         messageWithInput.setVisible(true);
         Metods.HeroStats.setVitality(Metods.HeroStats.getVitality() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddVitActionPerformed
 
     private void testMenuAddDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddDexActionPerformed
-        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD "+testMenuAddDex.getText());
+        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddDex.getText());
         messageWithInput.setVisible(true);
         Metods.HeroStats.setDexterity(Metods.HeroStats.getDexterity() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddDexActionPerformed
 
     private void testMenuAddIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddIntActionPerformed
-        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD "+testMenuAddInt.getText());
+        MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddInt.getText());
         messageWithInput.setVisible(true);
         Metods.HeroStats.setInteligence(Metods.HeroStats.getInteligence() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddIntActionPerformed
@@ -983,7 +983,8 @@ public class MainClass extends javax.swing.JFrame {
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
 
-        
+            mainMenuShopMenu.setVisible(false);
+
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
@@ -1039,7 +1040,7 @@ public class MainClass extends javax.swing.JFrame {
             @Override
             public void run() {
                 new MainClass().setVisible(true);
-                
+
             }
         });
     }
