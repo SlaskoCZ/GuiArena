@@ -39,7 +39,7 @@ public class HeroStats {
     private static int money = 200;
     private static int inventoryItems = 0;
     //characterInventory - 0.NAME 1.STR 2.DEX 3.VIT 4.INT 5.DMG 6.DEF 7.TYPE 8.PRICE
-    private static String[][] characterInventory = new String[4][9];
+    private static final String[][] characterInventory = new String[4][9];
     private static int itemStrenght = 0;
     private static int itemDexterity = 0;
     private static int itemVitality = 0;
@@ -101,7 +101,7 @@ public class HeroStats {
     }
 
     void expGain() {
-        int exp = (int) (Math.pow(2 - Utilities.difficulty, Enemies.getEnemylevel()) + Enemies.getBaseExp() + (Math.random() * 6 + 1) - (Math.random() * 6 + 1));
+        int exp = (int) (Math.pow(2 - Utilities.getDifficulty(), Enemies.getEnemylevel()) + Enemies.getBaseExp() + (Math.random() * 6 + 1) - (Math.random() * 6 + 1));
 
         if (exp <= 0) {
             while (exp < 0) {
@@ -109,7 +109,7 @@ public class HeroStats {
             }
         }
         System.out.println("You got: " + exp + " experiance from " + Enemies.getEnemyName());
-        experiance += exp;
+        setExperiance(getExperiance()+exp);
 
         nextLevel();
     }
@@ -128,9 +128,9 @@ public class HeroStats {
         Shop shop = new Shop();
         Utilities utilities = new Utilities();
         utilities.clearScreen();
-        int numberOfLines = shop.getLines(Utilities.temp.toString()) + 1;
+        int numberOfLines = shop.getLines(Utilities.getTemp().toString()) + 1;
         BufferedReader bufferedReader;
-        try (FileReader fileReader = new FileReader(Utilities.temp)) {
+        try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
             bufferedReader = new BufferedReader(fileReader);
             String[] load = new String[numberOfLines];
             if (numberOfLines == 1) {
@@ -165,10 +165,10 @@ public class HeroStats {
         Inputs input = new Inputs();
         Utilities utilities = new Utilities();
         utilities.clearScreen();
-        int numberOfLines = shop.getLines(Utilities.temp.toString()) + 1;
+        int numberOfLines = shop.getLines(Utilities.getTemp().toString()) + 1;
         BufferedReader bufferedReader;
         boolean process = true;
-        try (FileReader fileReader = new FileReader(Utilities.temp)) {
+        try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
             bufferedReader = new BufferedReader(fileReader);
             String[] load = new String[numberOfLines];
             if (numberOfLines == 0) {
@@ -182,34 +182,34 @@ public class HeroStats {
                 }
 
                 System.out.print("Weapon:");
-                System.out.println(characterInventory[1][0]);
+                System.out.println(getCharacterInventory()[1][0]);
                 System.out.print("Shield:");
-                System.out.println(characterInventory[2][0]);
+                System.out.println(getCharacterInventory()[2][0]);
                 System.out.print("Armor:");
-                System.out.println(characterInventory[3][0]);
+                System.out.println(getCharacterInventory()[3][0]);
                 System.out.println("What item do you want to put on?");
                 int selection = Integer.valueOf(input.input());
                 String[] work = load[selection].split(";");
                 int number = 0;
                 if (work[7].contains("Weapon")) {
-                    if (characterInventory[1][0] == "0") {
+                    if (characterInventory[1][0].equals("0")) {
                         number = 1;
                     } else {
-                        System.out.println("You already have " + characterInventory[1][0] + " equipped");
+                        System.out.println("You already have " + getCharacterInventory()[1][0] + " equipped");
                         process = false;
                     }
                 } else if (work[7].contains("Shield")) {
-                    if (characterInventory[2][0] == "0") {
+                    if (getCharacterInventory()[2][0].equals("0")) {
                         number = 2;
                     } else {
-                        System.out.println("You already have " + characterInventory[2][0] + " equipped");
+                        System.out.println("You already have " + getCharacterInventory()[2][0] + " equipped");
                         process = false;
                     }
                 } else if (work[7].contains("Armor")) {
-                    if (characterInventory[3][0] == "0") {
+                    if (getCharacterInventory()[3][0].equals("0")) {
                         number = 3;
                     } else {
-                        System.out.println("You already have " + characterInventory[3][0] + " equipped");
+                        System.out.println("You already have " + getCharacterInventory()[3][0] + " equipped");
                         process = false;
                     }
                 }
@@ -233,9 +233,9 @@ public class HeroStats {
                     //Price
                     characterInventory[number][8] = work[9];
 
-                    Utilities.temp.delete();
-                    Utilities.temp.createNewFile();
-                    File filePath = new File(Utilities.temp.getAbsolutePath());
+                    Utilities.getTemp().delete();
+                    Utilities.getTemp().createNewFile();
+                    File filePath = new File(Utilities.getTemp().getAbsolutePath());
                     try (FileOutputStream fos = new FileOutputStream(filePath)) {
                         OutputStreamWriter osw = new OutputStreamWriter(fos);
                         Writer w = new BufferedWriter(osw);
@@ -276,10 +276,10 @@ public class HeroStats {
         System.out.println("3. Armor: " + characterInventory[3][0]);
         System.out.print("Your choice: ");
         int selection = Integer.parseInt(input.input());
-        int numberOfLines = shop.getLines(Utilities.temp.toString()) + 1;
+        int numberOfLines = shop.getLines(Utilities.getTemp().toString()) + 1;
         BufferedReader bufferedReader;
         String[] load;
-        FileReader fileReader = new FileReader(Utilities.temp);
+        FileReader fileReader = new FileReader(Utilities.getTemp());
         bufferedReader = new BufferedReader(fileReader);
         load = new String[numberOfLines + 1];
         System.out.println("Number of lines: " + numberOfLines);
@@ -303,9 +303,9 @@ public class HeroStats {
                 + ";" + HeroStats.characterInventory[selection][7]
                 + ";" + HeroStats.characterInventory[selection][8]);
 
-        Utilities.temp.delete();
-        Utilities.temp.createNewFile();
-        File filePath = new File(Utilities.temp.getAbsolutePath());
+        Utilities.getTemp().delete();
+        Utilities.getTemp().createNewFile();
+        File filePath = new File(Utilities.getTemp().getAbsolutePath());
         FileOutputStream fos = new FileOutputStream(filePath);
         OutputStreamWriter osw = new OutputStreamWriter(fos);
         Writer w = new BufferedWriter(osw);
