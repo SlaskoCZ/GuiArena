@@ -1016,7 +1016,8 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
 
     private void mainMenuButtonHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonHospitalActionPerformed
-        // TODO add your handling code here:
+       CustomMessage cm = new CustomMessage(this, true, "Under Construction", "This button is under construction");
+        cm.setVisible(true);
     }//GEN-LAST:event_mainMenuButtonHospitalActionPerformed
 
     private void mainMenuButtonNotYETActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonNotYETActionPerformed
