@@ -983,6 +983,7 @@ public class MainClass extends javax.swing.JFrame {
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
 
+        
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
