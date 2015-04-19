@@ -1,0 +1,9 @@
+## Hero Stats
+1;0;10;10;10;10;100;100;200
+## Type: Weapon
+0;0;0;0;null;null;null;null;
+## Type: Shield
+0;0;0;0;null;null;null;null;
+## Type: Armor
+0;0;0;0;null;null;null;null;
+## Inventory: 
