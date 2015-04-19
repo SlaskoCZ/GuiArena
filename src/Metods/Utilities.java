@@ -115,7 +115,6 @@ public class Utilities {
     }
 
     public void saveProcess(String path) {
-        Shop shop = new Shop();
 //        Creating file with save information in dir save
         try {
 
@@ -171,7 +170,7 @@ public class Utilities {
                 }
                 //Inventory
                 w.write(System.lineSeparator());
-                int lines = shop.getLines(temp.getAbsolutePath());
+                int lines = Shop.getLines(temp.getAbsolutePath());
                 String load = null;
                 FileReader fr = new FileReader(Utilities.temp);
                 try (BufferedReader br = new BufferedReader(fr)) {

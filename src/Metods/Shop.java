@@ -22,11 +22,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 public class Shop {
 
     private static String[][] inventory;
     private static String itemType;
+    private static DefaultListModel listModel;
 
     void buy() throws IOException {
         Utilities utilities = new Utilities();
@@ -104,7 +109,7 @@ public class Shop {
                         w.write(i + ";" + work[1] + ";" + work[2] + ";" + work[3] + ";" + work[4] + ";" + work[5] + ";" + work[6] + ";" + work[7] + ";" + work[8] + ";" + work[9]);
                         w.write(System.lineSeparator());
                     }
-                    HeroStats.setInventoryItems(HeroStats.getInventoryItems()+1);
+                    HeroStats.setInventoryItems(HeroStats.getInventoryItems() + 1);
                     w.write(line
                             +//item name
                             ";"
@@ -145,49 +150,57 @@ public class Shop {
 
     }
 
-    void loadShop() throws FileNotFoundException, IOException {
-        String path = "./resource/files/" + getItemType() + ".txt";
-        int numberOfLines = getLines(path);
-        BufferedReader bufferedReader;
-        FileReader fileReader = new FileReader(path);
-        bufferedReader = new BufferedReader(fileReader);
-        int i = 1;
-        inventory = new String[numberOfLines + 1][10];
-        while (i < numberOfLines) {
-            String readed = bufferedReader.readLine();
-            if (readed.contains("##")) {
-            } else {
-                String[] part = readed.split(";");
-                //Item ID
-                inventory[i][0] = part[0];
-                //Item name
-                inventory[i][1] = part[1];
-                //Item Strenght
-                inventory[i][2] = part[2];
-                //Item Dexterity
-                inventory[i][3] = part[3];
-                //Item Vitality
-                inventory[i][4] = part[4];
-                //Item Inteligence
-                inventory[i][5] = part[5];
-                //Item damage
-                inventory[i][6] = part[6];
-                //Item defense
-                inventory[i][7] = part[7];
-                //Item Type
-                inventory[i][8] = part[8];
-                //Item price
-                inventory[i][9] = part[9];
-
-                i++;
-            }
+    public static void loadShop() {
+        String path = "./Resources/Shop/" + getItemType() + ".txt";
+        System.out.println(path);
+        int numberOfLines = 0;
+        try {
+            numberOfLines = getLines(path);
+        } catch (IOException ex) {
+            Logger.getLogger(Shop.class.getName()).log(Level.SEVERE, null, ex);
         }
+        BufferedReader bufferedReader;
+        try (FileReader fileReader = new FileReader(path)) {
+            bufferedReader = new BufferedReader(fileReader);
+            int i = 1;
+            inventory = new String[numberOfLines + 1][10];
+            while (i < numberOfLines) {
+                String readed = bufferedReader.readLine();
+                if (readed.contains("##")) {
+                } else {
+                    String[] part = readed.split(";");
+                    //Item ID
+                    inventory[i][0] = part[0];
+                    //Item name
+                    inventory[i][1] = part[1];
+                    //Item Strenght
+                    inventory[i][2] = part[2];
+                    //Item Dexterity
+                    inventory[i][3] = part[3];
+                    //Item Vitality
+                    inventory[i][4] = part[4];
+                    //Item Inteligence
+                    inventory[i][5] = part[5];
+                    //Item damage
+                    inventory[i][6] = part[6];
+                    //Item defense
+                    inventory[i][7] = part[7];
+                    //Item Type
+                    inventory[i][8] = part[8];
+                    //Item price
+                    inventory[i][9] = part[9];
 
-        bufferedReader.close();
-        fileReader.close();
+                    i++;
+                }
+            }
+
+            bufferedReader.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Shop.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    int getLines(String path) throws IOException {
+    public static int getLines(String path) throws IOException {
         int numberOfLines = 0;
         try {
             FileReader fileReader = new FileReader(path);
@@ -233,12 +246,26 @@ public class Shop {
     }
 
     public static String getItemType() {
+        if (itemType == null) {
+            setItemType("Weapons");
+        }
         return itemType;
     }
 
     public static void setItemType(String itemType) {
         Shop.itemType = itemType;
     }
-    
-    
+
+    public static DefaultListModel getDefaultListModel() {
+        return listModel;
+    }
+
+    public static void getItemNames() {
+        listModel = new DefaultListModel();
+        for (int i = 1; i < inventory.length-1; i++) {
+            System.out.println(getInventory()[i][1]);
+            listModel.addElement(getInventory()[i][1].trim());
+        }
+
+    }
 }

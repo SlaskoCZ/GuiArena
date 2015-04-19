@@ -1117,6 +1117,9 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuShopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyActionPerformed
         setShopUserChoice("Buy");
         shopMenuButtonBuy.setText(getShopUserChoice());
+       Metods.Shop.loadShop();
+        Metods.Shop.getItemNames();
+        shopMenuListField.setModel(Metods.Shop.getDefaultListModel());
         panelMainMenu.setVisible(false);
         panelShopMenu.setVisible(true);
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyActionPerformed
