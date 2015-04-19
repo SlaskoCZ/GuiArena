@@ -974,15 +974,15 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void mainMenuShopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyActionPerformed
 
     private void mainMenuShopMenuButtonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSellActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_mainMenuShopMenuButtonSellActionPerformed
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
