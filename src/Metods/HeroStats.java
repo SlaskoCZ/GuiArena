@@ -46,8 +46,8 @@ public class HeroStats {
     private static int itemInteligence = 0;
     private static int itemDamage = 0;
     private static int itemDefense = 0;
-    private static int hp = 10 * (vitality + itemVitality);
-    private static int mp = 10 * (inteligence + itemInteligence);
+    private static int hp = 10 * (getVitality() + getItemVitality());
+    private static int mp = 10 * (getInteligence()+ getItemInteligence());
 
     void nextLevel() {
         while (experiance > 100 + Math.pow(2, level - 1)) {
