@@ -5,6 +5,7 @@
  */
 package Arena;
 
+import Arena.Messages.CustomMessage;
 import Arena.Messages.MessageWithInput;
 import Arena.Messages.EnemyStatsDialog;
 import Arena.Messages.NewGameDialog;
@@ -80,11 +81,13 @@ public class MainClass extends javax.swing.JFrame {
         mainMenuArenaMenuComboBoxOpponentSelect = new javax.swing.JComboBox();
         mainMenuArenaMenuButtonOpponentConfirm = new javax.swing.JButton();
         mainMenuButtonArena = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        mainMenuButtonShop = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         mainMenuShopMenu = new javax.swing.JPanel();
         mainMenuShopMenuButtonBuy = new javax.swing.JButton();
         mainMenuShopMenuButtonSell = new javax.swing.JButton();
+        mainMenuButtonHospital = new javax.swing.JButton();
+        mainMenuButtonNotYET = new javax.swing.JButton();
         panelArenaMenu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         arenaMenuButtonLightAttack = new javax.swing.JButton();
@@ -426,12 +429,12 @@ public class MainClass extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Shop");
-        jButton2.setPreferredSize(new java.awt.Dimension(80, 40));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuButtonShop.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mainMenuButtonShop.setText("Shop");
+        mainMenuButtonShop.setPreferredSize(new java.awt.Dimension(80, 40));
+        mainMenuButtonShop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                mainMenuButtonShopActionPerformed(evt);
             }
         });
 
@@ -474,6 +477,24 @@ public class MainClass extends javax.swing.JFrame {
                 .addContainerGap(249, Short.MAX_VALUE))
         );
 
+        mainMenuButtonHospital.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mainMenuButtonHospital.setText("Hospital");
+        mainMenuButtonHospital.setPreferredSize(new java.awt.Dimension(80, 40));
+        mainMenuButtonHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMenuButtonHospitalActionPerformed(evt);
+            }
+        });
+
+        mainMenuButtonNotYET.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mainMenuButtonNotYET.setText("---");
+        mainMenuButtonNotYET.setPreferredSize(new java.awt.Dimension(80, 40));
+        mainMenuButtonNotYET.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMenuButtonNotYETActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMainMenuLayout = new javax.swing.GroupLayout(panelMainMenu);
         panelMainMenu.setLayout(panelMainMenuLayout);
         panelMainMenuLayout.setHorizontalGroup(
@@ -481,9 +502,12 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(panelMainMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainMenuButtonArena, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainMenuButtonArena, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mainMenuButtonShop, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mainMenuButtonHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuButtonNotYET, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -506,8 +530,12 @@ public class MainClass extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(mainMenuButtonArena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(mainMenuButtonShop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mainMenuButtonHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mainMenuButtonNotYET, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
@@ -964,14 +992,14 @@ public class MainClass extends javax.swing.JFrame {
         Metods.HeroStats.setInteligence(Metods.HeroStats.getInteligence() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddIntActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void mainMenuButtonShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonShopActionPerformed
         if (!mainMenuShopMenu.isVisible()) {
             mainMenuArenaMenu.setVisible(false);
             mainMenuShopMenu.setVisible(true);
         } else {
             mainMenuShopMenu.setVisible(false);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_mainMenuButtonShopActionPerformed
 
     private void mainMenuShopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyActionPerformed
 
@@ -986,6 +1014,17 @@ public class MainClass extends javax.swing.JFrame {
             mainMenuShopMenu.setVisible(false);
 
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
+
+    private void mainMenuButtonHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainMenuButtonHospitalActionPerformed
+
+    private void mainMenuButtonNotYETActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonNotYETActionPerformed
+        
+        CustomMessage cm = new CustomMessage(this, true, "Under Construction", "This button is under construction");
+        cm.setVisible(true);
+        
+    }//GEN-LAST:event_mainMenuButtonNotYETActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
@@ -1076,7 +1115,6 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.JPanel heroStatsPanel;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1096,6 +1134,9 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JButton mainMenuArenaMenuButtonOpponentConfirm;
     private javax.swing.JComboBox mainMenuArenaMenuComboBoxOpponentSelect;
     private javax.swing.JButton mainMenuButtonArena;
+    private javax.swing.JButton mainMenuButtonHospital;
+    private javax.swing.JButton mainMenuButtonNotYET;
+    private javax.swing.JButton mainMenuButtonShop;
     private javax.swing.JPanel mainMenuShopMenu;
     private javax.swing.JButton mainMenuShopMenuButtonBuy;
     private javax.swing.JButton mainMenuShopMenuButtonSell;
