@@ -6,7 +6,6 @@
 package Arena;
 
 import Arena.Messages.CustomMessage;
-import Arena.Messages.MessageWithInput;
 import Arena.Messages.EnemyStatsDialog;
 import Arena.Messages.NewGameDialog;
 import Arena.Messages.MessageWithInput;
@@ -14,9 +13,6 @@ import Metods.Enemies;
 import Metods.Fight;
 import Metods.Stats;
 import Metods.Utilities;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -338,7 +334,7 @@ public class MainClass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelArmor)
-                    .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(52, 52, 52))
@@ -969,11 +965,11 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_menuFileSaveActionPerformed
 
     private void menuFileNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileNewGameActionPerformed
-        NewGameDialog newGameDialog = new NewGameDialog(this, true);
+       NewGameDialog newGameDialog = new NewGameDialog(this, true);
         newGameDialog.setVisible(true);
-        if (newGameDialog.getEndStatus() == "Yes") {
-            this.dispose();
-        }
+        if (newGameDialog.getEndStatus().equals("Yes")) {
+            this.dispose();          
+        }     
     }//GEN-LAST:event_menuFileNewGameActionPerformed
 
     private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
@@ -987,18 +983,18 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_testButtonActionPerformed
 
     private void switchButtonDifficultyNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonDifficultyNormalActionPerformed
-        Utilities utilities = new Utilities();
-        utilities.setDificulty(switchButtonDifficultyNormal.getText());
+
+        Utilities.setDificulty(switchButtonDifficultyNormal.getText());
     }//GEN-LAST:event_switchButtonDifficultyNormalActionPerformed
 
     private void switchButtonDifficultyEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonDifficultyEasyActionPerformed
-        Utilities utilities = new Utilities();
-        utilities.setDificulty(switchButtonDifficultyEasy.getText());
+
+        Utilities.setDificulty(switchButtonDifficultyEasy.getText());
     }//GEN-LAST:event_switchButtonDifficultyEasyActionPerformed
 
     private void switchButtonDifficultyHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonDifficultyHardActionPerformed
-        Utilities utilities = new Utilities();
-        utilities.setDificulty(switchButtonDifficultyHard.getText());
+
+        Utilities.setDificulty(switchButtonDifficultyHard.getText());
     }//GEN-LAST:event_switchButtonDifficultyHardActionPerformed
 
     private void menuFileEndGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileEndGameActionPerformed
@@ -1134,7 +1130,7 @@ public class MainClass extends javax.swing.JFrame {
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
         Metods.Shop.removeInventory();
-        
+
         panelShopMenu.setVisible(false);
         panelMainMenu.setVisible(true);
 
@@ -1194,11 +1190,7 @@ public class MainClass extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            Metods.Utilities.systemInit();
-        } catch (IOException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Metods.Utilities.systemInit();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
