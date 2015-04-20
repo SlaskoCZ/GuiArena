@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Timer;
 
 /*
@@ -41,32 +42,35 @@ public class Utilities {
         System.out.println("Version: " + version + " made: " + date);
     }
 
-    public static void systemInit() throws IOException {
-        // fill characterInventory array with 0
-        for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
-            for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
-                HeroStats.setCharacterInventory(i, j, "0");
+    public static void systemInit() {
+        try {
+            // fill characterInventory array with 0
+            for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
+                for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
+                    HeroStats.setCharacterInventory(i, j, "0");
+                }
             }
-        }
 //       Create Temp dir with temp file Inventory.txt
-        File theDir = new File("temp");
-        if (!theDir.exists()) {
-            try {
-                theDir.mkdir();
-            } catch (SecurityException error) {
-                System.out.println(error);
+            File theDir = new File("temp");
+            if (!theDir.exists()) {
+                try {
+                    theDir.mkdir();
+                } catch (SecurityException error) {
+                    System.out.println(error);
+                }
+                
             }
-
-        }
-        timer(100, "1 sec background timer");
-        theDir.deleteOnExit();
-        Inputs input = new Inputs();
-        temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
-        temp.delete();
-        temp.createNewFile();
-        temp.deleteOnExit();
+            timer(100, "1 sec background timer");
+            theDir.deleteOnExit();
+            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
+            temp.delete();
+            temp.createNewFile();
+            temp.deleteOnExit();
 //        Dificulty
-        setDificulty("Normal");
+            setDificulty("Normal");
+        } catch (IOException ex) {
+            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     void clearScreen() throws IOException {
@@ -77,7 +81,7 @@ public class Utilities {
 
     }
 
-    void waitForEnter() throws IOException {
+   public static void waitForEnter() throws IOException {
         System.out.print("Press Enter to continue ...");
         System.in.read();
     }
