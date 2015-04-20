@@ -18,6 +18,7 @@ public class LoadForm extends javax.swing.JFrame {
      */
     public LoadForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

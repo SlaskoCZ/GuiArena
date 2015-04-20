@@ -20,6 +20,7 @@ public class SaveForm extends javax.swing.JFrame {
      */
     public SaveForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

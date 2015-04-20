@@ -26,6 +26,7 @@ public class MainClass extends javax.swing.JFrame {
      */
     public MainClass() {
         initComponents();
+        this.setLocationRelativeTo(null);
         reloadHeroStats();
     }
 
