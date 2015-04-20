@@ -18,8 +18,9 @@ public class BagDialog extends javax.swing.JDialog {
      */
     public BagDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        DefaultListModel list = Metods.HeroStats.inventory();       
+        DefaultListModel list = Metods.HeroStats.inventory();
         initComponents();
+        this.setLocationRelativeTo(null);
         bagDialogList.setModel(list);
     }
 
@@ -34,6 +35,7 @@ public class BagDialog extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         bagDialogList = new javax.swing.JList();
+        bagDialogButtonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -42,24 +44,43 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogList.setName(""); // NOI18N
         jScrollPane1.setViewportView(bagDialogList);
 
+        bagDialogButtonBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bagDialogButtonBack.setText("Back to main menu");
+        bagDialogButtonBack.setPreferredSize(new java.awt.Dimension(80, 40));
+        bagDialogButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bagDialogButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                .addGap(160, 160, 160))
+                .addComponent(bagDialogButtonBack, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bagDialogButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bagDialogButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogButtonBackActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bagDialogButtonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,6 +125,7 @@ public class BagDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bagDialogButtonBack;
     private javax.swing.JList bagDialogList;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
