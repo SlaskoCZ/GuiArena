@@ -235,7 +235,12 @@ public class Shop {
             bufferedReader.close();
         }
     }
-
+    public static String[] getItemStats(int index){
+        String[] item = new String[10];
+        System.arraycopy(inventory[index], 0, item, 0, inventory[index].length);
+        return item;
+    }
+    
     public static String[][] getInventory() {
         return inventory;
     }

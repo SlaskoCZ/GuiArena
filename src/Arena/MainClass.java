@@ -1162,7 +1162,15 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_shopMenuListFieldMouseClicked
 
     private void shopMenuListFieldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseReleased
-        System.out.println(shopMenuListField.getSelectedValue());
+        String[] item = Metods.Shop.getItemStats(shopMenuListField.getSelectedIndex() + 1);
+        shopMenuLabelItemNameStats.setText(item[1]);
+        shopMenuLabelItemSTRStats.setText(item[2]);
+        shopMenuLabelItemDEXStats.setText(item[3]);
+        shopMenuLabelItemINTStats.setText(item[4]);
+        shopMenuLabelItemVITStats.setText(item[5]);
+        shopMenuLabelItemDMGStats.setText(item[6]);
+        shopMenuLabelItemDEFStats.setText(item[7]);
+        shopMenuLabelItemPriceStats.setText(item[9]);
     }//GEN-LAST:event_shopMenuListFieldMouseReleased
     public final void reloadHeroStats() {
         Stats stats = new Stats();

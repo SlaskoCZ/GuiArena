@@ -32,14 +32,12 @@ public class LoadForm extends javax.swing.JFrame {
         jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jFileChooser1.setAcceptAllFileFilterUsed(false);
         jFileChooser1.setApproveButtonToolTipText("");
         File file = new File(System.getProperty("user.dir"));
         jFileChooser1.setCurrentDirectory(file);
-        jFileChooser1.setFileFilter(".as");
         jFileChooser1.setPreferredSize(new java.awt.Dimension(800, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
