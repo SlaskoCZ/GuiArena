@@ -53,7 +53,7 @@ public class MainClass extends javax.swing.JFrame {
         nameLabelWeapon = new javax.swing.JLabel();
         nameLabelArmor = new javax.swing.JLabel();
         nameLabelShield = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        heroStatsButtonBag = new javax.swing.JButton();
         changableLabelName = new javax.swing.JLabel();
         changableLabelLevel = new javax.swing.JLabel();
         changableLabelHP = new javax.swing.JLabel();
@@ -176,10 +176,10 @@ public class MainClass extends javax.swing.JFrame {
 
         nameLabelShield.setText("Shield:");
 
-        jButton3.setText("Bag");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        heroStatsButtonBag.setText("Bag");
+        heroStatsButtonBag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                heroStatsButtonBagActionPerformed(evt);
             }
         });
 
@@ -259,7 +259,7 @@ public class MainClass extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(changableLabelArmor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(heroStatsButtonBag, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(changableLabelShield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(changableLabelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(heroStatsPanelLayout.createSequentialGroup()
@@ -336,7 +336,7 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(nameLabelArmor)
                     .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(heroStatsButtonBag)
                 .addGap(52, 52, 52))
         );
 
@@ -1001,9 +1001,10 @@ public class MainClass extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuFileEndGameActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void heroStatsButtonBagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heroStatsButtonBagActionPerformed
+        Arena.Messages.BagDialog bagDialog = new Arena.Messages.BagDialog(this, true);
+        bagDialog.setVisible(true);
+    }//GEN-LAST:event_heroStatsButtonBagActionPerformed
 
     private void menuFileLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadActionPerformed
         LoadForm lf = new LoadForm();
@@ -1264,8 +1265,8 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.JButton heroStatsButtonBag;
     private javax.swing.JPanel heroStatsPanel;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

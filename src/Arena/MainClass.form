@@ -286,7 +286,7 @@
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="changableLabelArmor" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="heroStatsButtonBag" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="changableLabelShield" alignment="0" max="32767" attributes="0"/>
                               <Component id="changableLabelWeapon" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -384,7 +384,7 @@
                       <Component id="changableLabelArmor" alignment="3" pref="22" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="heroStatsButtonBag" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -451,12 +451,12 @@
             <Property name="text" type="java.lang.String" value="Shield:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="heroStatsButtonBag">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bag"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="heroStatsButtonBagActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="changableLabelName">
