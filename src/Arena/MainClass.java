@@ -152,6 +152,7 @@ public class MainClass extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        heroStatsPanel.setBackground(new java.awt.Color(204, 204, 204));
         heroStatsPanel.setMaximumSize(new java.awt.Dimension(213, 350));
         heroStatsPanel.setPreferredSize(new java.awt.Dimension(213, 380));
 
@@ -189,49 +190,49 @@ public class MainClass extends javax.swing.JFrame {
         changableLabelName.setText("Argus Pyrrhus");
         changableLabelName.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelName.setName(""); // NOI18N
-        changableLabelName.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelName.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelLevel.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelLevel.setName(""); // NOI18N
-        changableLabelLevel.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelLevel.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelHP.setMaximumSize(new java.awt.Dimension(130, 10));
-        changableLabelHP.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelHP.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelMP.setMaximumSize(new java.awt.Dimension(130, 10));
-        changableLabelMP.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelMP.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelSTR.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelSTR.setName(""); // NOI18N
-        changableLabelSTR.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelSTR.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelDEX.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelDEX.setName(""); // NOI18N
-        changableLabelDEX.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelDEX.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelVIT.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelVIT.setName(""); // NOI18N
-        changableLabelVIT.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelVIT.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelINT.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelINT.setName(""); // NOI18N
-        changableLabelINT.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelINT.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelMoney.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelMoney.setName(""); // NOI18N
-        changableLabelMoney.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelMoney.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelWeapon.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelWeapon.setName(""); // NOI18N
-        changableLabelWeapon.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelWeapon.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelShield.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelShield.setName(""); // NOI18N
-        changableLabelShield.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelShield.setPreferredSize(new java.awt.Dimension(120, 15));
 
         changableLabelArmor.setMaximumSize(new java.awt.Dimension(130, 10));
         changableLabelArmor.setName(""); // NOI18N
-        changableLabelArmor.setPreferredSize(new java.awt.Dimension(130, 15));
+        changableLabelArmor.setPreferredSize(new java.awt.Dimension(120, 15));
 
         nameLabelHeroStats.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         nameLabelHeroStats.setText("Hero Stats");
@@ -241,52 +242,50 @@ public class MainClass extends javax.swing.JFrame {
         heroStatsPanel.setLayout(heroStatsPanelLayout);
         heroStatsPanelLayout.setHorizontalGroup(
             heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameLabelSTR)
-                        .addComponent(nameLabelDEX)
-                        .addComponent(nameLabelVIT)
-                        .addComponent(nameLabelINT)
-                        .addComponent(nameLabelMoney)
-                        .addComponent(nameLabelMP))
-                    .addGap(27, 27, 27)
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(changableLabelMP, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelVIT, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelDEX, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelINT, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelMoney, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelSTR, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)))
-                .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameLabelHP)
-                        .addComponent(nameLabelName)
-                        .addComponent(nameLabelLevel))
-                    .addGap(32, 32, 32)
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                            .addComponent(changableLabelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                            .addGap(122, 122, 122))
-                        .addComponent(changableLabelHP, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                            .addComponent(changableLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addGap(1, 1, 1))))
-                .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameLabelWeapon)
-                        .addComponent(nameLabelShield)
-                        .addComponent(nameLabelArmor))
-                    .addGap(18, 18, 18)
-                    .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelWeapon, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(changableLabelShield, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGap(1, 1, 1)))
-            .addGroup(heroStatsPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(nameLabelHeroStats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, heroStatsPanelLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(heroStatsPanelLayout.createSequentialGroup()
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameLabelHP)
+                            .addComponent(nameLabelName)
+                            .addComponent(nameLabelLevel))
+                        .addGap(32, 32, 32)
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(changableLabelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(heroStatsPanelLayout.createSequentialGroup()
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameLabelWeapon)
+                            .addComponent(nameLabelShield)
+                            .addComponent(nameLabelArmor))
+                        .addGap(18, 18, 18)
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(changableLabelArmor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(changableLabelShield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(heroStatsPanelLayout.createSequentialGroup()
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameLabelSTR)
+                            .addComponent(nameLabelDEX)
+                            .addComponent(nameLabelVIT)
+                            .addComponent(nameLabelINT)
+                            .addComponent(nameLabelMoney)
+                            .addComponent(nameLabelMP))
+                        .addGap(27, 27, 27)
+                        .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(changableLabelVIT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelDEX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelSTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelMP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changableLabelINT, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(changableLabelMoney, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(heroStatsPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(nameLabelHeroStats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         heroStatsPanelLayout.setVerticalGroup(
             heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,9 +300,9 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(nameLabelLevel)
                     .addComponent(changableLabelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nameLabelHP)
-                    .addComponent(changableLabelHP, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(changableLabelHP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelMP)
@@ -321,9 +320,9 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(nameLabelVIT)
                     .addComponent(changableLabelVIT, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nameLabelINT)
-                    .addComponent(changableLabelINT, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(changableLabelINT, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelMoney)
@@ -339,7 +338,7 @@ public class MainClass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(heroStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelArmor)
-                    .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                    .addComponent(changableLabelArmor, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(52, 52, 52))
@@ -1134,6 +1133,8 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuShopMenuButtonSellActionPerformed
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
+        Metods.Shop.removeInventory();
+        
         panelShopMenu.setVisible(false);
         panelMainMenu.setVisible(true);
 
