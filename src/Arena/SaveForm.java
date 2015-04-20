@@ -7,7 +7,6 @@ package Arena;
 
 import Metods.Utilities;
 import java.io.File;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -85,6 +84,7 @@ public class SaveForm extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_saveFileActionPerformed
+
     public String getSavePath() {
         return path;
     }
