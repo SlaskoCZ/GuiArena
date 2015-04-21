@@ -1152,13 +1152,25 @@ public class MainClass extends javax.swing.JFrame {
 
     private void shopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBuyActionPerformed
         int selected = shopMenuListField.getSelectedIndex();
-        System.out.println(selected);
-        System.out.println(Metods.HeroStats.getInventoryItems());
-        if (Metods.HeroStats.getInventoryItems() >= 16) {
-            Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
-            cm.setVisible(true);
+        if (selected != -1) {
+            if (getShopUserChoice().equals("Buy")) {
+
+                if (Metods.HeroStats.getInventoryItems() >= 256) {
+                    Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
+                    cm.setVisible(true);
+                } else {
+                    Metods.Shop.buy(selected + 1);
+                }
+            } else {
+                Metods.Shop.sell(selected);
+                shopMenuListField.setModel(Metods.HeroStats.inventory());
+                if (Metods.HeroStats.getInventoryItems() == 0){
+                    shopMenuButtonBuy.setEnabled(false);
+                }
+            }
         } else {
-            Metods.Shop.buy(selected + 1);
+            CustomMessage cm = new CustomMessage(this, true, "Bad Item selected !", " You need to select an Item !");
+            cm.setVisible(true);
         }
     }//GEN-LAST:event_shopMenuButtonBuyActionPerformed
 

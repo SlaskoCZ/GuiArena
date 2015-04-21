@@ -184,15 +184,13 @@ public class Shop {
 //    }
 // </editor-fold> 
     public static void buy(int itemIndex) {
-        System.out.println("Cena: "+inventory[itemIndex][9]);
-        System.out.println("Aktualne: "+HeroStats.getMoney());
         if (Integer.valueOf(inventory[itemIndex][9]) <= HeroStats.getMoney()) {
             int j = 0;
             for (int i = 0; i < inventory[itemIndex].length; i++) {
-                
+
                 if (i != 8 && i != 0) {
                     HeroStats.setHeroInventory(HeroStats.getInventoryItems(), j, inventory[itemIndex][i]);
-                    
+
                 } else {
                     j--;
                 }
@@ -201,7 +199,7 @@ public class Shop {
             HeroStats.setMoney(-Integer.valueOf(inventory[itemIndex][9]));
             HeroStats.setInventoryItems(1);
         } else {
-            Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(null , true, "Not enough money !", ("You dont have enough money to buy "+inventory[itemIndex][1].trim()+" for "+inventory[itemIndex][9]));
+            Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(null, true, "Not enough money !", ("You dont have enough money to buy " + inventory[itemIndex][1].trim() + " for " + inventory[itemIndex][9]));
             cm.setVisible(true);
         }
     }
@@ -273,23 +271,36 @@ public class Shop {
         return numberOfLines;
     }
 
-    void sell() throws FileNotFoundException, IOException {
-        FileReader fileReader = new FileReader(Utilities.getTemp());
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        int numberOfItems = getLines(Utilities.getTemp().getPath());
-        String[] items = new String[numberOfItems];
-        if (numberOfItems == 0) {
-            System.out.println("Nothing to sell in backpack.");
-
-        } else {
-            for (int i = 1; i < HeroStats.getInventoryItems(); i++) {
-                String readed = bufferedReader.readLine();
-                System.out.println(readed);
-                items[i] = readed;
-            }
-            fileReader.close();
-            bufferedReader.close();
+    // <editor-fold defaultstate="collapsed" desc="Old Sell()">
+//    public static void sell() throws FileNotFoundException, IOException {
+//        FileReader fileReader = new FileReader(Utilities.getTemp());
+//        BufferedReader bufferedReader = new BufferedReader(fileReader);
+//        int numberOfItems = getLines(Utilities.getTemp().getPath());
+//        String[] items = new String[numberOfItems];
+//        if (numberOfItems == 0) {
+//            System.out.println("Nothing to sell in backpack.");
+//
+//        } else {
+//            for (int i = 1; i < HeroStats.getInventoryItems(); i++) {
+//                String readed = bufferedReader.readLine();
+//                System.out.println(readed);
+//                items[i] = readed;
+//            }
+//            fileReader.close();
+//            bufferedReader.close();
+//        }
+//    }
+// </editor-fold>
+    public static void sell(int itemIndex) {
+        HeroStats.setMoney(Integer.valueOf(HeroStats.getHeroInventory()[itemIndex][7]));
+        System.out.println("itemIndex: "+itemIndex);
+        for (int i = itemIndex; i < HeroStats.getInventoryItems()-1; i++) {
+           System.arraycopy(HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex].length); 
         }
+        for (int i = 0; i < HeroStats.getHeroInventory()[HeroStats.getInventoryItems()-1].length; i++) {
+            HeroStats.setHeroInventory(HeroStats.getInventoryItems()-1, i, null);
+        }
+        HeroStats.setInventoryItems(-1);
     }
 
     public static void removeInventory() {
