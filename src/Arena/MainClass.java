@@ -672,15 +672,13 @@ public class MainClass extends javax.swing.JFrame {
                 shopMenuButtonBuyActionPerformed(evt);
             }
         });
+        shopMenuButtonBuy.setEnabled(false);
 
         shopMenuListField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         shopMenuListField.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         shopMenuListField.setToolTipText("");
         shopMenuListField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         shopMenuListField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                shopMenuListFieldMouseClicked(evt);
-            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 shopMenuListFieldMouseReleased(evt);
             }
@@ -1154,13 +1152,12 @@ public class MainClass extends javax.swing.JFrame {
     private void shopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBuyActionPerformed
         int selected = shopMenuListField.getSelectedIndex();
         System.out.println(selected);
+        
+        
     }//GEN-LAST:event_shopMenuButtonBuyActionPerformed
 
-    private void shopMenuListFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseClicked
-
-    }//GEN-LAST:event_shopMenuListFieldMouseClicked
-
     private void shopMenuListFieldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseReleased
+        shopMenuButtonBuy.setEnabled(true);
         String[] item = Metods.Shop.getItemStats(shopMenuListField.getSelectedIndex() + 1);
         shopMenuLabelItemNameStats.setText(item[1]);
         shopMenuLabelItemSTRStats.setText(item[2]);

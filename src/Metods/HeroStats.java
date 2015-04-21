@@ -31,7 +31,7 @@ import javax.swing.ListModel;
  * @author Petr Linhart
  */
 public class HeroStats {
-    
+
     private static int strenght = 10;
     private static int dexterity = 10;
     private static int vitality = 10;
@@ -41,6 +41,7 @@ public class HeroStats {
     private static int experiance = 0;
     private static int money = 200;
     private static int inventoryItems = 0;
+    private static String[][] heroInventory = new String[255][9];
     //characterInventory - 0.NAME 1.STR 2.DEX 3.VIT 4.INT 5.DMG 6.DEF 7.TYPE 8.PRICE
     private static final String[][] characterInventory = new String[4][9];
     private static int itemStrenght = 0;
@@ -51,7 +52,7 @@ public class HeroStats {
     private static int itemDefense = 0;
     private static int hp = 10 * (getVitality() + getItemVitality());
     private static int mp = 10 * (getInteligence() + getItemInteligence());
-    
+
     void nextLevel() {
         while (experiance > 100 + Math.pow(2, level - 1)) {
             experiance = 0;
@@ -59,11 +60,11 @@ public class HeroStats {
             System.out.println("Level Up");
             System.out.println("You're level " + level + " now ");
             statUpgrade();
-            
+
         }
-        
+
     }
-    
+
     void statUpgrade() {
         Inputs input = new Inputs();
         boolean end = false;
@@ -99,13 +100,13 @@ public class HeroStats {
         }
         if ((statUpgrades - level - 1) == 0) {
             System.out.println("You don't have free stat points");
-            
+
         }
     }
-    
+
     void expGain() {
         int exp = (int) (Math.pow(2 - Utilities.getDifficulty(), Enemies.getEnemylevel()) + Enemies.getBaseExp() + (Math.random() * 6 + 1) - (Math.random() * 6 + 1));
-        
+
         if (exp <= 0) {
             while (exp < 0) {
                 exp++;
@@ -113,10 +114,10 @@ public class HeroStats {
         }
         System.out.println("You got: " + exp + " experiance from " + Enemies.getEnemyName());
         setExperiance(getExperiance() + exp);
-        
+
         nextLevel();
     }
-    
+
     void moneyGain() {
         int mon = (int) (Math.round((Math.random() * 10 - 5) * Enemies.getEnemylevel()));
         if (mon <= 0) {
@@ -126,40 +127,60 @@ public class HeroStats {
             money += mon;
         }
     }
-    
-    public static DefaultListModel inventory() {
+
+//    public static DefaultListModel inventory() {
+//        DefaultListModel items = new DefaultListModel();
+//        try {
+//            int numberOfLines = Shop.getLines(Utilities.getTemp().toString()) + 1;
+//
+//            String[] load = new String[numberOfLines];
+//            BufferedReader bufferedReader;
+//            try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
+//                bufferedReader = new BufferedReader(fileReader);
+//
+//                if (numberOfLines == 1) {
+//                    items.addElement("You dont have any items");
+//                } else {
+//                    for (int i = 0; i < numberOfLines; i++) {
+//                        load[i] = bufferedReader.readLine();
+//                        if (load[i] != null) {
+//                            String[] part = load[i].split(";");
+//                            System.out.println(part[1]);
+//                            items.addElement(part[1]);
+//                        }
+//                    }
+//                }
+//                bufferedReader.close();
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return items;
+//    }
+
+    public static DefaultListModel inventory(){
         DefaultListModel items = new DefaultListModel();
-        try {
-            int numberOfLines = Shop.getLines(Utilities.getTemp().toString()) + 1;
-            
-            String[] load = new String[numberOfLines];
-            BufferedReader bufferedReader;
-            try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
-                bufferedReader = new BufferedReader(fileReader);
-                
-                if (numberOfLines == 1) {
-                    items.addElement("You dont have any items");
-                } else {
-                    for (int i = 0; i < numberOfLines; i++) {
-                        load[i] = bufferedReader.readLine();
-                        if (load[i] != null) {
-                            String[] part = load[i].split(";");
-                            System.out.println(part[1]);
-                            items.addElement(part[1]);
-                        }
-                    }
-                }
-                bufferedReader.close();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        } catch (IOException ex) {
-            Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
+        try{
+        for (int i = 0; i < heroInventory.length ; i++) {
+            if (!heroInventory[i][0].contains(null)) {
+               items.addElement(heroInventory[i][0]); 
+            } 
+        }
+        } catch (NullPointerException e){
+            System.out.println(e);
+            System.out.println("Inventory is empty");
+            items.addElement("Empty");
         }
         return items;
     }
-    
+    public static String[] getInventoryStats(int index){
+        String[] item = new String[9];
+        System.arraycopy(heroInventory[index], 0, item, 0, 0);
+        return item;
+    }
     void characterInventory() throws IOException {
         Utilities utilities = new Utilities();
         utilities.clearScreen();
@@ -171,7 +192,7 @@ public class HeroStats {
         System.out.println(characterInventory[3][0]);
         utilities.waitForEnter();
     }
-    
+
     void addCharacterItems() throws IOException {
         Shop shop = new Shop();
         Inputs input = new Inputs();
@@ -192,7 +213,7 @@ public class HeroStats {
                         System.out.println(load[i]);
                     }
                 }
-                
+
                 System.out.print("Weapon:");
                 System.out.println(getCharacterInventory()[1][0]);
                 System.out.print("Shield:");
@@ -244,7 +265,7 @@ public class HeroStats {
                     characterInventory[number][7] = work[8];
                     //Price
                     characterInventory[number][8] = work[9];
-                    
+
                     Utilities.getTemp().delete();
                     Utilities.getTemp().createNewFile();
                     File filePath = new File(Utilities.getTemp().getAbsolutePath());
@@ -259,7 +280,7 @@ public class HeroStats {
                                 w.write(System.lineSeparator());
                                 j++;
                             } else {
-                                
+
                             }
                         }
                         w.close();
@@ -270,7 +291,7 @@ public class HeroStats {
                     }
                 }
             }
-            
+
             utilities.waitForEnter();
         } catch (Exception error) {
             System.out.println(error);
@@ -278,7 +299,7 @@ public class HeroStats {
         System.out.println("reload");
         reloadItemStats();
     }
-    
+
     void removeCharacterItems() throws FileNotFoundException, IOException {
         Shop shop = new Shop();
         Inputs input = new Inputs();
@@ -300,7 +321,7 @@ public class HeroStats {
         }
         if (load[numberOfLines] == null) {
             numberOfLines--;
-            
+
         }
         fileReader.close();
         bufferedReader.close();
@@ -314,7 +335,7 @@ public class HeroStats {
                 + ";" + HeroStats.characterInventory[selection][6]
                 + ";" + HeroStats.characterInventory[selection][7]
                 + ";" + HeroStats.characterInventory[selection][8]);
-        
+
         Utilities.getTemp().delete();
         Utilities.getTemp().createNewFile();
         File filePath = new File(Utilities.getTemp().getAbsolutePath());
@@ -328,14 +349,14 @@ public class HeroStats {
             w.write(j + ";" + work[1] + ";" + work[2] + ";" + work[3] + ";" + work[4] + ";" + work[5] + ";" + work[6] + ";" + work[7] + ";" + work[8] + ";" + work[9]);
             w.write(System.lineSeparator());
             j++;
-            
+
         }
         Arrays.fill(HeroStats.characterInventory[selection], "0");
         w.close();
         osw.close();
         fos.close();
     }
-    
+
     void reloadItemStats() {
         itemStrenght = parseInt(characterInventory[1][1].trim()) + parseInt(characterInventory[2][1].trim()) + parseInt(characterInventory[3][1].trim());
         itemDexterity = parseInt(characterInventory[1][2].trim()) + parseInt(characterInventory[2][2].trim()) + parseInt(characterInventory[3][2].trim());
@@ -344,149 +365,157 @@ public class HeroStats {
         itemDamage = parseInt(characterInventory[1][5].trim());
         itemDefense = parseInt(characterInventory[2][6].trim()) + parseInt(characterInventory[3][6].trim());
     }
-    
+
+    public static String[][] getHeroInventory() {
+        return heroInventory;
+    }
+
+    public static void setHeroInventory(String[][] heroInventory) {
+        HeroStats.heroInventory = heroInventory;
+    }
+
     public static int getStrenght() {
         return strenght;
     }
-    
+
     public static void setStrenght(int strenght) {
         HeroStats.strenght = strenght;
     }
-    
+
     public static int getDexterity() {
         return dexterity;
     }
-    
+
     public static void setDexterity(int dexterity) {
         HeroStats.dexterity = dexterity;
     }
-    
+
     public static int getVitality() {
         return vitality;
     }
-    
+
     public static void setVitality(int vitality) {
         HeroStats.vitality = vitality;
     }
-    
+
     public static int getInteligence() {
         return inteligence;
     }
-    
+
     public static void setInteligence(int inteligence) {
         HeroStats.inteligence = inteligence;
     }
-    
+
     public static int getLevel() {
         return level;
     }
-    
+
     public static void setLevel(int level) {
         HeroStats.level = level;
     }
-    
+
     public static int getStatUpgrades() {
         return statUpgrades;
     }
-    
+
     public static void setStatUpgrades(int statUpgrades) {
         HeroStats.statUpgrades = statUpgrades;
     }
-    
+
     public static int getExperiance() {
         return experiance;
     }
-    
+
     public static void setExperiance(int experiance) {
         HeroStats.experiance = experiance;
     }
-    
+
     public static int getMoney() {
         return money;
     }
-    
+
     public static void setMoney(int money) {
         HeroStats.money = money;
     }
-    
+
     public static int getInventoryItems() {
         return inventoryItems;
     }
-    
+
     public static void setInventoryItems(int inventoryItems) {
         HeroStats.inventoryItems = inventoryItems;
     }
-    
+
     public static String[][] getCharacterInventory() {
         return characterInventory;
     }
-    
+
     public static void setCharacterInventory(int type, int stat, String content) {
         HeroStats.characterInventory[type][stat] = content;
     }
-    
+
     public static int getItemStrenght() {
         return itemStrenght;
     }
-    
+
     public static void setItemStrenght(int itemStrenght) {
         HeroStats.itemStrenght = itemStrenght;
     }
-    
+
     public static int getItemDexterity() {
         return itemDexterity;
     }
-    
+
     public static void setItemDexterity(int itemDexterity) {
         HeroStats.itemDexterity = itemDexterity;
     }
-    
+
     public static int getItemVitality() {
         return itemVitality;
     }
-    
+
     public static void setItemVitality(int itemVitality) {
         HeroStats.itemVitality = itemVitality;
     }
-    
+
     public static int getItemInteligence() {
         return itemInteligence;
     }
-    
+
     public static void setItemInteligence(int itemInteligence) {
         HeroStats.itemInteligence = itemInteligence;
     }
-    
+
     public static int getItemDamage() {
         return itemDamage;
     }
-    
+
     public static void setItemDamage(int itemDamage) {
         HeroStats.itemDamage = itemDamage;
     }
-    
+
     public static int getItemDefense() {
         return itemDefense;
     }
-    
+
     public static void setItemDefense(int itemDefense) {
         HeroStats.itemDefense = itemDefense;
     }
-    
+
     public static int getHp() {
         return hp;
     }
-    
+
     public static void setHp(int hp) {
         HeroStats.hp = hp;
     }
-    
+
     public static int getMp() {
         return mp;
     }
-    
+
     public static void setMp(int mp) {
         HeroStats.mp = mp;
     }
-    
+
 }
