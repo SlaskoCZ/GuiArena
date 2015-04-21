@@ -48,6 +48,8 @@ public class CustomMessage extends javax.swing.JDialog {
             }
         });
 
+        customMessageTextField.setBorder(null);
+
         customMessageTextFieldArea.setEditable(false);
         customMessageTextFieldArea.setBackground(new java.awt.Color(240, 240, 240));
         customMessageTextFieldArea.setColumns(3);
