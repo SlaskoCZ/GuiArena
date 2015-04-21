@@ -14,12 +14,13 @@ public class CustomMessage extends javax.swing.JDialog {
     /**
      * Creates new form CustomMessage
      * @param title title of window
-     * @param message message displayed to user
+     * @param message message displayed to user in customMessageTextFieldArea
      */
     public CustomMessage(java.awt.Frame parent, boolean modal, String title, String message) {
         super(parent, modal);
         initComponents();
         this.setTitle(title);
+        this.setLocationRelativeTo(parent);
         customMessageTextFieldArea.setText(message);
     }
 

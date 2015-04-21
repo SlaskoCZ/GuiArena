@@ -198,7 +198,11 @@ public class Shop {
                 }
                 j++;
             }
+            HeroStats.setMoney(-Integer.valueOf(inventory[itemIndex][9]));
             HeroStats.setInventoryItems(1);
+        } else {
+            Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(null , true, "Not enough money !", ("You dont have enough money to buy "+inventory[itemIndex][1].trim()+" for "+inventory[itemIndex][9]));
+            cm.setVisible(true);
         }
     }
 

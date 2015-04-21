@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/LoadForm.java</file>
             <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/MainClass.java</file>
             <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/HeroStats.java</file>
             <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/Messages/BagDialog.java</file>
             <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Shop.java</file>
+            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/Messages/StatDialog.java</file>
+            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/SaveForm.java</file>
         </group>
     </open-files>
 </project-private>

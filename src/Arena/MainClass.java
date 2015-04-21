@@ -1152,8 +1152,13 @@ public class MainClass extends javax.swing.JFrame {
     private void shopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBuyActionPerformed
         int selected = shopMenuListField.getSelectedIndex();
         System.out.println(selected);
-        
-        
+        System.out.println(Metods.HeroStats.getInventoryItems());
+        if (Metods.HeroStats.getInventoryItems() >=16){
+            Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
+            cm.setVisible(true);
+        } else {
+            Metods.Shop.buy(selected+1);
+        }  
     }//GEN-LAST:event_shopMenuButtonBuyActionPerformed
 
     private void shopMenuListFieldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseReleased

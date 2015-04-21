@@ -435,7 +435,7 @@ public class HeroStats {
     }
 
     public static void setMoney(int money) {
-        HeroStats.money = money;
+        HeroStats.money += money;
     }
 
     public static int getInventoryItems() {
