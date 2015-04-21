@@ -165,7 +165,7 @@ public class HeroStats {
         DefaultListModel items = new DefaultListModel();
         try{
         for (int i = 0; i < heroInventory.length ; i++) {
-            if (!heroInventory[i][0].contains(null)) {
+            if (heroInventory[i][0] != null) {
                items.addElement(heroInventory[i][0]); 
             } 
         }
@@ -370,8 +370,8 @@ public class HeroStats {
         return heroInventory;
     }
 
-    public static void setHeroInventory(String[][] heroInventory) {
-        HeroStats.heroInventory = heroInventory;
+    public static void setHeroInventory(int indexX, int indexY, String value) {
+        HeroStats.heroInventory[indexX][indexY] = value;
     }
 
     public static int getStrenght() {
@@ -443,7 +443,7 @@ public class HeroStats {
     }
 
     public static void setInventoryItems(int inventoryItems) {
-        HeroStats.inventoryItems = inventoryItems;
+        HeroStats.inventoryItems += inventoryItems;
     }
 
     public static String[][] getCharacterInventory() {
