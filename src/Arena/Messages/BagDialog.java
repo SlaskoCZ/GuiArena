@@ -33,14 +33,25 @@ public class BagDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bagDialogPopupMenu = new javax.swing.JPopupMenu();
+        bagDialogPopipMenuInfo = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         bagDialogList = new javax.swing.JList();
         bagDialogButtonBack = new javax.swing.JButton();
+
+        bagDialogPopipMenuInfo.setText("Info about Item");
+        bagDialogPopipMenuInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bagDialogPopipMenuInfoActionPerformed(evt);
+            }
+        });
+        bagDialogPopupMenu.add(bagDialogPopipMenuInfo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         bagDialogList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        bagDialogList.setComponentPopupMenu(bagDialogPopupMenu);
         bagDialogList.setName(""); // NOI18N
         jScrollPane1.setViewportView(bagDialogList);
 
@@ -81,6 +92,10 @@ public class BagDialog extends javax.swing.JDialog {
     private void bagDialogButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogButtonBackActionPerformed
         this.dispose();
     }//GEN-LAST:event_bagDialogButtonBackActionPerformed
+
+    private void bagDialogPopipMenuInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopipMenuInfoActionPerformed
+       
+    }//GEN-LAST:event_bagDialogPopipMenuInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +142,8 @@ public class BagDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bagDialogButtonBack;
     private javax.swing.JList bagDialogList;
+    private javax.swing.JMenuItem bagDialogPopipMenuInfo;
+    private javax.swing.JPopupMenu bagDialogPopupMenu;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
