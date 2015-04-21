@@ -1167,7 +1167,7 @@ public class MainClass extends javax.swing.JFrame {
 
         } else {
             shopMenuButtonBuy.setEnabled(true);
-            if (getShopUserChoice() == "Buy") {
+            if (getShopUserChoice().equals("Buy")) {
                 String[] item = Metods.Shop.getItemStats(shopMenuListField.getSelectedIndex() + 1);
                 shopMenuLabelItemNameStats.setText(item[1]);
                 shopMenuLabelItemSTRStats.setText(item[2]);
