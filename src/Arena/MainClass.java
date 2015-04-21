@@ -964,11 +964,11 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_menuFileSaveActionPerformed
 
     private void menuFileNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileNewGameActionPerformed
-       NewGameDialog newGameDialog = new NewGameDialog(this, true);
+        NewGameDialog newGameDialog = new NewGameDialog(this, true);
         newGameDialog.setVisible(true);
         if (newGameDialog.getEndStatus().equals("Yes")) {
-            this.dispose();          
-        }     
+            this.dispose();
+        }
     }//GEN-LAST:event_menuFileNewGameActionPerformed
 
     private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
@@ -1124,6 +1124,7 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuShopMenuButtonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSellActionPerformed
         setShopUserChoice("Sell");
         shopMenuButtonBuy.setText(getShopUserChoice());
+        shopMenuListField.setModel(Metods.HeroStats.inventory());
         panelMainMenu.setVisible(false);
         panelShopMenu.setVisible(true);
     }//GEN-LAST:event_mainMenuShopMenuButtonSellActionPerformed
@@ -1153,25 +1154,41 @@ public class MainClass extends javax.swing.JFrame {
         int selected = shopMenuListField.getSelectedIndex();
         System.out.println(selected);
         System.out.println(Metods.HeroStats.getInventoryItems());
-        if (Metods.HeroStats.getInventoryItems() >=16){
+        if (Metods.HeroStats.getInventoryItems() >= 16) {
             Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
             cm.setVisible(true);
         } else {
-            Metods.Shop.buy(selected+1);
-        }  
+            Metods.Shop.buy(selected + 1);
+        }
     }//GEN-LAST:event_shopMenuButtonBuyActionPerformed
 
     private void shopMenuListFieldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseReleased
-        shopMenuButtonBuy.setEnabled(true);
-        String[] item = Metods.Shop.getItemStats(shopMenuListField.getSelectedIndex() + 1);
-        shopMenuLabelItemNameStats.setText(item[1]);
-        shopMenuLabelItemSTRStats.setText(item[2]);
-        shopMenuLabelItemDEXStats.setText(item[3]);
-        shopMenuLabelItemINTStats.setText(item[4]);
-        shopMenuLabelItemVITStats.setText(item[5]);
-        shopMenuLabelItemDMGStats.setText(item[6]);
-        shopMenuLabelItemDEFStats.setText(item[7]);
-        shopMenuLabelItemPriceStats.setText(item[9]);
+        if (shopMenuListField.getSelectedIndex() == -1) {
+
+        } else {
+            shopMenuButtonBuy.setEnabled(true);
+            if (getShopUserChoice() == "Buy") {
+                String[] item = Metods.Shop.getItemStats(shopMenuListField.getSelectedIndex() + 1);
+                shopMenuLabelItemNameStats.setText(item[1]);
+                shopMenuLabelItemSTRStats.setText(item[2]);
+                shopMenuLabelItemDEXStats.setText(item[3]);
+                shopMenuLabelItemINTStats.setText(item[4]);
+                shopMenuLabelItemVITStats.setText(item[5]);
+                shopMenuLabelItemDMGStats.setText(item[6]);
+                shopMenuLabelItemDEFStats.setText(item[7]);
+                shopMenuLabelItemPriceStats.setText(item[9]);
+            } else {
+                String[] item = Metods.HeroStats.getInventoryStats(shopMenuListField.getSelectedIndex());
+                shopMenuLabelItemNameStats.setText(item[0]);
+                shopMenuLabelItemSTRStats.setText(item[1]);
+                shopMenuLabelItemDEXStats.setText(item[2]);
+                shopMenuLabelItemINTStats.setText(item[3]);
+                shopMenuLabelItemVITStats.setText(item[4]);
+                shopMenuLabelItemDMGStats.setText(item[5]);
+                shopMenuLabelItemDEFStats.setText(item[6]);
+                shopMenuLabelItemPriceStats.setText(item[7]);
+            }
+        }
     }//GEN-LAST:event_shopMenuListFieldMouseReleased
     public final void reloadHeroStats() {
         Stats stats = new Stats();

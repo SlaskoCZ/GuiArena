@@ -178,7 +178,7 @@ public class HeroStats {
     }
     public static String[] getInventoryStats(int index){
         String[] item = new String[9];
-        System.arraycopy(heroInventory[index], 0, item, 0, 0);
+        System.arraycopy(heroInventory[index], 0, item, 0, heroInventory[index].length);
         return item;
     }
     void characterInventory() throws IOException {
