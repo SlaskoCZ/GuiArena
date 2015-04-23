@@ -188,8 +188,11 @@ public class Shop {
             int j = 0;
             for (int i = 0; i < inventory[itemIndex].length; i++) {
 
-                if (i != 8 && i != 0) {
+                if (i != 8 && i != 0 && i!=9) {
                     HeroStats.setHeroInventory(HeroStats.getInventoryItems(), j, inventory[itemIndex][i]);
+
+                } else if (i == 9) {
+                    HeroStats.setHeroInventory(HeroStats.getInventoryItems(), j, Integer.toString(Integer.valueOf(inventory[itemIndex][i].trim())/2));
 
                 } else {
                     j--;
@@ -293,12 +296,12 @@ public class Shop {
 // </editor-fold>
     public static void sell(int itemIndex) {
         HeroStats.setMoney(Integer.valueOf(HeroStats.getHeroInventory()[itemIndex][7]));
-        System.out.println("itemIndex: "+itemIndex);
-        for (int i = itemIndex; i < HeroStats.getInventoryItems()-1; i++) {
-           System.arraycopy(HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex].length); 
+        System.out.println("itemIndex: " + itemIndex);
+        for (int i = itemIndex; i < HeroStats.getInventoryItems() - 1; i++) {
+            System.arraycopy(HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex].length);
         }
-        for (int i = 0; i < HeroStats.getHeroInventory()[HeroStats.getInventoryItems()-1].length; i++) {
-            HeroStats.setHeroInventory(HeroStats.getInventoryItems()-1, i, null);
+        for (int i = 0; i < HeroStats.getHeroInventory()[HeroStats.getInventoryItems() - 1].length; i++) {
+            HeroStats.setHeroInventory(HeroStats.getInventoryItems() - 1, i, null);
         }
         HeroStats.setInventoryItems(-1);
     }

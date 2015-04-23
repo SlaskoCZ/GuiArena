@@ -1131,7 +1131,14 @@ public class MainClass extends javax.swing.JFrame {
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
         Metods.Shop.removeInventory();
-
+        shopMenuLabelItemNameStats.setText("");
+        shopMenuLabelItemSTRStats.setText("");
+        shopMenuLabelItemDEXStats.setText("");
+        shopMenuLabelItemINTStats.setText("");
+        shopMenuLabelItemVITStats.setText("");
+        shopMenuLabelItemDMGStats.setText("");
+        shopMenuLabelItemDEFStats.setText("");
+        shopMenuLabelItemPriceStats.setText("");
         panelShopMenu.setVisible(false);
         panelMainMenu.setVisible(true);
 
@@ -1164,7 +1171,7 @@ public class MainClass extends javax.swing.JFrame {
             } else {
                 Metods.Shop.sell(selected);
                 shopMenuListField.setModel(Metods.HeroStats.inventory());
-                if (Metods.HeroStats.getInventoryItems() == 0){
+                if (Metods.HeroStats.getInventoryItems() == 0) {
                     shopMenuButtonBuy.setEnabled(false);
                 }
             }
@@ -1172,6 +1179,14 @@ public class MainClass extends javax.swing.JFrame {
             CustomMessage cm = new CustomMessage(this, true, "Bad Item selected !", " You need to select an Item !");
             cm.setVisible(true);
         }
+        shopMenuLabelItemNameStats.setText("");
+        shopMenuLabelItemSTRStats.setText("");
+        shopMenuLabelItemDEXStats.setText("");
+        shopMenuLabelItemINTStats.setText("");
+        shopMenuLabelItemVITStats.setText("");
+        shopMenuLabelItemDMGStats.setText("");
+        shopMenuLabelItemDEFStats.setText("");
+        shopMenuLabelItemPriceStats.setText("");
     }//GEN-LAST:event_shopMenuButtonBuyActionPerformed
 
     private void shopMenuListFieldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopMenuListFieldMouseReleased
