@@ -57,7 +57,7 @@ public class Utilities {
 //                }
 //                
 //            }
-//            timer(100, "1 sec background timer");
+            timer(100, "1 sec background timer");
 //            theDir.deleteOnExit();
 //            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
 //            temp.delete();
