@@ -16,12 +16,8 @@ package Metods;
  * @author Petr Linhart
  */
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -208,7 +204,7 @@ public class Shop {
     }
 
     public static void loadShop() {
-        String path = "./Resources/Shop/" + getItemType() + ".txt";
+        String path =  Utilities.getShopItemsDir() + getItemType() + ".txt";
         int numberOfLines = 0;
         try {
             numberOfLines = getLines(path);
