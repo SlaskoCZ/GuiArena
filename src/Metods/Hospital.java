@@ -23,7 +23,7 @@ public class Hospital {
     void regenHealth() {
         Inputs input = new Inputs();
         int maxHp = (HeroStats.getVitality() + HeroStats.getItemVitality()) * 10;
-        int healingPrice = (int) (10 * Utilities.difficulty);
+        int healingPrice = (int) (10 * Utilities.getDifficulty());
         if (HeroStats.getHp() < maxHp) {
             System.out.println("Heal: " + (maxHp - HeroStats.getHp()) + " for " + ((maxHp - HeroStats.getHp()) * healingPrice) + " money ? [Yes/No]");
             String userInput = input.input();
@@ -41,7 +41,7 @@ public class Hospital {
     void regenMana() {
         Inputs input = new Inputs();
         int maxMp = (HeroStats.getInteligence() + HeroStats.getItemInteligence()) * 10;
-        int regenPrice = (int) (10 * Utilities.difficulty);
+        int regenPrice = (int) (10 * Utilities.getDifficulty());
         if (HeroStats.getMp() < maxMp) {
             System.out.println("Heal: " + (maxMp - HeroStats.getMp()) + " for " + ((maxMp - HeroStats.getMp()) * regenPrice) + " ? [Yes/No]");
             String userInput = input.input();
