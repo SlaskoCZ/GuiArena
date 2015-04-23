@@ -35,6 +35,7 @@ public class Utilities {
     private static File temp;
     private static double difficulty;
     private static int delay;
+    private static String shopItemsDir;
 
     void version() {
         String date = "30.3.2015";
@@ -50,6 +51,7 @@ public class Utilities {
                     HeroStats.setCharacterInventory(i, j, "0");
                 }
             }
+            shopItemsDir = ShopItems.ItemLoadClass.class.getResource("").getPath();
 //       Create Temp dir with temp file Inventory.txt
             File theDir = new File("temp");
             if (!theDir.exists()) {
@@ -346,6 +348,10 @@ public class Utilities {
 
     }
     // <editor-fold defaultstate="collapsed" desc="Gettings and Settings">
+
+    public static String getShopItemsDir() {
+        return shopItemsDir;
+    }
 
     public static File getTemp() {
         return temp;
