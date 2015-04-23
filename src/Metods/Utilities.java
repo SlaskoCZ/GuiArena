@@ -37,11 +37,6 @@ public class Utilities {
     private static int delay;
     private static String shopItemsDir;
 
-    void version() {
-        String date = "30.3.2015";
-        String version = "Public Alpha 1";
-        System.out.println("Version: " + version + " made: " + date);
-    }
 
     public static void systemInit() {
         try {
