@@ -39,7 +39,7 @@ public class Utilities {
 
 
     public static void systemInit() {
-        try {
+//        try {
             // fill characterInventory array with 0
             for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
                 for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
@@ -48,26 +48,27 @@ public class Utilities {
             }
             shopItemsDir = ShopItems.ItemLoadClass.class.getResource("").getPath();
 //       Create Temp dir with temp file Inventory.txt
-            File theDir = new File("temp");
-            if (!theDir.exists()) {
-                try {
-                    theDir.mkdir();
-                } catch (SecurityException error) {
-                    System.out.println(error);
-                }
-                
-            }
-            timer(100, "1 sec background timer");
-            theDir.deleteOnExit();
-            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
-            temp.delete();
-            temp.createNewFile();
-            temp.deleteOnExit();
+//            File theDir = new File("temp");
+//            if (!theDir.exists()) {
+//                try {
+//                    theDir.mkdir();
+//                } catch (SecurityException error) {
+//                    System.out.println(error);
+//                }
+//                
+//            }
+//            timer(100, "1 sec background timer");
+//            theDir.deleteOnExit();
+//            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
+//            temp.delete();
+//            temp.createNewFile();
+//            temp.deleteOnExit();
 //        Dificulty
-            setDificulty("Normal");
-        } catch (IOException ex) {
-            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+//        } catch (IOException ex) {
+//            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+                    setDificulty("Normal");
     }
 
     void clearScreen() throws IOException {
