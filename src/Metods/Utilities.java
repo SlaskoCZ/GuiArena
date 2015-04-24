@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Timer;
 
 /*
@@ -37,16 +35,17 @@ public class Utilities {
     private static int delay;
     private static String shopItemsDir;
 
-
     public static void systemInit() {
 //        try {
-            // fill characterInventory array with 0
-            for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
-                for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
-                    HeroStats.setCharacterInventory(i, j, "0");
-                }
+        // fill characterInventory array with 0
+        for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
+            for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
+                HeroStats.setCharacterInventory(i, j, "0");
             }
-            shopItemsDir = ShopItems.ItemLoadClass.class.getResource("").getPath();
+        }
+        Object object = new Object();
+        shopItemsDir = object.getClass().getResource("/Resources/").getPath();
+        System.out.println(shopItemsDir);
 //       Create Temp dir with temp file Inventory.txt
 //            File theDir = new File("temp");
 //            if (!theDir.exists()) {
@@ -57,7 +56,7 @@ public class Utilities {
 //                }
 //                
 //            }
-            timer(100, "1 sec background timer");
+        timer(100, "1 sec background timer");
 //            theDir.deleteOnExit();
 //            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
 //            temp.delete();
@@ -68,7 +67,7 @@ public class Utilities {
 //        } catch (IOException ex) {
 //            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-                    setDificulty("Normal");
+        setDificulty("Normal");
     }
 
     void clearScreen() throws IOException {
@@ -79,7 +78,7 @@ public class Utilities {
 
     }
 
-   public static void waitForEnter() throws IOException {
+    public static void waitForEnter() throws IOException {
         System.out.print("Press Enter to continue ...");
         System.in.read();
     }
