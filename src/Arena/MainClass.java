@@ -1165,9 +1165,15 @@ public class MainClass extends javax.swing.JFrame {
 
     private void mainMenuShopMenuButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyActionPerformed
         setShopUserChoice("Buy");
-        mainMenuShopMenuButtonBuyWeapon.setVisible(true);
-        mainMenuShopMenuButtonBuyArmor.setVisible(true);
-        mainMenuShopMenuButtonBuyShield.setVisible(true);
+        if (mainMenuShopMenuButtonBuyWeapon.isVisible()) {
+            mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+            mainMenuShopMenuButtonBuyArmor.setVisible(false);
+            mainMenuShopMenuButtonBuyShield.setVisible(false);
+        } else {
+            mainMenuShopMenuButtonBuyWeapon.setVisible(true);
+            mainMenuShopMenuButtonBuyArmor.setVisible(true);
+            mainMenuShopMenuButtonBuyShield.setVisible(true);
+        }
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyActionPerformed
 
     private void mainMenuShopMenuButtonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSellActionPerformed
@@ -1176,6 +1182,9 @@ public class MainClass extends javax.swing.JFrame {
         shopMenuListField.setModel(Metods.HeroStats.inventory());
         panelMainMenu.setVisible(false);
         panelShopMenu.setVisible(true);
+        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuShopMenuButtonBuyShield.setVisible(false);
     }//GEN-LAST:event_mainMenuShopMenuButtonSellActionPerformed
 
     private void shopMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopMenuButtonBackActionPerformed
@@ -1271,16 +1280,25 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuShopMenuButtonBuyArmorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyArmorActionPerformed
         Metods.Shop.setItemType("Armor");
         openShopForm();
+        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuShopMenuButtonBuyShield.setVisible(false);
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyArmorActionPerformed
 
     private void mainMenuShopMenuButtonBuyWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyWeaponActionPerformed
         Metods.Shop.setItemType("Weapons");
         openShopForm();
+        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuShopMenuButtonBuyShield.setVisible(false);
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyWeaponActionPerformed
 
     private void mainMenuShopMenuButtonBuyShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyShieldActionPerformed
         Metods.Shop.setItemType("Shield");
         openShopForm();
+        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuShopMenuButtonBuyShield.setVisible(false);
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyShieldActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
