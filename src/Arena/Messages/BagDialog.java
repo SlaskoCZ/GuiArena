@@ -6,6 +6,7 @@
 package Arena.Messages;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -34,25 +35,55 @@ public class BagDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         bagDialogPopupMenu = new javax.swing.JPopupMenu();
-        bagDialogPopipMenuInfo = new javax.swing.JMenuItem();
+        bagDialogPopupMenuWear = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        bagDialogPopupMenuDestroy = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        bagDialogPopupMenuInfo = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         bagDialogList = new javax.swing.JList();
         bagDialogButtonBack = new javax.swing.JButton();
 
-        bagDialogPopipMenuInfo.setText("Info about Item");
-        bagDialogPopipMenuInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bagDialogPopipMenuInfoActionPerformed(evt);
+        bagDialogPopupMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bagDialogPopupMenuMouseExited(evt);
             }
         });
-        bagDialogPopupMenu.add(bagDialogPopipMenuInfo);
+
+        bagDialogPopupMenuWear.setText("Wear Item");
+        bagDialogPopupMenu.add(bagDialogPopupMenuWear);
+        bagDialogPopupMenu.add(jSeparator1);
+
+        bagDialogPopupMenuDestroy.setText("Destroy Item");
+        bagDialogPopupMenu.add(bagDialogPopupMenuDestroy);
+        bagDialogPopupMenu.add(jSeparator2);
+
+        bagDialogPopupMenuInfo.setText("Info about Item");
+        bagDialogPopupMenuInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bagDialogPopupMenuInfoActionPerformed(evt);
+            }
+        });
+        bagDialogPopupMenu.add(bagDialogPopupMenuInfo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(524, 300));
+        setMinimumSize(new java.awt.Dimension(524, 300));
         setResizable(false);
+
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(258, 278));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(258, 25));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(258, 25));
 
         bagDialogList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         bagDialogList.setComponentPopupMenu(bagDialogPopupMenu);
         bagDialogList.setName(""); // NOI18N
+        bagDialogList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bagDialogListMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(bagDialogList);
 
         bagDialogButtonBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -68,7 +99,7 @@ public class BagDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bagDialogButtonBack, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -77,13 +108,14 @@ public class BagDialog extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(210, Short.MAX_VALUE)
                 .addComponent(bagDialogButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -93,9 +125,34 @@ public class BagDialog extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_bagDialogButtonBackActionPerformed
 
-    private void bagDialogPopipMenuInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopipMenuInfoActionPerformed
-       
-    }//GEN-LAST:event_bagDialogPopipMenuInfoActionPerformed
+    private void bagDialogPopupMenuInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuInfoActionPerformed
+
+    }//GEN-LAST:event_bagDialogPopupMenuInfoActionPerformed
+
+    private void bagDialogListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogListMousePressed
+        System.out.println(evt);
+        JList list = (JList) evt.getSource();
+        int row = list.locationToIndex(evt.getPoint());
+        list.setSelectedIndex(row);
+        System.out.println(bagDialogList.getSelectedIndex());
+        if (list.getSelectedIndex() == -1){
+            bagDialogPopupMenuDestroy.setEnabled(false);
+            bagDialogPopupMenuInfo.setEnabled(false);
+            bagDialogPopupMenuWear.setEnabled(false);
+        } else {
+            bagDialogPopupMenuDestroy.setEnabled(true);
+            bagDialogPopupMenuInfo.setEnabled(true);
+            bagDialogPopupMenuWear.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_bagDialogListMousePressed
+
+    private void bagDialogPopupMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuMouseExited
+        if (!bagDialogPopupMenu.contains(evt.getPoint())) {
+            bagDialogPopupMenu.setVisible(false);
+        }
+    }//GEN-LAST:event_bagDialogPopupMenuMouseExited
+
 
     /**
      * @param args the command line arguments
@@ -142,8 +199,12 @@ public class BagDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bagDialogButtonBack;
     private javax.swing.JList bagDialogList;
-    private javax.swing.JMenuItem bagDialogPopipMenuInfo;
     private javax.swing.JPopupMenu bagDialogPopupMenu;
+    private javax.swing.JMenuItem bagDialogPopupMenuDestroy;
+    private javax.swing.JMenuItem bagDialogPopupMenuInfo;
+    private javax.swing.JMenuItem bagDialogPopupMenuWear;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,7 +52,7 @@ public class CustomMessage extends javax.swing.JDialog {
         customMessageTextField.setBorder(null);
 
         customMessageTextFieldArea.setEditable(false);
-        customMessageTextFieldArea.setBackground(new java.awt.Color(240, 240, 240));
+        customMessageTextFieldArea.setBackground(java.awt.SystemColor.control);
         customMessageTextFieldArea.setColumns(3);
         customMessageTextFieldArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         customMessageTextFieldArea.setLineWrap(true);
