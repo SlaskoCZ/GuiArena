@@ -13,10 +13,7 @@ public class ItemLoadClass {
     public static String[][] jarLoadItems(String fileName) {
         String[][] items = new String[255][10];
         Object object = new Object();
-        System.out.println("Jar File !");
-        System.out.println(object.getClass().getResource("/Resources/" + fileName + ".txt"));
         BufferedReader txtReader = new BufferedReader(new InputStreamReader(object.getClass().getResourceAsStream("/Resources/" + fileName + ".txt")));
-
         try {
             for (int i = 0; txtReader.ready(); i++) {
                 String[] part = txtReader.readLine().split(";");

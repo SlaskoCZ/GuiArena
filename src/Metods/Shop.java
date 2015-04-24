@@ -336,8 +336,6 @@ public class Shop {
     public static void getItemNames() {
         listModel = new DefaultListModel();
         for (int i = 1;inventory[i][1] != null; i++) {
-            
-            System.out.println(i+". "+getInventory()[i][1].trim());
             listModel.addElement(getInventory()[i][1].trim());
 
         }
