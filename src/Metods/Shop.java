@@ -206,7 +206,7 @@ public class Shop {
     public static void loadShop() {
         String path = Utilities.getShopItemsDir() + getItemType() + ".txt";
         if (Utilities.getShopItemsDir().contains(".jar!")) {
-            inventory = Resources.ItemLoadClass.jarLoadItems("Weapons");
+            inventory = Resources.ItemLoadClass.jarLoadItems(getItemType());
         } else {
 
             int numberOfLines = 0;
@@ -225,26 +225,19 @@ public class Shop {
                     if (readed.contains("##")) {
                     } else {
                         String[] part = readed.split(";");
-                        //Item ID
-                        inventory[i][0] = part[0];
+                        for (int j = 0; j < 10; j++) {
+                             inventory[i][j] = part[j];
+                        }
+                        //Item ID                      
                         //Item name
-                        inventory[i][1] = part[1];
                         //Item Strenght
-                        inventory[i][2] = part[2];
                         //Item Dexterity
-                        inventory[i][3] = part[3];
                         //Item Vitality
-                        inventory[i][4] = part[4];
                         //Item Inteligence
-                        inventory[i][5] = part[5];
                         //Item damage
-                        inventory[i][6] = part[6];
                         //Item defense
-                        inventory[i][7] = part[7];
                         //Item Type
-                        inventory[i][8] = part[8];
                         //Item price
-                        inventory[i][9] = part[9];
 
                         i++;
                     }

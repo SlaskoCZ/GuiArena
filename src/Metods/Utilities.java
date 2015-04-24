@@ -45,7 +45,6 @@ public class Utilities {
         }
         Object object = new Object();
         shopItemsDir = object.getClass().getResource("/Resources/").getPath();
-        System.out.println(shopItemsDir);
 //       Create Temp dir with temp file Inventory.txt
 //            File theDir = new File("temp");
 //            if (!theDir.exists()) {
