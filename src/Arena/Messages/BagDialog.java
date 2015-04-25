@@ -130,11 +130,9 @@ public class BagDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_bagDialogPopupMenuInfoActionPerformed
 
     private void bagDialogListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogListMousePressed
-        System.out.println(evt);
-        JList list = (JList) evt.getSource();
+       JList list = (JList) evt.getSource();
         int row = list.locationToIndex(evt.getPoint());
         list.setSelectedIndex(row);
-        System.out.println(bagDialogList.getSelectedIndex());
         if (list.getSelectedIndex() == -1){
             bagDialogPopupMenuDestroy.setEnabled(false);
             bagDialogPopupMenuInfo.setEnabled(false);

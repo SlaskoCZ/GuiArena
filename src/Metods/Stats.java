@@ -20,12 +20,12 @@ public class Stats {
 
     public String[] hero() {
         String[] heroStats = new String[12];
-        heroStats[0] = Integer.toString(HeroStats.getStrenght() + HeroStats.getItemStrenght());
-        heroStats[1] = Integer.toString(HeroStats.getInteligence() + HeroStats.getItemInteligence());
-        heroStats[2] = Integer.toString(HeroStats.getVitality() + HeroStats.getItemVitality());
-        heroStats[3] = Integer.toString(HeroStats.getDexterity() + HeroStats.getItemDexterity());
-        heroStats[4] = Integer.toString(HeroStats.getHp());
-        heroStats[5] = Integer.toString(HeroStats.getMp());
+        heroStats[0] = Integer.toString(HeroStats.getStrenght() + HeroStats.getItemStrenght())+" ("+HeroStats.getItemStrenght()+")";
+        heroStats[1] = Integer.toString(HeroStats.getInteligence() + HeroStats.getItemInteligence())+" ("+HeroStats.getItemInteligence()+")";
+        heroStats[2] = Integer.toString(HeroStats.getVitality() + HeroStats.getItemVitality())+" ("+HeroStats.getItemVitality()+")";
+        heroStats[3] = Integer.toString(HeroStats.getDexterity() + HeroStats.getItemDexterity())+" ("+HeroStats.getItemDexterity()+")";
+        heroStats[4] = Integer.toString(HeroStats.getHp()) + " / " + Integer.toString(HeroStats.getItemVitality() + HeroStats.getVitality() * 10);
+        heroStats[5] = Integer.toString(HeroStats.getMp()) + " / " + Integer.toString(HeroStats.getItemInteligence()+ HeroStats.getInteligence()* 10);
         heroStats[6] = Integer.toString(HeroStats.getMoney());
         heroStats[7] = Integer.toString(HeroStats.getLevel());
         heroStats[8] = Integer.toString(HeroStats.getExperiance());
