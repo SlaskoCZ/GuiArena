@@ -61,6 +61,11 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogPopupMenu.add(jSeparator1);
 
         bagDialogPopupMenuDestroy.setText("Destroy Item");
+        bagDialogPopupMenuDestroy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bagDialogPopupMenuDestroyActionPerformed(evt);
+            }
+        });
         bagDialogPopupMenu.add(bagDialogPopupMenuDestroy);
         bagDialogPopupMenu.add(jSeparator2);
 
@@ -161,6 +166,11 @@ public class BagDialog extends javax.swing.JDialog {
         Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
         bagDialogList.setModel(Metods.HeroStats.inventory());
     }//GEN-LAST:event_bagDialogPopupMenuWearActionPerformed
+
+    private void bagDialogPopupMenuDestroyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuDestroyActionPerformed
+        Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
+        bagDialogList.setModel(Metods.HeroStats.inventory());
+    }//GEN-LAST:event_bagDialogPopupMenuDestroyActionPerformed
 
 
     /**
