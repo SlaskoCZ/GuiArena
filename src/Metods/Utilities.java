@@ -39,7 +39,7 @@ public class Utilities {
 //        try {
         // fill characterInventory array with 0
         for (int i = 0; i < HeroStats.getCharacterInventory().length; i++) {
-            for (int j = 0; j < HeroStats.getCharacterInventory().length; j++) {
+            for (int j = 0; j < HeroStats.getCharacterInventory()[i].length; j++) {
                 HeroStats.setCharacterInventory(i, j, "0");
             }
         }

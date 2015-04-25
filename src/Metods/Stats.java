@@ -19,6 +19,7 @@ import Arena.MainClass;
 public class Stats {
 
     public String[] hero() {
+        HeroStats.reloadItemStats();
         String[] heroStats = new String[12];
         heroStats[0] = Integer.toString(HeroStats.getStrenght() + HeroStats.getItemStrenght())+" ("+HeroStats.getItemStrenght()+")";
         heroStats[1] = Integer.toString(HeroStats.getInteligence() + HeroStats.getItemInteligence())+" ("+HeroStats.getItemInteligence()+")";
@@ -29,17 +30,17 @@ public class Stats {
         heroStats[6] = Integer.toString(HeroStats.getMoney());
         heroStats[7] = Integer.toString(HeroStats.getLevel());
         heroStats[8] = Integer.toString(HeroStats.getExperiance());
-        if (HeroStats.getCharacterInventory()[1][0] == "0") {
+        if (HeroStats.getCharacterInventory()[1][1] == "0") {
             heroStats[9] = "Right Hand";
         } else {
             heroStats[9] = HeroStats.getCharacterInventory()[1][0];
         }
-        if (HeroStats.getCharacterInventory()[2][0] == "0") {
+        if (HeroStats.getCharacterInventory()[2][1] == "0") {
             heroStats[10] = "Left Hand";
         } else {
             heroStats[10] = HeroStats.getCharacterInventory()[2][0];
         }
-        if (HeroStats.getCharacterInventory()[3][0] == "0") {
+        if (HeroStats.getCharacterInventory()[3][1] == "0") {
             heroStats[11] = "Hairy chest";
         } else {
             heroStats[11] = HeroStats.getCharacterInventory()[3][0];

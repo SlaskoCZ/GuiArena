@@ -5,6 +5,8 @@
  */
 package Arena.Messages;
 
+import Metods.HeroStats;
+import Metods.Shop;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
@@ -19,10 +21,9 @@ public class BagDialog extends javax.swing.JDialog {
      */
     public BagDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        DefaultListModel list = Metods.HeroStats.inventory();
         initComponents();
         this.setLocationRelativeTo(null);
-        bagDialogList.setModel(list);
+        bagDialogList.setModel(Metods.HeroStats.inventory());
     }
 
     /**
@@ -51,6 +52,11 @@ public class BagDialog extends javax.swing.JDialog {
         });
 
         bagDialogPopupMenuWear.setText("Wear Item");
+        bagDialogPopupMenuWear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bagDialogPopupMenuWearActionPerformed(evt);
+            }
+        });
         bagDialogPopupMenu.add(bagDialogPopupMenuWear);
         bagDialogPopupMenu.add(jSeparator1);
 
@@ -67,7 +73,6 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogPopupMenu.add(bagDialogPopupMenuInfo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(524, 300));
         setMinimumSize(new java.awt.Dimension(524, 300));
         setResizable(false);
 
@@ -151,6 +156,12 @@ public class BagDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_bagDialogPopupMenuMouseExited
 
+    private void bagDialogPopupMenuWearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuWearActionPerformed
+        HeroStats.addCharacterItems(bagDialogList.getSelectedIndex());
+        Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
+        bagDialogList.setModel(Metods.HeroStats.inventory());
+    }//GEN-LAST:event_bagDialogPopupMenuWearActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -202,7 +213,7 @@ public class BagDialog extends javax.swing.JDialog {
     private javax.swing.JMenuItem bagDialogPopupMenuInfo;
     private javax.swing.JMenuItem bagDialogPopupMenuWear;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

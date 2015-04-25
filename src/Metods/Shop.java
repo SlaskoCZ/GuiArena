@@ -184,7 +184,7 @@ public class Shop {
             int j = 0;
             for (int i = 0; i < inventory[itemIndex].length; i++) {
 
-                if (i != 8 && i != 0 && i != 9) {
+                if (i != 0 && i != 9) {
                     HeroStats.setHeroInventory(HeroStats.getInventoryItems(), j, inventory[itemIndex][i]);
 
                 } else if (i == 9) {
@@ -226,7 +226,7 @@ public class Shop {
                     } else {
                         String[] part = readed.split(";");
                         for (int j = 0; j < 10; j++) {
-                             inventory[i][j] = part[j];
+                            inventory[i][j] = part[j];
                         }
                         //Item ID                      
                         //Item name
@@ -289,10 +289,17 @@ public class Shop {
 //    }
 // </editor-fold>
     public static void sell(int itemIndex) {
-        HeroStats.setMoney(Integer.valueOf(HeroStats.getHeroInventory()[itemIndex][7]));
+        HeroStats.setMoney(Integer.valueOf(HeroStats.getHeroInventory()[itemIndex][8]));
         System.out.println("itemIndex: " + itemIndex);
+
+        deleteInventorySlotAndSort(itemIndex);
+    }
+
+    public static void deleteInventorySlotAndSort(int itemIndex) {
         for (int i = itemIndex; i < HeroStats.getInventoryItems() - 1; i++) {
-            System.arraycopy(HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex], 0, HeroStats.getHeroInventory()[itemIndex].length);
+            for (int j = 0; j < HeroStats.getHeroInventory()[itemIndex].length; j++) {
+                HeroStats.setHeroInventory(i, j, HeroStats.getHeroInventory()[i+1][j]);
+            }
         }
         for (int i = 0; i < HeroStats.getHeroInventory()[HeroStats.getInventoryItems() - 1].length; i++) {
             HeroStats.setHeroInventory(HeroStats.getInventoryItems() - 1, i, null);
@@ -335,7 +342,7 @@ public class Shop {
 
     public static void getItemNames() {
         listModel = new DefaultListModel();
-        for (int i = 1;inventory[i][1] != null; i++) {
+        for (int i = 1; inventory[i][1] != null; i++) {
             listModel.addElement(getInventory()[i][1].trim());
 
         }

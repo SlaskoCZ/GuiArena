@@ -11,10 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import static java.lang.Integer.parseInt;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 /*
  * Copyright (c) 2015 Petr Linhart.
@@ -128,59 +125,28 @@ public class HeroStats {
         }
     }
 
-//    public static DefaultListModel inventory() {
-//        DefaultListModel items = new DefaultListModel();
-//        try {
-//            int numberOfLines = Shop.getLines(Utilities.getTemp().toString()) + 1;
-//
-//            String[] load = new String[numberOfLines];
-//            BufferedReader bufferedReader;
-//            try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
-//                bufferedReader = new BufferedReader(fileReader);
-//
-//                if (numberOfLines == 1) {
-//                    items.addElement("You dont have any items");
-//                } else {
-//                    for (int i = 0; i < numberOfLines; i++) {
-//                        load[i] = bufferedReader.readLine();
-//                        if (load[i] != null) {
-//                            String[] part = load[i].split(";");
-//                            System.out.println(part[1]);
-//                            items.addElement(part[1]);
-//                        }
-//                    }
-//                }
-//                bufferedReader.close();
-//            } catch (FileNotFoundException ex) {
-//                Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(HeroStats.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return items;
-//    }
-
-    public static DefaultListModel inventory(){
+    public static DefaultListModel inventory() {
         DefaultListModel items = new DefaultListModel();
-        try{
-        for (int i = 0; i < heroInventory.length ; i++) {
-            if (heroInventory[i][0] != null) {
-               items.addElement(heroInventory[i][0]); 
-            } 
-        }
-        } catch (NullPointerException e){
+        try {
+            for (int i = 0; i < heroInventory.length; i++) {
+                if (heroInventory[i][0] != null) {
+                    items.addElement(heroInventory[i][0]);
+                }
+            }
+        } catch (NullPointerException e) {
             System.out.println(e);
             System.out.println("Inventory is empty");
             items.addElement("Empty");
         }
         return items;
     }
-    public static String[] getInventoryStats(int index){
+
+    public static String[] getInventoryStats(int index) {
         String[] item = new String[9];
         System.arraycopy(heroInventory[index], 0, item, 0, heroInventory[index].length);
         return item;
     }
+
     void characterInventory() throws IOException {
         Utilities utilities = new Utilities();
         utilities.clearScreen();
@@ -192,112 +158,134 @@ public class HeroStats {
         System.out.println(characterInventory[3][0]);
         utilities.waitForEnter();
     }
+    // <editor-fold defaultstate="collapsed" desc="Old addCharacterItems()">
+//    void addCharacterItems() throws IOException {
+//        Shop shop = new Shop();
+//        Inputs input = new Inputs();
+//        Utilities utilities = new Utilities();
+//        utilities.clearScreen();
+//        int numberOfLines = shop.getLines(Utilities.getTemp().toString()) + 1;
+//        BufferedReader bufferedReader;
+//        boolean process = true;
+//        try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
+//            bufferedReader = new BufferedReader(fileReader);
+//            String[] load = new String[numberOfLines];
+//            if (numberOfLines == 0) {
+//                System.out.println("You don't have any items in backpack");
+//            } else {
+//                for (int i = 0; i < numberOfLines; i++) {
+//                    load[i] = bufferedReader.readLine();
+//                    if (load[i] != null) {
+//                        System.out.println(load[i]);
+//                    }
+//                }
+//
+//                System.out.print("Weapon:");
+//                System.out.println(getCharacterInventory()[1][0]);
+//                System.out.print("Shield:");
+//                System.out.println(getCharacterInventory()[2][0]);
+//                System.out.print("Armor:");
+//                System.out.println(getCharacterInventory()[3][0]);
+//                System.out.println("What item do you want to put on?");
+//                int selection = Integer.valueOf(input.input());
+//                String[] work = load[selection].split(";");
+//                int number = 0;
+//                if (work[7].contains("Weapon")) {
+//                    if (characterInventory[1][0].equals("0")) {
+//                        number = 1;
+//                    } else {
+//                        System.out.println("You already have " + getCharacterInventory()[1][0] + " equipped");
+//                        process = false;
+//                    }
+//                } else if (work[7].contains("Shield")) {
+//                    if (getCharacterInventory()[2][0].equals("0")) {
+//                        number = 2;
+//                    } else {
+//                        System.out.println("You already have " + getCharacterInventory()[2][0] + " equipped");
+//                        process = false;
+//                    }
+//                } else if (work[7].contains("Armor")) {
+//                    if (getCharacterInventory()[3][0].equals("0")) {
+//                        number = 3;
+//                    } else {
+//                        System.out.println("You already have " + getCharacterInventory()[3][0] + " equipped");
+//                        process = false;
+//                    }
+//                }
+//                if (process == true) {
+//                    // name
+//                    characterInventory[number][0] = work[1];
+//                    //STR
+//                    characterInventory[number][1] = work[2];
+//                    //DEX
+//                    characterInventory[number][2] = work[3];
+//                    //VIT
+//                    characterInventory[number][3] = work[4];
+//                    //INT
+//                    characterInventory[number][4] = work[5];
+//                    //DMG
+//                    characterInventory[number][5] = work[6];
+//                    //DEF
+//                    characterInventory[number][6] = work[7];
+//                    //Type
+//                    characterInventory[number][7] = work[8];
+//                    //Price
+//                    characterInventory[number][8] = work[9];
+//
+//                    Utilities.getTemp().delete();
+//                    Utilities.getTemp().createNewFile();
+//                    File filePath = new File(Utilities.getTemp().getAbsolutePath());
+//                    try (FileOutputStream fos = new FileOutputStream(filePath)) {
+//                        OutputStreamWriter osw = new OutputStreamWriter(fos);
+//                        Writer w = new BufferedWriter(osw);
+//                        int j = 0;
+//                        for (int i = 0; i < numberOfLines - 1; i++) {
+//                            if (i != selection) {
+//                                work = load[i].split(";");
+//                                w.write(j + ";" + work[1] + ";" + work[2] + ";" + work[3] + ";" + work[4] + ";" + work[5] + ";" + work[6] + ";" + work[7] + ";" + work[8] + ";" + work[9]);
+//                                w.write(System.lineSeparator());
+//                                j++;
+//                            } else {
+//
+//                            }
+//                        }
+//                        w.close();
+//                        osw.close();
+//                        fos.close();
+//                        bufferedReader.close();
+//                        fileReader.close();
+//                    }
+//                }
+//            }
+//
+//            utilities.waitForEnter();
+//        } catch (Exception error) {
+//            System.out.println(error);
+//        }
+//        System.out.println("reload");
+//        reloadItemStats();
+//    }
+// </editor-fold>
 
-    void addCharacterItems() throws IOException {
-        Shop shop = new Shop();
-        Inputs input = new Inputs();
-        Utilities utilities = new Utilities();
-        utilities.clearScreen();
-        int numberOfLines = shop.getLines(Utilities.getTemp().toString()) + 1;
-        BufferedReader bufferedReader;
-        boolean process = true;
-        try (FileReader fileReader = new FileReader(Utilities.getTemp())) {
-            bufferedReader = new BufferedReader(fileReader);
-            String[] load = new String[numberOfLines];
-            if (numberOfLines == 0) {
-                System.out.println("You don't have any items in backpack");
-            } else {
-                for (int i = 0; i < numberOfLines; i++) {
-                    load[i] = bufferedReader.readLine();
-                    if (load[i] != null) {
-                        System.out.println(load[i]);
-                    }
-                }
-
-                System.out.print("Weapon:");
-                System.out.println(getCharacterInventory()[1][0]);
-                System.out.print("Shield:");
-                System.out.println(getCharacterInventory()[2][0]);
-                System.out.print("Armor:");
-                System.out.println(getCharacterInventory()[3][0]);
-                System.out.println("What item do you want to put on?");
-                int selection = Integer.valueOf(input.input());
-                String[] work = load[selection].split(";");
-                int number = 0;
-                if (work[7].contains("Weapon")) {
-                    if (characterInventory[1][0].equals("0")) {
-                        number = 1;
-                    } else {
-                        System.out.println("You already have " + getCharacterInventory()[1][0] + " equipped");
-                        process = false;
-                    }
-                } else if (work[7].contains("Shield")) {
-                    if (getCharacterInventory()[2][0].equals("0")) {
-                        number = 2;
-                    } else {
-                        System.out.println("You already have " + getCharacterInventory()[2][0] + " equipped");
-                        process = false;
-                    }
-                } else if (work[7].contains("Armor")) {
-                    if (getCharacterInventory()[3][0].equals("0")) {
-                        number = 3;
-                    } else {
-                        System.out.println("You already have " + getCharacterInventory()[3][0] + " equipped");
-                        process = false;
-                    }
-                }
-                if (process == true) {
-                    // name
-                    characterInventory[number][0] = work[1];
-                    //STR
-                    characterInventory[number][1] = work[2];
-                    //DEX
-                    characterInventory[number][2] = work[3];
-                    //VIT
-                    characterInventory[number][3] = work[4];
-                    //INT
-                    characterInventory[number][4] = work[5];
-                    //DMG
-                    characterInventory[number][5] = work[6];
-                    //DEF
-                    characterInventory[number][6] = work[7];
-                    //Type
-                    characterInventory[number][7] = work[8];
-                    //Price
-                    characterInventory[number][8] = work[9];
-
-                    Utilities.getTemp().delete();
-                    Utilities.getTemp().createNewFile();
-                    File filePath = new File(Utilities.getTemp().getAbsolutePath());
-                    try (FileOutputStream fos = new FileOutputStream(filePath)) {
-                        OutputStreamWriter osw = new OutputStreamWriter(fos);
-                        Writer w = new BufferedWriter(osw);
-                        int j = 0;
-                        for (int i = 0; i < numberOfLines - 1; i++) {
-                            if (i != selection) {
-                                work = load[i].split(";");
-                                w.write(j + ";" + work[1] + ";" + work[2] + ";" + work[3] + ";" + work[4] + ";" + work[5] + ";" + work[6] + ";" + work[7] + ";" + work[8] + ";" + work[9]);
-                                w.write(System.lineSeparator());
-                                j++;
-                            } else {
-
-                            }
-                        }
-                        w.close();
-                        osw.close();
-                        fos.close();
-                        bufferedReader.close();
-                        fileReader.close();
-                    }
-                }
-            }
-
-            utilities.waitForEnter();
-        } catch (Exception error) {
-            System.out.println(error);
+    public static void addCharacterItems(int inventorySlot) {
+        int slot = 0;
+        switch (heroInventory[inventorySlot][7].trim()) {
+            case "Weapon":
+                slot = 1;
+                break;
+            case "Shield":
+                slot = 2;
+                break;
+            case "Armor":
+                slot = 3;
+                break;
         }
-        System.out.println("reload");
-        reloadItemStats();
+        System.out.println("Moving: " + slot);
+        for (int i = 0; i < getCharacterInventory()[slot].length; i++) {
+            setCharacterInventory(slot, i, getHeroInventory()[inventorySlot][i]);
+            System.out.println(getHeroInventory()[inventorySlot][i]+" "+getCharacterInventory()[slot][i]);
+        }
+
     }
 
     void removeCharacterItems() throws FileNotFoundException, IOException {
@@ -357,7 +345,7 @@ public class HeroStats {
         fos.close();
     }
 
-    void reloadItemStats() {
+    public static void reloadItemStats() {
         itemStrenght = parseInt(characterInventory[1][1].trim()) + parseInt(characterInventory[2][1].trim()) + parseInt(characterInventory[3][1].trim());
         itemDexterity = parseInt(characterInventory[1][2].trim()) + parseInt(characterInventory[2][2].trim()) + parseInt(characterInventory[3][2].trim());
         itemVitality = parseInt(characterInventory[1][3].trim()) + parseInt(characterInventory[2][3].trim()) + parseInt(characterInventory[3][3].trim());
