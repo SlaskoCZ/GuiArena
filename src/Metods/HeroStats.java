@@ -280,10 +280,9 @@ public class HeroStats {
                 slot = 3;
                 break;
         }
-        System.out.println("Moving: " + slot);
+        
         for (int i = 0; i < getCharacterInventory()[slot].length; i++) {
             setCharacterInventory(slot, i, getHeroInventory()[inventorySlot][i]);
-            System.out.println(getHeroInventory()[inventorySlot][i]+" "+getCharacterInventory()[slot][i]);
         }
 
     }
