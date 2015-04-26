@@ -90,13 +90,14 @@ public class MainClass extends javax.swing.JFrame {
         mainMenuButtonHospital = new javax.swing.JButton();
         mainMenuButtonNotYET = new javax.swing.JButton();
         mainMenuHospitalMenu = new javax.swing.JPanel();
-        mainMenuShopMenuButtonBuy1 = new javax.swing.JButton();
-        mainMenuShopMenuButtonSell1 = new javax.swing.JButton();
-        mainMenuShopMenuButtonBuyArmor1 = new javax.swing.JButton();
-        mainMenuShopMenuButtonBuyWeapon1 = new javax.swing.JButton();
-        mainMenuShopMenuButtonBuyShield1 = new javax.swing.JButton();
-        mainMenuShopMenuButtonSell2 = new javax.swing.JButton();
-        mainMenuShopMenuButtonBuyArmor2 = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonHeal = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonMeditate = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonImplants = new javax.swing.JButton();
+        mainMenuHospitalMenuPanelImplants = new javax.swing.JPanel();
+        mainMenuHospitalMenuButtonImplantsStrenght = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonImplantsDexterity = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonImplantsInteligence = new javax.swing.JButton();
+        mainMenuHospitalMenuButtonImplantsVitality = new javax.swing.JButton();
         panelArenaMenu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         arenaMenuButtonLightAttack = new javax.swing.JButton();
@@ -543,7 +544,7 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(mainMenuShopMenuButtonBuyShield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainMenuShopMenuButtonBuyArmor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         mainMenuShopMenuButtonBuyArmor.setVisible(false);
@@ -570,69 +571,101 @@ public class MainClass extends javax.swing.JFrame {
 
         mainMenuHospitalMenu.setPreferredSize(new java.awt.Dimension(338, 265));
 
-        mainMenuShopMenuButtonBuy1.setText("Heal");
-        mainMenuShopMenuButtonBuy1.setPreferredSize(new java.awt.Dimension(150, 50));
-        mainMenuShopMenuButtonBuy1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonHeal.setText("Heal");
+        mainMenuHospitalMenuButtonHeal.setPreferredSize(new java.awt.Dimension(150, 50));
+        mainMenuHospitalMenuButtonHeal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonBuy1ActionPerformed(evt);
+                mainMenuHospitalMenuButtonHealActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonSell1.setText("Meditate");
-        mainMenuShopMenuButtonSell1.setPreferredSize(new java.awt.Dimension(150, 50));
-        mainMenuShopMenuButtonSell1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonMeditate.setText("Meditate");
+        mainMenuHospitalMenuButtonMeditate.setPreferredSize(new java.awt.Dimension(150, 50));
+        mainMenuHospitalMenuButtonMeditate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonSell1ActionPerformed(evt);
+                mainMenuHospitalMenuButtonMeditateActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonBuyArmor1.setText("Inteligence");
-        mainMenuShopMenuButtonBuyArmor1.setMaximumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor1.setMinimumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor1.setPreferredSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonImplants.setText("Implants");
+        mainMenuHospitalMenuButtonImplants.setPreferredSize(new java.awt.Dimension(150, 50));
+        mainMenuHospitalMenuButtonImplants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonBuyArmor1ActionPerformed(evt);
+                mainMenuHospitalMenuButtonImplantsActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonBuyWeapon1.setText("Strenght");
-        mainMenuShopMenuButtonBuyWeapon1.setMaximumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyWeapon1.setMinimumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyWeapon1.setPreferredSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyWeapon1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonImplantsStrenght.setText("Strenght");
+        mainMenuHospitalMenuButtonImplantsStrenght.setMaximumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsStrenght.setMinimumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsStrenght.setPreferredSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsStrenght.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonBuyWeapon1ActionPerformed(evt);
+                mainMenuHospitalMenuButtonImplantsStrenghtActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonBuyShield1.setText("Dexterity");
-        mainMenuShopMenuButtonBuyShield1.setMaximumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyShield1.setMinimumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyShield1.setPreferredSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyShield1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonImplantsDexterity.setText("Dexterity");
+        mainMenuHospitalMenuButtonImplantsDexterity.setMaximumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsDexterity.setMinimumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsDexterity.setPreferredSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsDexterity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonBuyShield1ActionPerformed(evt);
+                mainMenuHospitalMenuButtonImplantsDexterityActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonSell2.setText("Implants");
-        mainMenuShopMenuButtonSell2.setPreferredSize(new java.awt.Dimension(150, 50));
-        mainMenuShopMenuButtonSell2.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonImplantsInteligence.setText("Inteligence");
+        mainMenuHospitalMenuButtonImplantsInteligence.setMaximumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsInteligence.setMinimumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsInteligence.setPreferredSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsInteligence.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonSell2ActionPerformed(evt);
+                mainMenuHospitalMenuButtonImplantsInteligenceActionPerformed(evt);
             }
         });
 
-        mainMenuShopMenuButtonBuyArmor2.setText("Vitality");
-        mainMenuShopMenuButtonBuyArmor2.setMaximumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor2.setMinimumSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor2.setPreferredSize(new java.awt.Dimension(125, 40));
-        mainMenuShopMenuButtonBuyArmor2.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuHospitalMenuButtonImplantsVitality.setText("Vitality");
+        mainMenuHospitalMenuButtonImplantsVitality.setMaximumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsVitality.setMinimumSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsVitality.setPreferredSize(new java.awt.Dimension(125, 40));
+        mainMenuHospitalMenuButtonImplantsVitality.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenuShopMenuButtonBuyArmor2ActionPerformed(evt);
+                mainMenuHospitalMenuButtonImplantsVitalityActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout mainMenuHospitalMenuPanelImplantsLayout = new javax.swing.GroupLayout(mainMenuHospitalMenuPanelImplants);
+        mainMenuHospitalMenuPanelImplants.setLayout(mainMenuHospitalMenuPanelImplantsLayout);
+        mainMenuHospitalMenuPanelImplantsLayout.setHorizontalGroup(
+            mainMenuHospitalMenuPanelImplantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuHospitalMenuPanelImplantsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainMenuHospitalMenuPanelImplantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mainMenuHospitalMenuButtonImplantsStrenght, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuHospitalMenuButtonImplantsDexterity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuHospitalMenuButtonImplantsInteligence, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuHospitalMenuButtonImplantsVitality, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        mainMenuHospitalMenuPanelImplantsLayout.setVerticalGroup(
+            mainMenuHospitalMenuPanelImplantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuHospitalMenuPanelImplantsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainMenuHospitalMenuButtonImplantsStrenght, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mainMenuHospitalMenuButtonImplantsDexterity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mainMenuHospitalMenuButtonImplantsInteligence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mainMenuHospitalMenuButtonImplantsVitality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
+        mainMenuShopMenuButtonBuyShield.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuShopMenuButtonBuyArmor.setVisible(false);
 
         javax.swing.GroupLayout mainMenuHospitalMenuLayout = new javax.swing.GroupLayout(mainMenuHospitalMenu);
         mainMenuHospitalMenu.setLayout(mainMenuHospitalMenuLayout);
@@ -641,42 +674,30 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(mainMenuHospitalMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainMenuShopMenuButtonBuy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(mainMenuShopMenuButtonSell1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(mainMenuShopMenuButtonSell2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(mainMenuHospitalMenuButtonImplants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuHospitalMenuButtonMeditate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainMenuHospitalMenuButtonHeal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainMenuShopMenuButtonBuyArmor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonBuyWeapon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonBuyShield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonBuyArmor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(mainMenuHospitalMenuPanelImplants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainMenuHospitalMenuLayout.setVerticalGroup(
             mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainMenuHospitalMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mainMenuShopMenuButtonBuy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonBuyWeapon1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainMenuShopMenuButtonSell1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonBuyShield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(mainMenuHospitalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainMenuShopMenuButtonBuyArmor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenuShopMenuButtonSell2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(mainMenuShopMenuButtonBuyArmor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                    .addComponent(mainMenuHospitalMenuPanelImplants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(mainMenuHospitalMenuLayout.createSequentialGroup()
+                        .addComponent(mainMenuHospitalMenuButtonMeditate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mainMenuHospitalMenuButtonHeal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mainMenuHospitalMenuButtonImplants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        mainMenuShopMenuButtonBuyArmor.setVisible(false);
-        mainMenuShopMenuButtonBuyWeapon.setVisible(false);
-        mainMenuShopMenuButtonBuyShield.setVisible(false);
-        mainMenuShopMenuButtonBuyArmor.setVisible(false);
+        mainMenuHospitalMenuPanelImplants.setVisible(false);
 
         javax.swing.GroupLayout panelMainMenuLayout = new javax.swing.GroupLayout(panelMainMenu);
         panelMainMenu.setLayout(panelMainMenuLayout);
@@ -724,22 +745,22 @@ public class MainClass extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(mainMenuButtonNotYET, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
         mainMenuArenaMenu.setVisible(false);
         mainMenuShopMenu.setVisible(false);
-        mainMenuShopMenu.setVisible(false);
+        mainMenuHospitalMenu.setVisible(false);
 
         getContentPane().add(panelMainMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 580, 400));
 
@@ -1223,6 +1244,7 @@ public class MainClass extends javax.swing.JFrame {
 
     private void mainMenuButtonArenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonArenaActionPerformed
         if (!mainMenuArenaMenu.isVisible()) {
+            mainMenuHospitalMenu.setVisible(false);
             mainMenuShopMenu.setVisible(false);
             mainMenuArenaMenu.setVisible(true);
         } else {
@@ -1285,6 +1307,7 @@ public class MainClass extends javax.swing.JFrame {
 
     private void mainMenuButtonShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonShopActionPerformed
         if (!mainMenuShopMenu.isVisible()) {
+            mainMenuHospitalMenu.setVisible(false);
             mainMenuArenaMenu.setVisible(false);
             mainMenuShopMenu.setVisible(true);
         } else {
@@ -1334,8 +1357,13 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
 
     private void mainMenuButtonHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonHospitalActionPerformed
-        CustomMessage cm = new CustomMessage(this, true, "Under Construction", "This button is under construction");
-        cm.setVisible(true);
+        if (!mainMenuHospitalMenu.isVisible()) {           
+            mainMenuShopMenu.setVisible(false);
+            mainMenuArenaMenu.setVisible(false);
+            mainMenuHospitalMenu.setVisible(true);
+        } else {
+            mainMenuHospitalMenu.setVisible(false);
+        }
     }//GEN-LAST:event_mainMenuButtonHospitalActionPerformed
 
     private void mainMenuButtonNotYETActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonNotYETActionPerformed
@@ -1431,33 +1459,37 @@ public class MainClass extends javax.swing.JFrame {
         mainMenuShopMenuButtonBuyShield.setVisible(false);
     }//GEN-LAST:event_mainMenuShopMenuButtonBuyShieldActionPerformed
 
-    private void mainMenuShopMenuButtonBuy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuy1ActionPerformed
+    private void mainMenuHospitalMenuButtonHealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonHealActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonBuy1ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonHealActionPerformed
 
-    private void mainMenuShopMenuButtonSell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSell1ActionPerformed
+    private void mainMenuHospitalMenuButtonMeditateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonMeditateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonSell1ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonMeditateActionPerformed
 
-    private void mainMenuShopMenuButtonBuyArmor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyArmor1ActionPerformed
+    private void mainMenuHospitalMenuButtonImplantsInteligenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsInteligenceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonBuyArmor1ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsInteligenceActionPerformed
 
-    private void mainMenuShopMenuButtonBuyWeapon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyWeapon1ActionPerformed
+    private void mainMenuHospitalMenuButtonImplantsStrenghtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsStrenghtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonBuyWeapon1ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsStrenghtActionPerformed
 
-    private void mainMenuShopMenuButtonBuyShield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyShield1ActionPerformed
+    private void mainMenuHospitalMenuButtonImplantsDexterityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsDexterityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonBuyShield1ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsDexterityActionPerformed
 
-    private void mainMenuShopMenuButtonSell2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSell2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonSell2ActionPerformed
+    private void mainMenuHospitalMenuButtonImplantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsActionPerformed
+        if (mainMenuHospitalMenuPanelImplants.isVisible()){
+            mainMenuHospitalMenuPanelImplants.setVisible(false);
+        } else {
+            mainMenuHospitalMenuPanelImplants.setVisible(true);
+        }
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsActionPerformed
 
-    private void mainMenuShopMenuButtonBuyArmor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonBuyArmor2ActionPerformed
+    private void mainMenuHospitalMenuButtonImplantsVitalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuShopMenuButtonBuyArmor2ActionPerformed
+    }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
     public final void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
@@ -1584,19 +1616,20 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JButton mainMenuButtonNotYET;
     private javax.swing.JButton mainMenuButtonShop;
     private javax.swing.JPanel mainMenuHospitalMenu;
+    private javax.swing.JButton mainMenuHospitalMenuButtonHeal;
+    private javax.swing.JButton mainMenuHospitalMenuButtonImplants;
+    private javax.swing.JButton mainMenuHospitalMenuButtonImplantsDexterity;
+    private javax.swing.JButton mainMenuHospitalMenuButtonImplantsInteligence;
+    private javax.swing.JButton mainMenuHospitalMenuButtonImplantsStrenght;
+    private javax.swing.JButton mainMenuHospitalMenuButtonImplantsVitality;
+    private javax.swing.JButton mainMenuHospitalMenuButtonMeditate;
+    private javax.swing.JPanel mainMenuHospitalMenuPanelImplants;
     private javax.swing.JPanel mainMenuShopMenu;
     private javax.swing.JButton mainMenuShopMenuButtonBuy;
-    private javax.swing.JButton mainMenuShopMenuButtonBuy1;
     private javax.swing.JButton mainMenuShopMenuButtonBuyArmor;
-    private javax.swing.JButton mainMenuShopMenuButtonBuyArmor1;
-    private javax.swing.JButton mainMenuShopMenuButtonBuyArmor2;
     private javax.swing.JButton mainMenuShopMenuButtonBuyShield;
-    private javax.swing.JButton mainMenuShopMenuButtonBuyShield1;
     private javax.swing.JButton mainMenuShopMenuButtonBuyWeapon;
-    private javax.swing.JButton mainMenuShopMenuButtonBuyWeapon1;
     private javax.swing.JButton mainMenuShopMenuButtonSell;
-    private javax.swing.JButton mainMenuShopMenuButtonSell1;
-    private javax.swing.JButton mainMenuShopMenuButtonSell2;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuFileEndGame;
     private javax.swing.JMenuItem menuFileLoad;

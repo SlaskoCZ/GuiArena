@@ -1076,59 +1076,47 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenu.setVisible(false);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuHospitalMenu.setVisible(false);"/>
           </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mainMenuShopMenuButtonBuy1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="mainMenuShopMenuButtonSell1" min="-2" max="-2" attributes="0"/>
-                              <Component id="mainMenuShopMenuButtonSell2" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="mainMenuHospitalMenuButtonImplants" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonMeditate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonHeal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mainMenuShopMenuButtonBuyArmor2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonBuyWeapon1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonBuyShield1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonBuyArmor1" alignment="0" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="mainMenuHospitalMenuPanelImplants" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="mainMenuShopMenuButtonBuy1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonBuyWeapon1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mainMenuShopMenuButtonSell1" min="-2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonBuyShield1" min="-2" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuPanelImplants" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="mainMenuHospitalMenuButtonMeditate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mainMenuHospitalMenuButtonHeal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mainMenuHospitalMenuButtonImplants" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="mainMenuShopMenuButtonBuyArmor1" min="-2" max="-2" attributes="0"/>
-                          <Component id="mainMenuShopMenuButtonSell2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="mainMenuShopMenuButtonBuyArmor2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="123" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonBuy1">
+            <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonHeal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Heal"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1136,10 +1124,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonBuy1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonHealActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonSell1">
+            <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonMeditate">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Meditate"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1147,70 +1135,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonSell1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonMeditateActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonBuyArmor1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Inteligence"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonBuyArmor1ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyArmor.setVisible(false);"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonBuyWeapon1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Strenght"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonBuyWeapon1ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyWeapon.setVisible(false);"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonBuyShield1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Dexterity"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonBuyShield1ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyShield.setVisible(false);"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonSell2">
+            <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonImplants">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Implants"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1218,29 +1146,128 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonSell2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonImplantsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="mainMenuShopMenuButtonBuyArmor2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Vitality"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[125, 40]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuShopMenuButtonBuyArmor2ActionPerformed"/>
-              </Events>
+            <Container class="javax.swing.JPanel" name="mainMenuHospitalMenuPanelImplants">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyArmor.setVisible(false);"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuHospitalMenuPanelImplants.setVisible(false);"/>
               </AuxValues>
-            </Component>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="mainMenuHospitalMenuButtonImplantsStrenght" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="mainMenuHospitalMenuButtonImplantsDexterity" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="mainMenuHospitalMenuButtonImplantsInteligence" alignment="0" max="-2" attributes="0"/>
+                              <Component id="mainMenuHospitalMenuButtonImplantsVitality" alignment="0" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonImplantsStrenght" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonImplantsDexterity" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonImplantsInteligence" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="mainMenuHospitalMenuButtonImplantsVitality" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="131" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonImplantsStrenght">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Strenght"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonImplantsStrenghtActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyWeapon.setVisible(false);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonImplantsDexterity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dexterity"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonImplantsDexterityActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyShield.setVisible(false);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonImplantsInteligence">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Inteligence"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonImplantsInteligenceActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyArmor.setVisible(false);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="mainMenuHospitalMenuButtonImplantsVitality">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Vitality"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[125, 40]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mainMenuHospitalMenuButtonImplantsVitalityActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mainMenuShopMenuButtonBuyArmor.setVisible(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
