@@ -70,13 +70,10 @@ public class Enemies {
     }
 
     public static String[] getEnemyList() {
-        String[] enemyList = {"1. Troll",
-            "2. Dwarf",
-            "3. Wolf",
-            "4. Pixie",
-            "5. Rock"
-
-        };
+        System.out.println("Loading Enemies");
+        String[] enemyList =  Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Enemy", 0);
+        System.out.println("Loading Bosses");
+        enemyList =  Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Boss", enemyList.length);
         return enemyList;
     }
 
