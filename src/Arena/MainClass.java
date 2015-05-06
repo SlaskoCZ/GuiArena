@@ -13,7 +13,6 @@ import Metods.Enemies;
 import Metods.Fight;
 import Metods.Stats;
 import Metods.Utilities;
-import java.lang.reflect.Method;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -443,6 +442,7 @@ public class MainClass extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
+        mainMenuArenaMenuButtonEnemyStats.setEnabled(false);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(false);
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(false);
 
@@ -544,7 +544,7 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(mainMenuShopMenuButtonBuyShield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainMenuShopMenuButtonBuyArmor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         mainMenuShopMenuButtonBuyArmor.setVisible(false);
@@ -659,7 +659,7 @@ public class MainClass extends javax.swing.JFrame {
                 .addComponent(mainMenuHospitalMenuButtonImplantsInteligence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mainMenuHospitalMenuButtonImplantsVitality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         mainMenuShopMenuButtonBuyWeapon.setVisible(false);
@@ -745,16 +745,16 @@ public class MainClass extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(mainMenuButtonNotYET, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1269,6 +1269,8 @@ public class MainClass extends javax.swing.JFrame {
         }
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(false);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(false);
+        mainMenuArenaMenuButtonNextOpponent.setEnabled(true);
+        mainMenuArenaMenuButtonEnemyStats.setEnabled(true);
     }//GEN-LAST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
 
     private void mainMenuArenaMenuButtonEnemyStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonEnemyStatsActionPerformed
