@@ -1,7 +1,16 @@
 package Metods;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import static java.lang.Integer.parseInt;
+import java.util.Arrays;
 import javax.swing.DefaultListModel;
 
 /*
@@ -77,6 +86,25 @@ public class HeroStats {
         utilities.waitForEnter();
     }
 
+    public static void addCharacterItems(int inventorySlot) {
+        int slot = 0;
+        switch (heroInventory[inventorySlot][7].trim()) {
+            case "Weapon":
+                slot = 1;
+                break;
+            case "Shield":
+                slot = 2;
+                break;
+            case "Armor":
+                slot = 3;
+                break;
+        }
+        
+        for (int i = 0; i < getCharacterInventory()[slot].length; i++) {
+            setCharacterInventory(slot, i, getHeroInventory()[inventorySlot][i]);
+        }
+
+    }
 
 
     public static void reloadItemStats() {
