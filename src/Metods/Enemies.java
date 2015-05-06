@@ -25,202 +25,117 @@ public class Enemies {
     private static int enemylevel = 0;
     private static String enemyName = null;
     private static int baseExp = 0;
+    private static String[] enemyLoadStats = new String[]{"Name", "STR", "DEX", "VIT", "INT", "EXP"};
 
-    public static void enemy(int enemy) {
-        //Enemy level
-        Enemies.enemylevel = (int) (Math.round((Math.random() * HeroStats.getLevel() + 1) - (Math.random() * HeroStats.getLevel() + 1)));
-        while (Enemies.enemylevel < 1) {
-            Enemies.enemylevel++;
-        }
-        //Enemy declaration
-        switch (enemy) {
-            case 69696969:
-                System.out.println("Test Monster");
-                Enemies.enemyName = "TEST CUBE";
-                Enemies.enemystrenght = (int) (1);
-                Enemies.enemydexterity = (int) (1000);
-                Enemies.enemyvitality = (int) (10);
-                Enemies.enemyinteligence = (int) (10);
-                Enemies.enemymp = enemyinteligence * 100;
-                Enemies.enemyhp = enemyvitality * 1000;
-                Enemies.baseExp = 100;
+    public Enemies(int enemy) {
+        
+        this.setEnemyName(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[0]));
+        this.setEnemystrenght(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[1])));
+        this.setEnemydexterity(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[2])));
+        this.setEnemyvitality(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[3])));
+        this.setEnemyinteligence(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[4])));
+        this.setBaseExp(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[5])));
+        this.setEnemyhp(getEnemyvitality()*10);
+        this.setEnemymp(getEnemyinteligence()*10);
 
-                break;
-            case 1:
-                troll();
-                break;
-            case 2:
-                dwarf();
-                break;
-            case 3:
-                wolf();
-                break;
-            case 4:
-                pixie();
-                break;
-            case 5:
-                rock();
-                break;
-            case 6:
-                boss();
-                break;
+    }
 
-        }
-
+    public Enemies() {
+        int enemy = (int)Metods.Utilities.randomNumber(1, Resources.ItemLoadClass.getNumberOfEnemiesinXML("EnemyList.xml"), true);
+        this.setEnemyName(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[0]));
+        this.setEnemystrenght(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[1])));
+        this.setEnemydexterity(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[2])));
+        this.setEnemyvitality(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[3])));
+        this.setEnemyinteligence(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[4])));
+        this.setBaseExp(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[5])));
     }
 
     public static String[] getEnemyList() {
         System.out.println("Loading Enemies");
-        String[] enemyList =  Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Enemy", 0);
+        String[] enemyList = Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Enemy", 0);
         System.out.println("Loading Bosses");
-        enemyList =  Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Boss", enemyList.length);
+        enemyList = Resources.ItemLoadClass.getNamesOfAllEnemiesInXML("EnemyList.xml", "Boss", enemyList.length);
         return enemyList;
     }
 
-    private static void troll() {
-        Enemies.enemyName = "Troll";
-        Enemies.enemystrenght = (int) (10);
-        Enemies.enemydexterity = (int) (10);
-        Enemies.enemyvitality = (int) (10);
-        Enemies.enemyinteligence = (int) (10);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 10;
-        Enemies.baseExp = 20;
-    }
-
-    private static void dwarf() {
-        Enemies.enemyName = "Dwarf";
-        Enemies.enemystrenght = (int) (10);
-        Enemies.enemydexterity = (int) (10);
-        Enemies.enemyvitality = (int) (10);
-        Enemies.enemyinteligence = (int) (10);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 10;
-        Enemies.baseExp = 20;
-    }
-
-    private static void wolf() {
-        Enemies.enemyName = "Wolf";
-        Enemies.enemystrenght = (int) (10);
-        Enemies.enemydexterity = (int) (10);
-        Enemies.enemyvitality = (int) (10);
-        Enemies.enemyinteligence = (int) (10);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 10;
-        Enemies.baseExp = 20;
-    }
-
-    private static void pixie() {
-        Enemies.enemyName = "Pixie";
-        Enemies.enemystrenght = (int) (10);
-        Enemies.enemydexterity = (int) (10);
-        Enemies.enemyvitality = (int) (10);
-        Enemies.enemyinteligence = (int) (10);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 10;
-        Enemies.baseExp = 20;
-    }
-
-    private static void rock() {
-        Enemies.enemyName = "Rock";
-        Enemies.enemystrenght = (int) (10);
-        Enemies.enemydexterity = (int) (10);
-        Enemies.enemyvitality = (int) (10);
-        Enemies.enemyinteligence = (int) (10);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 10;
-        Enemies.baseExp = 20;
-    }
-
-    private static void boss() {
-        Enemies.enemyName = "Potatoe";
-        Enemies.enemystrenght = (int) (100);
-        Enemies.enemydexterity = (int) (100);
-        Enemies.enemyvitality = (int) (100);
-        Enemies.enemyinteligence = (int) (100);
-        Enemies.enemymp = Enemies.enemyinteligence * 10;
-        Enemies.enemyhp = Enemies.enemyvitality * 100;
-        Enemies.baseExp = 1000;
-    }
-
-    public static int getEnemyhp() {
+    int getEnemyhp() {
         return enemyhp;
     }
 
-    public static void setEnemyhp(int enemyhp) {
-        if (enemyhp<0) {
+    void setEnemyhp(int enemyhp) {
+        if (enemyhp < 0) {
             enemyhp = 0;
-            }      
+        }
         Enemies.enemyhp = enemyhp;
     }
 
-    public static int getEnemymp() {
+    int getEnemymp() {
         return enemymp;
     }
 
-    public static void setEnemymp(int enemymp) {
-        if (enemymp<0) {
+    void setEnemymp(int enemymp) {
+        if (enemymp < 0) {
             enemymp = 0;
-            }   
+        }
         Enemies.enemymp = enemymp;
     }
 
-    public static int getEnemystrenght() {
+    int getEnemystrenght() {
         return enemystrenght;
     }
 
-    public static void setEnemystrenght(int enemystrenght) {
-        if (enemystrenght<0) {
+    void setEnemystrenght(int enemystrenght) {
+        if (enemystrenght < 0) {
             enemystrenght = 0;
-            }   
+        }
         Enemies.enemystrenght = enemystrenght;
     }
 
-    public static int getEnemydexterity() {
+    int getEnemydexterity() {
         return enemydexterity;
     }
 
-    public static void setEnemydexterity(int enemydexterity) {
+    void setEnemydexterity(int enemydexterity) {
         Enemies.enemydexterity = enemydexterity;
     }
 
-    public static int getEnemyvitality() {
+    int getEnemyvitality() {
         return enemyvitality;
     }
 
-    public static void setEnemyvitality(int enemyvitality) {
+    void setEnemyvitality(int enemyvitality) {
         Enemies.enemyvitality = enemyvitality;
     }
 
-    public static int getEnemyinteligence() {
+    int getEnemyinteligence() {
         return enemyinteligence;
     }
 
-    public static void setEnemyinteligence(int enemyinteligence) {
+    void setEnemyinteligence(int enemyinteligence) {
         Enemies.enemyinteligence = enemyinteligence;
     }
 
-    public static int getEnemylevel() {
+    int getEnemylevel() {
         return enemylevel;
     }
 
-    public static void setEnemylevel(int enemylevel) {
+    void setEnemylevel(int enemylevel) {
         Enemies.enemylevel = enemylevel;
     }
 
-    public static String getEnemyName() {
+    String getEnemyName() {
         return enemyName;
     }
 
-    public static void setEnemyName(String enemyName) {
+    void setEnemyName(String enemyName) {
         Enemies.enemyName = enemyName;
     }
 
-    public static int getBaseExp() {
+    int getBaseExp() {
         return baseExp;
     }
 
-    public static void setBaseExp(int baseExp) {
+    void setBaseExp(int baseExp) {
         Enemies.baseExp = baseExp;
     }
 

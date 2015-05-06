@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Monster-List>
+    <Enemy-List>
+        <Enemy ID="E001" level="1">
+            <Name>Troll</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+        <Enemy ID="E002" level="1">
+            <Name>Dwarf</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+        <Enemy ID="E003" level="1">
+            <Name>Rock</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+        <Enemy ID="E004" level="1">
+            <Name>Tree</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+        <Enemy ID="E005" level="1">
+            <Name>Pixie</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+    </Enemy-List>
+    <Boss-List>
+        <Enemy ID="B001" level="10">
+            <Name>Troll Destroyer</Name>
+            <STR>5</STR>
+            <DEX>5</DEX>
+            <VIT>5</VIT>
+            <INT>5</INT>
+            <EXP>5</EXP>
+        </Enemy>
+    </Boss-List>
+</Monster-List>

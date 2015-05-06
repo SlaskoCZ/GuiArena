@@ -20,14 +20,14 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Stats stats = new Stats();
-        String[] enemyStats = stats.enemy();
+        String[] enemyStats = stats.enemy(0);
         changableStatsName.setText(enemyStats[0]);
-        changableStatsHP.setText(enemyStats[1]);
-        changableStatsMP.setText(enemyStats[2]);
-        changableStatsSTR.setText(enemyStats[3]);
-        changableStatsDEX.setText(enemyStats[4]);
-        changableStatsINT.setText(enemyStats[5]);
-        changableStatsVIT.setText(enemyStats[6]);
+        changableStatsHP.setText(enemyStats[5]);
+        changableStatsMP.setText(enemyStats[6]);
+        changableStatsSTR.setText(enemyStats[1]);
+        changableStatsDEX.setText(enemyStats[2]);
+        changableStatsINT.setText(enemyStats[3]);
+        changableStatsVIT.setText(enemyStats[4]);
     }
 
     /**

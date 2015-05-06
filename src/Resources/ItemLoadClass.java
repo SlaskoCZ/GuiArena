@@ -49,6 +49,16 @@ public class ItemLoadClass {
 
     public static String jarLoadEnemyFromXML(String XMLFile, String EnemyNumber, String statName) {
         NodeList nodes = null;
+        if (Integer.valueOf(EnemyNumber)<10 && Integer.valueOf(EnemyNumber)>=1) {
+            EnemyNumber = "E00"+ EnemyNumber;
+        } else if (Integer.valueOf(EnemyNumber)<100 && Integer.valueOf(EnemyNumber)>10) {
+            EnemyNumber = "E0"+ EnemyNumber;
+        } else if (Integer.valueOf(EnemyNumber)<100) {
+            EnemyNumber = "E"+ EnemyNumber;
+        } else {
+            System.out.println("Error Somewhere ! returning 1st enemy");
+            EnemyNumber = "E001";
+        }
         try {
             InputStream inputStream = ItemLoadClass.class.getResourceAsStream(XMLFile);
             DocumentBuilderFactory domFactory
@@ -58,7 +68,7 @@ public class ItemLoadClass {
             Document doc = builder.parse(inputStream);
             XPath xpath = XPathFactory.newInstance().newXPath();
             // XPath Query for showing all nodes value
-
+            System.out.println(EnemyNumber +" "+ statName);
             XPathExpression expr = xpath.compile("//Enemy[@ID='" + EnemyNumber + "']/" + statName.trim() + "/text()");
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);

@@ -1254,7 +1254,19 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuButtonArenaActionPerformed
 
     private void mainMenuArenaMenuButtonOpponentConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
-        Enemies.enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+        if (enemyNumber >= 1) {
+            Enemies[] temp = enemy;
+            enemy = new Enemies[enemyNumber + 1];
+            for (int i = 0; i < temp.length; i++) {
+                enemy[i] = temp[i];
+            }
+
+        } else if (enemyNumber == 0) {
+            enemy = new Enemies[enemyNumber + 1];
+            enemy[0] = new Enemies(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+        } else {
+            System.out.println("ERROR !");
+        }
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(false);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(false);
     }//GEN-LAST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
@@ -1357,7 +1369,7 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
 
     private void mainMenuButtonHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonHospitalActionPerformed
-        if (!mainMenuHospitalMenu.isVisible()) {           
+        if (!mainMenuHospitalMenu.isVisible()) {
             mainMenuShopMenu.setVisible(false);
             mainMenuArenaMenu.setVisible(false);
             mainMenuHospitalMenu.setVisible(true);
@@ -1480,7 +1492,7 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsDexterityActionPerformed
 
     private void mainMenuHospitalMenuButtonImplantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsActionPerformed
-        if (mainMenuHospitalMenuPanelImplants.isVisible()){
+        if (mainMenuHospitalMenuPanelImplants.isVisible()) {
             mainMenuHospitalMenuPanelImplants.setVisible(false);
         } else {
             mainMenuHospitalMenuPanelImplants.setVisible(true);
@@ -1562,6 +1574,8 @@ public class MainClass extends javax.swing.JFrame {
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="Variables">
     // user variables
+    public static Enemies[] enemy;
+    int enemyNumber = 0;
     public boolean testMode = false;
     private String shopUserChoice;
     // end of user variables

@@ -77,6 +77,14 @@ public class Utilities {
 
     }
 
+    public static double randomNumber(double min, double max, boolean round) {
+        if (round == true) {
+            return Math.round(Math.random() * (max - min) + min);
+        } else {
+            return Math.random() * (max - min) + min;
+        }
+    }
+
     public static void waitForEnter() throws IOException {
         System.out.print("Press Enter to continue ...");
         System.in.read();

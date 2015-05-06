@@ -50,15 +50,15 @@ public class Stats {
 
     }
 
-    public String[] enemy() {
+    public String[] enemy(int enemyNumber) {
         String[] enemyStats = new String[7];
-        enemyStats[0] = (Enemies.getEnemyName());
-        enemyStats[1] = Integer.toString(Enemies.getEnemystrenght());
-        enemyStats[2] = Integer.toString(Enemies.getEnemydexterity());
-        enemyStats[3] = Integer.toString(Enemies.getEnemyvitality());
-        enemyStats[4] = Integer.toString(Enemies.getEnemyinteligence());
-        enemyStats[5] = Integer.toString(Enemies.getEnemyhp());
-        enemyStats[6] = Integer.toString(Enemies.getEnemymp());
+        enemyStats[0] = (Arena.MainClass.enemy[enemyNumber].getEnemyName());
+        enemyStats[1] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemystrenght());
+        enemyStats[2] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemydexterity());
+        enemyStats[3] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyvitality());
+        enemyStats[4] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyinteligence());
+        enemyStats[5] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyhp());
+        enemyStats[6] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemymp());
         return enemyStats;
 
     }
