@@ -11,7 +11,7 @@ package Metods;
  */
 public class Fight {
     
-    
+    //@todo Make fight system 
     
     
 }

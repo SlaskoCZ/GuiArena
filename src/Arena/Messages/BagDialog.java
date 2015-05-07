@@ -5,7 +5,7 @@
  */
 package Arena.Messages;
 
-import Metods.HeroStats;
+import Metods.Hero;
 import Metods.Shop;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -23,7 +23,7 @@ public class BagDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        bagDialogList.setModel(Metods.HeroStats.inventory());
+        bagDialogList.setModel(Metods.Hero.inventory());
     }
 
     /**
@@ -162,14 +162,14 @@ public class BagDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_bagDialogPopupMenuMouseExited
 
     private void bagDialogPopupMenuWearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuWearActionPerformed
-        HeroStats.addCharacterItems(bagDialogList.getSelectedIndex());
+        Hero.addCharacterItems(bagDialogList.getSelectedIndex());
         Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
-        bagDialogList.setModel(Metods.HeroStats.inventory());
+        bagDialogList.setModel(Metods.Hero.inventory());
     }//GEN-LAST:event_bagDialogPopupMenuWearActionPerformed
 
     private void bagDialogPopupMenuDestroyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuDestroyActionPerformed
         Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
-        bagDialogList.setModel(Metods.HeroStats.inventory());
+        bagDialogList.setModel(Metods.Hero.inventory());
     }//GEN-LAST:event_bagDialogPopupMenuDestroyActionPerformed
 
 

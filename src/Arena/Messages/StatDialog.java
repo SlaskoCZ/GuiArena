@@ -18,7 +18,7 @@ public class StatDialog extends javax.swing.JDialog {
      */
     public StatDialog(java.awt.Frame parent, boolean modal, int index) {
         super(parent, modal);
-        String[] stats = Metods.HeroStats.getInventoryStats(index);
+        String[] stats = Metods.Hero.getInventoryStats(index);
         initComponents();
         setItemStatsLabelNameStat(stats[0]);
         setItemStatsLabelSTRStat(stats[1]);

@@ -27,8 +27,8 @@ import javax.swing.DefaultListModel;
  *
  * @author Petr Linhart
  */
-public class HeroStats {
-
+public class Hero {
+    private static String name = null;
     private static int strenght = 10;
     private static int dexterity = 10;
     private static int vitality = 10;
@@ -38,9 +38,9 @@ public class HeroStats {
     private static int experiance = 0;
     private static int money = 200;
     private static int inventoryItems = 0;
-    private static String[][] heroInventory = new String[255][9];
+    private static String[][] inventory = new String[255][9];
     //characterInventory - 0.NAME 1.STR 2.DEX 3.VIT 4.INT 5.DMG 6.DEF 7.TYPE 8.PRICE
-    private static final String[][] characterInventory = new String[4][9];
+    private static final String[][] itemsOnHero = new String[4][9];
     private static int itemStrenght = 0;
     private static int itemDexterity = 0;
     private static int itemVitality = 0;
@@ -51,13 +51,16 @@ public class HeroStats {
     private static int mp = 10 * (getInteligence() + getItemInteligence());
 
 
-
+    public Hero(String name){
+        this.name = name;
+    }
+    
     public static DefaultListModel inventory() {
         DefaultListModel items = new DefaultListModel();
         try {
-            for (int i = 0; i < heroInventory.length; i++) {
-                if (heroInventory[i][0] != null) {
-                    items.addElement(heroInventory[i][0]);
+            for (int i = 0; i < inventory.length; i++) {
+                if (inventory[i][0] != null) {
+                    items.addElement(inventory[i][0]);
                 }
             }
         } catch (NullPointerException e) {
@@ -70,7 +73,7 @@ public class HeroStats {
 
     public static String[] getInventoryStats(int index) {
         String[] item = new String[9];
-        System.arraycopy(heroInventory[index], 0, item, 0, heroInventory[index].length);
+        System.arraycopy(inventory[index], 0, item, 0, inventory[index].length);
         return item;
     }
 
@@ -78,17 +81,17 @@ public class HeroStats {
         Utilities utilities = new Utilities();
         utilities.clearScreen();
         System.out.print("Weapon:");
-        System.out.println(characterInventory[1][0]);
+        System.out.println(itemsOnHero[1][0]);
         System.out.print("Shield:");
-        System.out.println(characterInventory[2][0]);
+        System.out.println(itemsOnHero[2][0]);
         System.out.print("Armor:");
-        System.out.println(characterInventory[3][0]);
+        System.out.println(itemsOnHero[3][0]);
         utilities.waitForEnter();
     }
 
     public static void addCharacterItems(int inventorySlot) {
         int slot = 0;
-        switch (heroInventory[inventorySlot][7].trim()) {
+        switch (inventory[inventorySlot][7].trim()) {
             case "Weapon":
                 slot = 1;
                 break;
@@ -100,28 +103,28 @@ public class HeroStats {
                 break;
         }
         
-        for (int i = 0; i < getCharacterInventory()[slot].length; i++) {
-            setCharacterInventory(slot, i, getHeroInventory()[inventorySlot][i]);
+        for (int i = 0; i < getItemsOnHero()[slot].length; i++) {
+            setCharacterInventory(slot, i, getInventory()[inventorySlot][i]);
         }
 
     }
 
 
     public static void reloadItemStats() {
-        itemStrenght = parseInt(characterInventory[1][1].trim()) + parseInt(characterInventory[2][1].trim()) + parseInt(characterInventory[3][1].trim());
-        itemDexterity = parseInt(characterInventory[1][2].trim()) + parseInt(characterInventory[2][2].trim()) + parseInt(characterInventory[3][2].trim());
-        itemVitality = parseInt(characterInventory[1][3].trim()) + parseInt(characterInventory[2][3].trim()) + parseInt(characterInventory[3][3].trim());
-        itemInteligence = parseInt(characterInventory[1][4].trim()) + parseInt(characterInventory[2][4].trim()) + parseInt(characterInventory[3][4].trim());
-        itemDamage = parseInt(characterInventory[1][5].trim());
-        itemDefense = parseInt(characterInventory[2][6].trim()) + parseInt(characterInventory[3][6].trim());
+        itemStrenght = parseInt(itemsOnHero[1][1].trim()) + parseInt(itemsOnHero[2][1].trim()) + parseInt(itemsOnHero[3][1].trim());
+        itemDexterity = parseInt(itemsOnHero[1][2].trim()) + parseInt(itemsOnHero[2][2].trim()) + parseInt(itemsOnHero[3][2].trim());
+        itemVitality = parseInt(itemsOnHero[1][3].trim()) + parseInt(itemsOnHero[2][3].trim()) + parseInt(itemsOnHero[3][3].trim());
+        itemInteligence = parseInt(itemsOnHero[1][4].trim()) + parseInt(itemsOnHero[2][4].trim()) + parseInt(itemsOnHero[3][4].trim());
+        itemDamage = parseInt(itemsOnHero[1][5].trim());
+        itemDefense = parseInt(itemsOnHero[2][6].trim()) + parseInt(itemsOnHero[3][6].trim());
     }
 
-    public static String[][] getHeroInventory() {
-        return heroInventory;
+    public static String[][] getInventory() {
+        return inventory;
     }
 
     public static void setHeroInventory(int indexX, int indexY, String value) {
-        HeroStats.heroInventory[indexX][indexY] = value;
+        Hero.inventory[indexX][indexY] = value;
     }
 
     public static int getStrenght() {
@@ -129,7 +132,7 @@ public class HeroStats {
     }
 
     public static void setStrenght(int strenght) {
-        HeroStats.strenght = strenght;
+        Hero.strenght = strenght;
     }
 
     public static int getDexterity() {
@@ -137,7 +140,7 @@ public class HeroStats {
     }
 
     public static void setDexterity(int dexterity) {
-        HeroStats.dexterity = dexterity;
+        Hero.dexterity = dexterity;
     }
 
     public static int getVitality() {
@@ -145,7 +148,7 @@ public class HeroStats {
     }
 
     public static void setVitality(int vitality) {
-        HeroStats.vitality = vitality;
+        Hero.vitality = vitality;
     }
 
     public static int getInteligence() {
@@ -153,7 +156,7 @@ public class HeroStats {
     }
 
     public static void setInteligence(int inteligence) {
-        HeroStats.inteligence = inteligence;
+        Hero.inteligence = inteligence;
     }
 
     public static int getLevel() {
@@ -161,7 +164,7 @@ public class HeroStats {
     }
 
     public static void setLevel(int level) {
-        HeroStats.level = level;
+        Hero.level = level;
     }
 
     public static int getStatUpgrades() {
@@ -169,7 +172,7 @@ public class HeroStats {
     }
 
     public static void setStatUpgrades(int statUpgrades) {
-        HeroStats.statUpgrades = statUpgrades;
+        Hero.statUpgrades = statUpgrades;
     }
 
     public static int getExperiance() {
@@ -177,7 +180,7 @@ public class HeroStats {
     }
 
     public static void setExperiance(int experiance) {
-        HeroStats.experiance = experiance;
+        Hero.experiance = experiance;
     }
 
     public static int getMoney() {
@@ -185,7 +188,7 @@ public class HeroStats {
     }
 
     public static void setMoney(int money) {
-        HeroStats.money += money;
+        Hero.money += money;
     }
 
     public static int getInventoryItems() {
@@ -193,15 +196,15 @@ public class HeroStats {
     }
 
     public static void setInventoryItems(int inventoryItems) {
-        HeroStats.inventoryItems += inventoryItems;
+        Hero.inventoryItems += inventoryItems;
     }
 
-    public static String[][] getCharacterInventory() {
-        return characterInventory;
+    public static String[][] getItemsOnHero() {
+        return itemsOnHero;
     }
 
     public static void setCharacterInventory(int type, int stat, String content) {
-        HeroStats.characterInventory[type][stat] = content;
+        Hero.itemsOnHero[type][stat] = content;
     }
 
     public static int getItemStrenght() {
@@ -209,7 +212,7 @@ public class HeroStats {
     }
 
     public static void setItemStrenght(int itemStrenght) {
-        HeroStats.itemStrenght = itemStrenght;
+        Hero.itemStrenght = itemStrenght;
     }
 
     public static int getItemDexterity() {
@@ -217,7 +220,7 @@ public class HeroStats {
     }
 
     public static void setItemDexterity(int itemDexterity) {
-        HeroStats.itemDexterity = itemDexterity;
+        Hero.itemDexterity = itemDexterity;
     }
 
     public static int getItemVitality() {
@@ -225,7 +228,7 @@ public class HeroStats {
     }
 
     public static void setItemVitality(int itemVitality) {
-        HeroStats.itemVitality = itemVitality;
+        Hero.itemVitality = itemVitality;
     }
 
     public static int getItemInteligence() {
@@ -233,7 +236,7 @@ public class HeroStats {
     }
 
     public static void setItemInteligence(int itemInteligence) {
-        HeroStats.itemInteligence = itemInteligence;
+        Hero.itemInteligence = itemInteligence;
     }
 
     public static int getItemDamage() {
@@ -241,7 +244,7 @@ public class HeroStats {
     }
 
     public static void setItemDamage(int itemDamage) {
-        HeroStats.itemDamage = itemDamage;
+        Hero.itemDamage = itemDamage;
     }
 
     public static int getItemDefense() {
@@ -249,7 +252,7 @@ public class HeroStats {
     }
 
     public static void setItemDefense(int itemDefense) {
-        HeroStats.itemDefense = itemDefense;
+        Hero.itemDefense = itemDefense;
     }
 
     public static int getHp() {
@@ -257,7 +260,7 @@ public class HeroStats {
     }
 
     public static void setHp(int hp) {
-        HeroStats.hp = hp;
+        Hero.hp = hp;
     }
 
     public static int getMp() {
@@ -265,7 +268,7 @@ public class HeroStats {
     }
 
     public static void setMp(int mp) {
-        HeroStats.mp = mp;
+        Hero.mp = mp;
     }
 
 }

@@ -19,31 +19,31 @@ import Arena.MainClass;
 public class Stats {
 
     public String[] hero() {
-        HeroStats.reloadItemStats();
+        Hero.reloadItemStats();
         String[] heroStats = new String[12];
-        heroStats[0] = Integer.toString(HeroStats.getStrenght() + HeroStats.getItemStrenght())+" ("+HeroStats.getItemStrenght()+")";
-        heroStats[1] = Integer.toString(HeroStats.getInteligence() + HeroStats.getItemInteligence())+" ("+HeroStats.getItemInteligence()+")";
-        heroStats[2] = Integer.toString(HeroStats.getVitality() + HeroStats.getItemVitality())+" ("+HeroStats.getItemVitality()+")";
-        heroStats[3] = Integer.toString(HeroStats.getDexterity() + HeroStats.getItemDexterity())+" ("+HeroStats.getItemDexterity()+")";
-        heroStats[4] = Integer.toString(HeroStats.getHp()) + " / " + Integer.toString(HeroStats.getItemVitality() + HeroStats.getVitality() * 10);
-        heroStats[5] = Integer.toString(HeroStats.getMp()) + " / " + Integer.toString(HeroStats.getItemInteligence()+ HeroStats.getInteligence()* 10);
-        heroStats[6] = Integer.toString(HeroStats.getMoney());
-        heroStats[7] = Integer.toString(HeroStats.getLevel());
-        heroStats[8] = Integer.toString(HeroStats.getExperiance());
-        if (HeroStats.getCharacterInventory()[1][1] == "0") {
+        heroStats[0] = Integer.toString(Hero.getStrenght() + Hero.getItemStrenght())+" ("+Hero.getItemStrenght()+")";
+        heroStats[1] = Integer.toString(Hero.getInteligence() + Hero.getItemInteligence())+" ("+Hero.getItemInteligence()+")";
+        heroStats[2] = Integer.toString(Hero.getVitality() + Hero.getItemVitality())+" ("+Hero.getItemVitality()+")";
+        heroStats[3] = Integer.toString(Hero.getDexterity() + Hero.getItemDexterity())+" ("+Hero.getItemDexterity()+")";
+        heroStats[4] = Integer.toString(Hero.getHp()) + " / " + Integer.toString(Hero.getItemVitality() + Hero.getVitality() * 10);
+        heroStats[5] = Integer.toString(Hero.getMp()) + " / " + Integer.toString(Hero.getItemInteligence()+ Hero.getInteligence()* 10);
+        heroStats[6] = Integer.toString(Hero.getMoney());
+        heroStats[7] = Integer.toString(Hero.getLevel());
+        heroStats[8] = Integer.toString(Hero.getExperiance());
+        if (Hero.getItemsOnHero()[1][1] == "0") {
             heroStats[9] = "Right Hand";
         } else {
-            heroStats[9] = HeroStats.getCharacterInventory()[1][0];
+            heroStats[9] = Hero.getItemsOnHero()[1][0];
         }
-        if (HeroStats.getCharacterInventory()[2][1] == "0") {
+        if (Hero.getItemsOnHero()[2][1] == "0") {
             heroStats[10] = "Left Hand";
         } else {
-            heroStats[10] = HeroStats.getCharacterInventory()[2][0];
+            heroStats[10] = Hero.getItemsOnHero()[2][0];
         }
-        if (HeroStats.getCharacterInventory()[3][1] == "0") {
+        if (Hero.getItemsOnHero()[3][1] == "0") {
             heroStats[11] = "Hairy chest";
         } else {
-            heroStats[11] = HeroStats.getCharacterInventory()[3][0];
+            heroStats[11] = Hero.getItemsOnHero()[3][0];
         }
 
         return heroStats;
@@ -52,13 +52,13 @@ public class Stats {
 
     public String[] enemy(int enemyNumber) {
         String[] enemyStats = new String[7];
-        enemyStats[0] = (Arena.MainClass.enemy[enemyNumber].getEnemyName());
-        enemyStats[1] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemystrenght());
-        enemyStats[2] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemydexterity());
-        enemyStats[3] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyvitality());
-        enemyStats[4] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyinteligence());
-        enemyStats[5] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemyhp());
-        enemyStats[6] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getEnemymp());
+        enemyStats[0] = (Arena.MainClass.enemy[enemyNumber].getName());
+        enemyStats[1] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getStrenght());
+        enemyStats[2] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getDexterity());
+        enemyStats[3] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getVitality());
+        enemyStats[4] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getInteligence());
+        enemyStats[5] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getHp());
+        enemyStats[6] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getMp());
         return enemyStats;
 
     }

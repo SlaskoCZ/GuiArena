@@ -129,7 +129,7 @@ public class ItemLoadClass {
             XPath xpath = XPathFactory.newInstance().newXPath();
             // XPath Query for showing all nodes value
 
-            XPathExpression expr = xpath.compile("//" + EnemyType + "-List/Enemy[@level<='"+Metods.HeroStats.getLevel()+"']/Name/text()");
+            XPathExpression expr = xpath.compile("//" + EnemyType + "-List/Enemy[@level<='"+Metods.Hero.getLevel()+"']/Name/text()");
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
             nodes = (NodeList) result;

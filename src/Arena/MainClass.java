@@ -9,7 +9,7 @@ import Arena.Messages.CustomMessage;
 import Arena.Messages.EnemyStatsDialog;
 import Arena.Messages.NewGameDialog;
 import Arena.Messages.MessageWithInput;
-import Metods.Enemies;
+import Metods.Enemy;
 import Metods.Fight;
 import Metods.Stats;
 import Metods.Utilities;
@@ -1226,20 +1226,20 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_arenaMenuButtonNormalAttackActionPerformed
 
     private void arenaMenuButtonLightAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonLightAttackActionPerformed
-        Fight fight = new Fight();
+        
 
     }//GEN-LAST:event_arenaMenuButtonLightAttackActionPerformed
 
     private void addLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLevelActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, addLevel.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setLevel(Metods.HeroStats.getLevel() + messageWithInput.getInput());
+        Metods.Hero.setLevel(Metods.Hero.getLevel() + messageWithInput.getInput());
     }//GEN-LAST:event_addLevelActionPerformed
 
     private void addMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, addMoney.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setMoney(Metods.HeroStats.getMoney() + messageWithInput.getInput());
+        Metods.Hero.setMoney(Metods.Hero.getMoney() + messageWithInput.getInput());
     }//GEN-LAST:event_addMoneyActionPerformed
 
     private void mainMenuButtonArenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonArenaActionPerformed
@@ -1255,15 +1255,15 @@ public class MainClass extends javax.swing.JFrame {
 
     private void mainMenuArenaMenuButtonOpponentConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
         if (enemyNumber >= 1) {
-            Enemies[] temp = enemy;
-            enemy = new Enemies[enemyNumber + 1];
+            Enemy[] temp = enemy;
+            enemy = new Enemy[enemyNumber + 1];
             for (int i = 0; i < temp.length; i++) {
                 enemy[i] = temp[i];
             }
 
         } else if (enemyNumber == 0) {
-            enemy = new Enemies[enemyNumber + 1];
-            enemy[0] = new Enemies(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+            enemy = new Enemy[enemyNumber + 1];
+            enemy[0] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
         } else {
             System.out.println("ERROR !");
         }
@@ -1284,7 +1284,7 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuArenaMenuButtonArenaLevelActionPerformed
 
     private void mainMenuArenaMenuButtonNextOpponentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonNextOpponentActionPerformed
-        mainMenuArenaMenuComboBoxOpponentSelect.setModel(new DefaultComboBoxModel(Enemies.getEnemyList()));
+        mainMenuArenaMenuComboBoxOpponentSelect.setModel(new DefaultComboBoxModel(Enemy.getEnemyList()));
         mainMenuArenaMenuButtonNextOpponent.setEnabled(false);
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(true);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(true);
@@ -1298,25 +1298,25 @@ public class MainClass extends javax.swing.JFrame {
     private void testMenuAddStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddStrActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddStr.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setStrenght(Metods.HeroStats.getStrenght() + Arena.Messages.MessageWithInput.getInput());
+        Metods.Hero.setStrenght(Metods.Hero.getStrenght() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddStrActionPerformed
 
     private void testMenuAddVitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddVitActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddVit.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setVitality(Metods.HeroStats.getVitality() + Arena.Messages.MessageWithInput.getInput());
+        Metods.Hero.setVitality(Metods.Hero.getVitality() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddVitActionPerformed
 
     private void testMenuAddDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddDexActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddDex.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setDexterity(Metods.HeroStats.getDexterity() + Arena.Messages.MessageWithInput.getInput());
+        Metods.Hero.setDexterity(Metods.Hero.getDexterity() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddDexActionPerformed
 
     private void testMenuAddIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddIntActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, "ADD " + testMenuAddInt.getText());
         messageWithInput.setVisible(true);
-        Metods.HeroStats.setInteligence(Metods.HeroStats.getInteligence() + Arena.Messages.MessageWithInput.getInput());
+        Metods.Hero.setInteligence(Metods.Hero.getInteligence() + Arena.Messages.MessageWithInput.getInput());
     }//GEN-LAST:event_testMenuAddIntActionPerformed
 
     private void mainMenuButtonShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonShopActionPerformed
@@ -1345,7 +1345,7 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuShopMenuButtonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuShopMenuButtonSellActionPerformed
         setShopUserChoice("Sell");
         shopMenuButtonBuy.setText(getShopUserChoice());
-        shopMenuListField.setModel(Metods.HeroStats.inventory());
+        shopMenuListField.setModel(Metods.Hero.inventory());
         panelMainMenu.setVisible(false);
         panelShopMenu.setVisible(true);
         mainMenuShopMenuButtonBuyWeapon.setVisible(false);
@@ -1392,7 +1392,7 @@ public class MainClass extends javax.swing.JFrame {
         if (selected != -1) {
             if (getShopUserChoice().equals("Buy")) {
 
-                if (Metods.HeroStats.getInventoryItems() >= 256) {
+                if (Metods.Hero.getInventoryItems() >= 256) {
                     Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
                     cm.setVisible(true);
                 } else {
@@ -1400,8 +1400,8 @@ public class MainClass extends javax.swing.JFrame {
                 }
             } else {
                 Metods.Shop.sell(selected);
-                shopMenuListField.setModel(Metods.HeroStats.inventory());
-                if (Metods.HeroStats.getInventoryItems() == 0) {
+                shopMenuListField.setModel(Metods.Hero.inventory());
+                if (Metods.Hero.getInventoryItems() == 0) {
                     shopMenuButtonBuy.setEnabled(false);
                 }
                 shopMenuLabelItemNameStats.setText("");
@@ -1436,7 +1436,7 @@ public class MainClass extends javax.swing.JFrame {
                 shopMenuLabelItemDEFStats.setText(item[7]);
                 shopMenuLabelItemPriceStats.setText(item[9]);
             } else {
-                String[] item = Metods.HeroStats.getInventoryStats(shopMenuListField.getSelectedIndex());
+                String[] item = Metods.Hero.getInventoryStats(shopMenuListField.getSelectedIndex());
                 shopMenuLabelItemNameStats.setText(item[0]);
                 shopMenuLabelItemSTRStats.setText(item[1]);
                 shopMenuLabelItemDEXStats.setText(item[2]);
@@ -1576,7 +1576,7 @@ public class MainClass extends javax.swing.JFrame {
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="Variables">
     // user variables
-    public static Enemies[] enemy;
+    public static Enemy[] enemy;
     int enemyNumber = 0;
     public boolean testMode = false;
     private String shopUserChoice;

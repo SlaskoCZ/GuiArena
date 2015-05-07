@@ -13,9 +13,7 @@ import Metods.Stats;
  */
 public class EnemyStatsDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form EnemyStats
-     */
+    //@todo make stats for more enemies (probably buttons to change enemy numbers)
     public EnemyStatsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -55,6 +53,8 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
         changableStatsVIT = new javax.swing.JLabel();
         enemyStatsEnemyStats = new javax.swing.JLabel();
         enemyStatsButtonBack = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,11 +90,18 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
         enemyStatsEnemyStats.setText("Enemy Stats");
 
         enemyStatsButtonBack.setText("OK");
+        enemyStatsButtonBack.setPreferredSize(new java.awt.Dimension(50, 25));
         enemyStatsButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enemyStatsButtonBackActionPerformed(evt);
             }
         });
+
+        jButton1.setText("Prev");
+        jButton1.setPreferredSize(new java.awt.Dimension(60, 25));
+
+        jButton2.setText("Next");
+        jButton2.setPreferredSize(new java.awt.Dimension(60, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,30 +111,37 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enemyStatsEnemyStats)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(enemyStatsButtonBack))))
+                        .addComponent(enemyStatsEnemyStats))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(enemyStatsVIT)
-                            .addComponent(enemyStatsINT)
-                            .addComponent(enemyStatsDEX)
-                            .addComponent(enemyStatsSTR)
-                            .addComponent(enemyStatsMP)
-                            .addComponent(enemyStatsHP)
-                            .addComponent(enemyStatsName))
-                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(changableStatsName)
-                            .addComponent(changableStatsHP)
-                            .addComponent(changableStatsMP)
-                            .addComponent(changableStatsSTR)
-                            .addComponent(changableStatsDEX)
-                            .addComponent(changableStatsINT)
-                            .addComponent(changableStatsVIT))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGap(18, 18, 18)
+                                .addComponent(enemyStatsButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(enemyStatsVIT)
+                                    .addComponent(enemyStatsINT)
+                                    .addComponent(enemyStatsDEX)
+                                    .addComponent(enemyStatsSTR)
+                                    .addComponent(enemyStatsMP)
+                                    .addComponent(enemyStatsHP)
+                                    .addComponent(enemyStatsName))
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(changableStatsName)
+                                    .addComponent(changableStatsHP)
+                                    .addComponent(changableStatsMP)
+                                    .addComponent(changableStatsSTR)
+                                    .addComponent(changableStatsDEX)
+                                    .addComponent(changableStatsINT)
+                                    .addComponent(changableStatsVIT)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,7 +149,11 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(enemyStatsEnemyStats)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(changableStatsName)
@@ -166,8 +184,7 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(enemyStatsVIT)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(enemyStatsButtonBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(enemyStatsButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -237,5 +254,7 @@ public class EnemyStatsDialog extends javax.swing.JDialog {
     private javax.swing.JLabel enemyStatsName;
     private javax.swing.JLabel enemyStatsSTR;
     private javax.swing.JLabel enemyStatsVIT;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
