@@ -1226,7 +1226,7 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_arenaMenuButtonNormalAttackActionPerformed
 
     private void arenaMenuButtonLightAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonLightAttackActionPerformed
-        
+
 
     }//GEN-LAST:event_arenaMenuButtonLightAttackActionPerformed
 
@@ -1254,16 +1254,22 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuButtonArenaActionPerformed
 
     private void mainMenuArenaMenuButtonOpponentConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
-        if (enemyNumber >= 1) {
-            Enemy[] temp = enemy;
-            enemy = new Enemy[enemyNumber + 1];
-            for (int i = 0; i < temp.length; i++) {
-                enemy[i] = temp[i];
-            }
-
+        System.out.println("ADD Opponent");
+        if (enemyNumber > 0) {
+            
+            System.out.println("adding oponent number: " + enemyNumber);
+            Enemy[] temp = new Enemy[enemyNumber];
+            System.arraycopy(enemy, 0, temp, 0, enemy.length);
+            enemyNumber++;
+            enemy = new Enemy[enemyNumber];
+            System.arraycopy(temp, 0, enemy, 0, temp.length);
+            enemy[enemyNumber-1] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
         } else if (enemyNumber == 0) {
-            enemy = new Enemy[enemyNumber + 1];
+            System.out.println("Making fist opponent");
+            enemyNumber++;
+            enemy = new Enemy[enemyNumber];
             enemy[0] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+
         } else {
             System.out.println("ERROR !");
         }
@@ -1504,7 +1510,7 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuHospitalMenuButtonImplantsVitalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
-    public final void reloadHeroStats() {
+    public void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
         changableLabelSTR.setText(heroStats[0]);
@@ -1573,11 +1579,16 @@ public class MainClass extends javax.swing.JFrame {
     public void setShopUserChoice(String shopUserChoice) {
         this.shopUserChoice = shopUserChoice;
     }
+
+    public static int getEnemyNumber() {
+        return enemyNumber;
+    }
+    
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="Variables">
     // user variables
     public static Enemy[] enemy;
-    int enemyNumber = 0;
+    private static int enemyNumber = 0;
     public boolean testMode = false;
     private String shopUserChoice;
     // end of user variables

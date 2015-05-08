@@ -3,17 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Resources/EnemyList.xml</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Resources/ItemLoadClass.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/Messages/EnemyStatsDialog.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/MainClass.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Utilities.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Hospital.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Hero.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Arena/Messages/BagDialog.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Stats.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Fight.java</file>
-            <file>file:/D:/skola/Java/Gui_Arena/GuiArena/src/Metods/Enemy.java</file>
+            <file>file:/D:/skola/Java/ja/GuiArena/src/Arena/MainClass.java</file>
+            <file>file:/D:/skola/Java/ja/GuiArena/src/Metods/Stats.java</file>
+            <file>file:/D:/skola/Java/ja/GuiArena/src/Arena/Messages/EnemyStatsDialog.java</file>
         </group>
     </open-files>
 </project-private>

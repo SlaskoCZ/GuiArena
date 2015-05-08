@@ -59,6 +59,7 @@ public class Stats {
         enemyStats[4] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getInteligence());
         enemyStats[5] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getHp());
         enemyStats[6] = Integer.toString(Arena.MainClass.enemy[enemyNumber].getMp());
+        System.out.println("Stats for enemy: "+enemyNumber);
         return enemyStats;
 
     }

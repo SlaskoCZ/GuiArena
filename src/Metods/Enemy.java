@@ -16,32 +16,32 @@ package Metods;
  */
 public class Enemy {
 
-    private static int hp = 0;
-    private static int mp = 0;
-    private static int strenght = 0;
-    private static int dexterity = 0;
-    private static int vitality = 0;
-    private static int inteligence = 0;
-    private static int level = 0;
-    private static String Name = null;
-    private static int baseExp = 0;
-    private static String[] enemyLoadStats = new String[]{"Name", "STR", "DEX", "VIT", "INT", "EXP"};
+    private int hp = 0;
+    private int mp = 0;
+    private int strenght = 0;
+    private int dexterity = 0;
+    private int vitality = 0;
+    private int inteligence = 0;
+    private int level = 0;
+    private String name = null;
+    private int baseExp = 0;
+    private String[] enemyLoadStats = new String[]{"Name", "STR", "DEX", "VIT", "INT", "EXP"};
 
     public Enemy(int enemy) {
-        
-        this.setName(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[0]));
-        this.setStrenght(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[1])));
-        this.setDexterity(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[2])));
-        this.setVitality(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[3])));
-        this.setInteligence(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[4])));
-        this.setBaseExp(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[5])));
-        this.setHp(getVitality()*10);
-        this.setMp(getInteligence()*10);
+
+        name = Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[0]);
+        strenght = Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[1]));
+        dexterity = Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[2]));
+        vitality = Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[3]));
+        inteligence = Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[4]));
+        baseExp = Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[5]));
+        hp = (vitality * 10);
+        mp = (inteligence * 10);
 
     }
 
     public Enemy() {
-        int enemy = (int)Metods.Utilities.randomNumber(1, Resources.ItemLoadClass.getNumberOfEnemiesinXML("EnemyList.xml"), true);
+        int enemy = (int) Metods.Utilities.randomNumber(1, Resources.ItemLoadClass.getNumberOfEnemiesinXML("EnemyList.xml"), true);
         this.setName(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[0]));
         this.setStrenght(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[1])));
         this.setDexterity(Integer.valueOf(Resources.ItemLoadClass.jarLoadEnemyFromXML("EnemyList.xml", Integer.toString(enemy), enemyLoadStats[2])));
@@ -66,7 +66,7 @@ public class Enemy {
         if (hp < 0) {
             hp = 0;
         }
-        Enemy.hp = hp;
+        this.hp = hp;
     }
 
     int getMp() {
@@ -77,7 +77,7 @@ public class Enemy {
         if (mp < 0) {
             mp = 0;
         }
-        Enemy.mp = mp;
+        this.mp = mp;
     }
 
     int getStrenght() {
@@ -88,7 +88,7 @@ public class Enemy {
         if (strenght < 0) {
             strenght = 0;
         }
-        Enemy.strenght = strenght;
+        this.strenght = strenght;
     }
 
     int getDexterity() {
@@ -96,7 +96,7 @@ public class Enemy {
     }
 
     void setDexterity(int dexterity) {
-        Enemy.dexterity = dexterity;
+        this.dexterity = dexterity;
     }
 
     int getVitality() {
@@ -104,7 +104,7 @@ public class Enemy {
     }
 
     void setVitality(int vitality) {
-        Enemy.vitality = vitality;
+        this.vitality = vitality;
     }
 
     int getInteligence() {
@@ -112,7 +112,7 @@ public class Enemy {
     }
 
     void setInteligence(int inteligence) {
-        Enemy.inteligence = inteligence;
+        this.inteligence = inteligence;
     }
 
     int getLevel() {
@@ -120,15 +120,15 @@ public class Enemy {
     }
 
     void setLevel(int level) {
-        Enemy.level = level;
+        this.level = level;
     }
 
     String getName() {
-        return Name;
+        return name;
     }
 
     void setName(String Name) {
-        Enemy.Name = Name;
+        this.name = Name;
     }
 
     int getBaseExp() {
@@ -136,7 +136,7 @@ public class Enemy {
     }
 
     void setBaseExp(int baseExp) {
-        Enemy.baseExp = baseExp;
+        this.baseExp = baseExp;
     }
 
 }
