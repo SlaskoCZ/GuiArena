@@ -1051,20 +1051,10 @@ public class MainClass extends javax.swing.JFrame {
 
         menuFileSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
         menuFileSave.setText("Save Game");
-        menuFileSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileSaveActionPerformed(evt);
-            }
-        });
         menuFile.add(menuFileSave);
 
         menuFileLoad.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK));
         menuFileLoad.setText("Load Game");
-        menuFileLoad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileLoadActionPerformed(evt);
-            }
-        });
         menuFile.add(menuFileLoad);
         menuFile.add(jSeparator2);
 
@@ -1158,13 +1148,6 @@ public class MainClass extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuFileSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveActionPerformed
-        SaveForm sf = new SaveForm();
-        sf.setVisible(true);
-
-
-    }//GEN-LAST:event_menuFileSaveActionPerformed
-
     private void menuFileNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileNewGameActionPerformed
         NewGameDialog newGameDialog = new NewGameDialog(this, true);
         newGameDialog.setVisible(true);
@@ -1206,11 +1189,6 @@ public class MainClass extends javax.swing.JFrame {
         Arena.Messages.BagDialog bagDialog = new Arena.Messages.BagDialog(this, true);
         bagDialog.setVisible(true);
     }//GEN-LAST:event_heroStatsButtonBagActionPerformed
-
-    private void menuFileLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadActionPerformed
-        LoadForm lf = new LoadForm();
-        lf.setVisible(true);
-    }//GEN-LAST:event_menuFileLoadActionPerformed
 
     private void arenaMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonBackActionPerformed
         panelArenaMenu.setVisible(false);

@@ -7,6 +7,7 @@ package Arena.Messages;
 
 import Metods.Hero;
 import Metods.Shop;
+import java.awt.event.MouseEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
@@ -46,8 +47,8 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogButtonBack = new javax.swing.JButton();
 
         bagDialogPopupMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bagDialogPopupMenuMouseExited(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bagDialogPopupMenuMousePressed(evt);
             }
         });
 
@@ -80,6 +81,13 @@ public class BagDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(524, 300));
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
 
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setMaximumSize(new java.awt.Dimension(258, 278));
@@ -87,7 +95,6 @@ public class BagDialog extends javax.swing.JDialog {
         jScrollPane1.setPreferredSize(new java.awt.Dimension(258, 25));
 
         bagDialogList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        bagDialogList.setComponentPopupMenu(bagDialogPopupMenu);
         bagDialogList.setName(""); // NOI18N
         bagDialogList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -139,28 +146,6 @@ public class BagDialog extends javax.swing.JDialog {
 
     }//GEN-LAST:event_bagDialogPopupMenuInfoActionPerformed
 
-    private void bagDialogListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogListMousePressed
-       JList list = (JList) evt.getSource();
-        int row = list.locationToIndex(evt.getPoint());
-        list.setSelectedIndex(row);
-        if (list.getSelectedIndex() == -1){
-            bagDialogPopupMenuDestroy.setEnabled(false);
-            bagDialogPopupMenuInfo.setEnabled(false);
-            bagDialogPopupMenuWear.setEnabled(false);
-        } else {
-            bagDialogPopupMenuDestroy.setEnabled(true);
-            bagDialogPopupMenuInfo.setEnabled(true);
-            bagDialogPopupMenuWear.setEnabled(true);
-        }
-
-    }//GEN-LAST:event_bagDialogListMousePressed
-
-    private void bagDialogPopupMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuMouseExited
-        if (!bagDialogPopupMenu.contains(evt.getPoint())) {
-            bagDialogPopupMenu.setVisible(false);
-        }
-    }//GEN-LAST:event_bagDialogPopupMenuMouseExited
-
     private void bagDialogPopupMenuWearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuWearActionPerformed
         Hero.addCharacterItems(bagDialogList.getSelectedIndex());
         Shop.deleteInventorySlotAndSort(bagDialogList.getSelectedIndex());
@@ -172,6 +157,50 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogList.setModel(Metods.Hero.inventory());
     }//GEN-LAST:event_bagDialogPopupMenuDestroyActionPerformed
 
+    private void bagDialogListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogListMousePressed
+        bagDialogPopupMenu.setVisible(false);
+        System.out.println(evt.getButton());
+        if (evt.getButton() == 3) {
+            System.out.println("MENU");
+            bagDialogPopupMenu.setLocation(evt.getXOnScreen(), evt.getYOnScreen());
+            JList list = (JList) evt.getSource();
+            int row = list.locationToIndex(evt.getPoint());
+            list.setSelectedIndex(row);
+            if (list.getSelectedIndex() == -1) {
+                bagDialogPopupMenuDestroy.setEnabled(false);
+                bagDialogPopupMenuInfo.setEnabled(false);
+                bagDialogPopupMenuWear.setEnabled(false);
+            } else {
+                bagDialogPopupMenuDestroy.setEnabled(true);
+                bagDialogPopupMenuInfo.setEnabled(true);
+                bagDialogPopupMenuWear.setEnabled(true);
+            }
+            bagDialogPopupMenu.setVisible(true);
+        }
+    }//GEN-LAST:event_bagDialogListMousePressed
+
+    private void bagDialogPopupMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuMousePressed
+        bagDialogPopupMenu.setVisible(false);
+        if (evt.getButton() == MouseEvent.BUTTON2) {
+            System.out.println("Rightclick !");
+            JList list = (JList) evt.getSource();
+            int row = list.locationToIndex(evt.getPoint());
+            list.setSelectedIndex(row);
+            if (list.getSelectedIndex() == -1) {
+                bagDialogPopupMenuDestroy.setEnabled(false);
+                bagDialogPopupMenuInfo.setEnabled(false);
+                bagDialogPopupMenuWear.setEnabled(false);
+            } else {
+                bagDialogPopupMenuDestroy.setEnabled(true);
+                bagDialogPopupMenuInfo.setEnabled(true);
+                bagDialogPopupMenuWear.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_bagDialogPopupMenuMousePressed
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+       bagDialogPopupMenu.setVisible(false);
+    }//GEN-LAST:event_formWindowLostFocus
 
     /**
      * @param args the command line arguments
