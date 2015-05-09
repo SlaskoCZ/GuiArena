@@ -5,16 +5,35 @@
  */
 package Metods;
 
+import Resources.ItemLoadClass;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class SaveAndLoad {
 
@@ -88,7 +107,7 @@ public class SaveAndLoad {
                     + "Price=" + quotationMarks + Hero.getItemsOnHero()[3][8] + quotationMarks + "/>"
                     + System.lineSeparator());
             w.write("\t\t\t</characterInventory>" + System.lineSeparator());
-            w.write("\t\t\t<inventory "+"items="+quotationMarks+Hero.getInventoryItems()+quotationMarks+">" + System.lineSeparator());
+            w.write("\t\t\t<inventory " + "items=" + quotationMarks + Hero.getInventoryItems() + quotationMarks + ">" + System.lineSeparator());
             for (int i = 0; i < Hero.getInventoryItems(); i++) {
                 w.write("\t\t\t\t<item"
                         + "name=" + quotationMarks + Hero.getInventory()[i][0].trim() + quotationMarks + " "
@@ -106,6 +125,7 @@ public class SaveAndLoad {
 
             w.write("\t\t<hero>" + System.lineSeparator());
             w.write("\t<root>" + System.lineSeparator());
+            updateData("save"+fileNumber, "save", "1");
         } catch (FileNotFoundException ex) {
 
             Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,4 +135,43 @@ public class SaveAndLoad {
 
     }
 
+    private static void updateData(String targetAtribute, String targetName, String target) {
+        XPathExpression expr;
+        Document doc;
+        try {
+            File data = new File(Utilities.getPathToDir() + "\\data.gad");
+            DocumentBuilderFactory domFactory
+                    = DocumentBuilderFactory.newInstance();
+            domFactory.setNamespaceAware(true);
+            DocumentBuilder builder = domFactory.newDocumentBuilder();
+            doc = builder.parse(data);
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            System.out.println("save");
+            if (targetName.equals("save")) {
+
+                expr = xpath.compile("//save/@" + targetAtribute);
+            } else {
+                expr = xpath.compile("//root");
+            }
+
+            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+            nodes.item(0).setTextContent(target);
+            System.out.println("result");
+            System.out.println(nodes.item(0).getTextContent());
+            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(Utilities.getPathToDir()+"\\data.gad"));
+            transformer.transform(source, result);
+        } catch (XPathExpressionException | SAXException | IOException | ParserConfigurationException ex) {
+            Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (TransformerConfigurationException ex) {
+            Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

@@ -2,8 +2,12 @@ package Metods;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
@@ -44,7 +48,7 @@ public class Utilities {
 
         Object object = new Object();
         shopItemsDir = object.getClass().getResource("/Resources/").getPath();
-//       Create dir in My Games/GuiArena
+//       Create dir in My Games/GuiArena/save
         String pathToUserHome = System.getProperty("user.home");
         pathToDir = pathToUserHome + "\\Documents\\My Games";
         File theDir = new File(pathToDir);
@@ -82,7 +86,7 @@ public class Utilities {
             }
 
         }
-
+        // create all save slots
         for (int i = 1; i < 6; i++) {
 
             String save = pathToSave + "\\savegame" + i + ".gas";
@@ -97,15 +101,35 @@ public class Utilities {
             }
         }
 
-        theDir = new File(pathToDir);
-        if (!theDir.exists()) {
+        File dataFile = new File(pathToDir + "\\data.gad");
+        if (!dataFile.exists()) {
             try {
-                System.out.println("Created dir " + pathToDir);
-                theDir.mkdir();
-            } catch (SecurityException error) {
-                System.out.println(error);
+                dataFile.createNewFile();
+                try (Writer w = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream(dataFile.getAbsolutePath()), "ISO-8859-1"))) {
+                    char quotationMarks = '"';
+                    w.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>" + System.lineSeparator());
+                    w.write("<root>" + System.lineSeparator());
+                    w.write("\t<gamedata>" + System.lineSeparator());
+                    w.write("\t\t<save "
+                            + "save1=" + quotationMarks + "false" + quotationMarks + " "
+                            + "save2=" + quotationMarks + "false" + quotationMarks + " "
+                            + "save3=" + quotationMarks + "false" + quotationMarks + " "
+                            + "save4=" + quotationMarks + "false" + quotationMarks + " "
+                            + "save5=" + quotationMarks + "false" + quotationMarks + "/>"
+                            + System.lineSeparator());
+                    w.write("\t</gamedata>" + System.lineSeparator());
+                    w.write("\t<settings>" + System.lineSeparator());
+                    w.write("\t\t<localization "
+                            + "lang=" + quotationMarks + "English" + quotationMarks + "/>"
+                            + System.lineSeparator());
+                    w.write("\t</settings>" + System.lineSeparator());
+                    w.write("</root>" + System.lineSeparator());
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            System.out.println("Created file: " + dataFile);
         }
 
         timer(100, "0.1 sec background timer");

@@ -67,7 +67,6 @@ public class ItemLoadClass {
             DocumentBuilder builder = domFactory.newDocumentBuilder();
             Document doc = builder.parse(inputStream);
             XPath xpath = XPathFactory.newInstance().newXPath();
-            // XPath Query for showing all nodes value
             System.out.println(EnemyNumber +" "+ statName);
             XPathExpression expr = xpath.compile("//Enemy[@ID='" + EnemyNumber + "']/" + statName.trim() + "/text()");
 
