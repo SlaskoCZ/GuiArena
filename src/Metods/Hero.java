@@ -1,16 +1,7 @@
 package Metods;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import static java.lang.Integer.parseInt;
-import java.util.Arrays;
 import javax.swing.DefaultListModel;
 
 /*
@@ -28,7 +19,7 @@ import javax.swing.DefaultListModel;
  * @author Petr Linhart
  */
 public class Hero {
-    private static String name = null;
+    private static String name = "Argus Pyrrhus";
     private static int strenght = 10;
     private static int dexterity = 10;
     private static int vitality = 10;
@@ -119,6 +110,18 @@ public class Hero {
         itemDefense = parseInt(itemsOnHero[2][6].trim()) + parseInt(itemsOnHero[3][6].trim());
     }
 
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Hero.name = name;
+    }
+
+    public static void setInventory(String[][] inventory) {
+        Hero.inventory = inventory;
+    }
+    
     public static String[][] getInventory() {
         return inventory;
     }

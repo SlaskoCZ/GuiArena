@@ -1052,6 +1052,11 @@ public class MainClass extends javax.swing.JFrame {
 
         menuFileSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
         menuFileSave.setText("Save Game");
+        menuFileSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileSaveActionPerformed(evt);
+            }
+        });
         menuFile.add(menuFileSave);
 
         menuFileLoad.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK));
@@ -1489,6 +1494,10 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuHospitalMenuButtonImplantsVitalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
+
+    private void menuFileSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveActionPerformed
+      Metods.SaveAndLoad.save(1);
+    }//GEN-LAST:event_menuFileSaveActionPerformed
     public void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
@@ -1504,6 +1513,7 @@ public class MainClass extends javax.swing.JFrame {
         changableLabelWeapon.setText(heroStats[9]);
         changableLabelShield.setText(heroStats[10]);
         changableLabelArmor.setText(heroStats[11]);
+        changableLabelName.setText(heroStats[12]);
     }
 
     private void openShopForm() {

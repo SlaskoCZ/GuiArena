@@ -20,7 +20,7 @@ public class Stats {
 
     public String[] hero() {
         Hero.reloadItemStats();
-        String[] heroStats = new String[12];
+        String[] heroStats = new String[13];
         heroStats[0] = Integer.toString(Hero.getStrenght() + Hero.getItemStrenght())+" ("+Hero.getItemStrenght()+")";
         heroStats[1] = Integer.toString(Hero.getInteligence() + Hero.getItemInteligence())+" ("+Hero.getItemInteligence()+")";
         heroStats[2] = Integer.toString(Hero.getVitality() + Hero.getItemVitality())+" ("+Hero.getItemVitality()+")";
@@ -45,7 +45,7 @@ public class Stats {
         } else {
             heroStats[11] = Hero.getItemsOnHero()[3][0];
         }
-
+        heroStats[12] = Hero.getName();
         return heroStats;
 
     }
