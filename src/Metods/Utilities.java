@@ -2,16 +2,10 @@ package Metods;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Timer;
 
 /*
@@ -34,8 +28,11 @@ public class Utilities {
     private static double difficulty;
     private static int delay;
     private static String shopItemsDir;
+    private static String pathToDir;
+    private static String pathToSave;
 //@todo Make Save system
     //@todo Make Load system
+
     public static void systemInit() {
 //        try {
         // fill characterInventory array with 0
@@ -44,29 +41,74 @@ public class Utilities {
                 Hero.setCharacterInventory(i, j, "0");
             }
         }
+
         Object object = new Object();
         shopItemsDir = object.getClass().getResource("/Resources/").getPath();
-//       Create Temp dir with temp file Inventory.txt
-//            File theDir = new File("temp");
-//            if (!theDir.exists()) {
-//                try {
-//                    theDir.mkdir();
-//                } catch (SecurityException error) {
-//                    System.out.println(error);
-//                }
-//                
-//            }
-        timer(100, "1 sec background timer");
-//            theDir.deleteOnExit();
-//            temp = new File(theDir.getAbsolutePath() + "/Inventory.txt");
-//            temp.delete();
-//            temp.createNewFile();
-//            temp.deleteOnExit();
-//        Dificulty
+//       Create dir in My Games/GuiArena
+        String pathToUserHome = System.getProperty("user.home");
+        pathToDir = pathToUserHome + "\\Documents\\My Games";
+        File theDir = new File(pathToDir);
+        if (!theDir.exists()) {
+            try {
+                theDir.mkdir();
+                System.out.println("Created dir " + pathToDir);
+            } catch (SecurityException error) {
+                System.out.println(error);
+            }
 
-//        } catch (IOException ex) {
-//            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        }
+
+        pathToDir += "\\GuiArena";
+        theDir = new File(pathToDir);
+        if (!theDir.exists()) {
+            try {
+                System.out.println("Created dir " + pathToDir);
+                theDir.mkdir();
+            } catch (SecurityException error) {
+                System.out.println(error);
+            }
+
+        }
+
+        pathToSave = pathToDir + "\\save";
+        theDir = new File(pathToSave);
+        if (!theDir.exists()) {
+            try {
+                System.out.println("Created dir " + pathToSave);
+                theDir.mkdir();
+
+            } catch (SecurityException error) {
+                System.out.println(error);
+            }
+
+        }
+
+        for (int i = 1; i < 6; i++) {
+
+            String save = pathToSave + "\\savegame" + i + ".gas";
+            File saves = new File(save);
+            if (!saves.exists()) {
+                try {
+                    saves.createNewFile();
+                } catch (IOException ex) {
+                    Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println("Created file: " + save);
+            }
+        }
+
+        theDir = new File(pathToDir);
+        if (!theDir.exists()) {
+            try {
+                System.out.println("Created dir " + pathToDir);
+                theDir.mkdir();
+            } catch (SecurityException error) {
+                System.out.println(error);
+            }
+
+        }
+
+        timer(100, "0.1 sec background timer");
         setDificulty("Normal");
     }
 
@@ -91,7 +133,6 @@ public class Utilities {
         System.in.read();
     }
 
-
     private static void timer(int delay, String task) {
         final Arena.MainClass mainClass = new Arena.MainClass();
         setDelay(delay);
@@ -106,9 +147,14 @@ public class Utilities {
         new Timer(delay, timer).start();
     }
 
-
-
     // <editor-fold defaultstate="collapsed" desc="Gettings and Settings">
+    public static String getPathToDir() {
+        return pathToDir;
+    }
+
+    public static String getPathToSave() {
+        return pathToSave;
+    }
 
     public static String getShopItemsDir() {
         return shopItemsDir;

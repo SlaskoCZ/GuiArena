@@ -267,22 +267,8 @@
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="changableLabelName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="changableLabelHP" alignment="0" max="32767" attributes="0"/>
-                              <Component id="changableLabelLevel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nameLabelWeapon" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="nameLabelShield" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="nameLabelArmor" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="changableLabelArmor" alignment="0" max="32767" attributes="0"/>
-                              <Component id="heroStatsButtonBag" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="changableLabelShield" alignment="0" max="32767" attributes="0"/>
-                              <Component id="changableLabelWeapon" min="-2" max="-2" attributes="0"/>
+                              <Component id="changableLabelLevel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="changableLabelHP" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -299,14 +285,30 @@
                               <Component id="changableLabelVIT" alignment="0" max="32767" attributes="0"/>
                               <Component id="changableLabelDEX" alignment="0" max="32767" attributes="0"/>
                               <Component id="changableLabelSTR" alignment="0" max="32767" attributes="0"/>
-                              <Component id="changableLabelMP" alignment="0" max="32767" attributes="0"/>
                               <Component id="changableLabelINT" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="changableLabelMoney" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="changableLabelMoney" alignment="1" max="32767" attributes="0"/>
+                              <Component id="changableLabelMP" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="nameLabelHeroStats" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="nameLabelWeapon" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="nameLabelShield" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="nameLabelArmor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="heroStatsButtonBag" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="changableLabelArmor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="changableLabelShield" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="changableLabelWeapon" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
