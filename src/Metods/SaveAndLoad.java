@@ -88,18 +88,18 @@ public class SaveAndLoad {
                     + "Price=" + quotationMarks + Hero.getItemsOnHero()[3][8] + quotationMarks + "/>"
                     + System.lineSeparator());
             w.write("\t\t\t</characterInventory>" + System.lineSeparator());
-            w.write("\t\t\t<inventory>" + System.lineSeparator());
+            w.write("\t\t\t<inventory "+"items="+quotationMarks+Hero.getInventoryItems()+quotationMarks+">" + System.lineSeparator());
             for (int i = 0; i < Hero.getInventoryItems(); i++) {
                 w.write("\t\t\t\t<item"
-                        + "name=" + quotationMarks + Hero.getInventory()[i][0] + quotationMarks + " "
-                        + "INT=" + quotationMarks + Hero.getInventory()[i][4] + quotationMarks + " "
-                        + "VIT=" + quotationMarks + Hero.getInventory()[i][3] + quotationMarks + " "
-                        + "DEX=" + quotationMarks + Hero.getInventory()[i][2] + quotationMarks + " "
-                        + "STR=" + quotationMarks + Hero.getInventory()[i][1] + quotationMarks + " "
-                        + "DMG=" + quotationMarks + Hero.getInventory()[i][5] + quotationMarks + " "
-                        + "DEF=" + quotationMarks + Hero.getInventory()[i][6] + quotationMarks + " "
-                        + "Type=" + quotationMarks + Hero.getInventory()[i][7] + quotationMarks + " "
-                        + "Price=" + quotationMarks + Hero.getInventory()[i][8] + quotationMarks + "/>"
+                        + "name=" + quotationMarks + Hero.getInventory()[i][0].trim() + quotationMarks + " "
+                        + "INT=" + quotationMarks + Hero.getInventory()[i][4].trim() + quotationMarks + " "
+                        + "VIT=" + quotationMarks + Hero.getInventory()[i][3].trim() + quotationMarks + " "
+                        + "DEX=" + quotationMarks + Hero.getInventory()[i][2].trim() + quotationMarks + " "
+                        + "STR=" + quotationMarks + Hero.getInventory()[i][1].trim() + quotationMarks + " "
+                        + "DMG=" + quotationMarks + Hero.getInventory()[i][5].trim() + quotationMarks + " "
+                        + "DEF=" + quotationMarks + Hero.getInventory()[i][6].trim() + quotationMarks + " "
+                        + "Type=" + quotationMarks + Hero.getInventory()[i][7].trim() + quotationMarks + " "
+                        + "Price=" + quotationMarks + Hero.getInventory()[i][8].trim() + quotationMarks + "/>"
                         + System.lineSeparator());
             }
             w.write("\t\t\t</inventory>" + System.lineSeparator());
