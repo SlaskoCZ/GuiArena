@@ -359,17 +359,17 @@ public class SaveAndLoad {
                                 Hero.setInventory(i, 6, nl.item(j).getTextContent());
                                 break;
                             case "price":
-                                Hero.setInventory(i, 7, nl.item(j).getTextContent());
+                                Hero.setInventory(i, 8, nl.item(j).getTextContent());
                                 break;
                             case "type":
-                                Hero.setInventory(i, 8, nl.item(j).getTextContent());
+                                Hero.setInventory(i, 7, nl.item(j).getTextContent());
                                 break;
                             case "name":
                                 Hero.setInventory(i, 0, nl.item(j).getTextContent());
                                 break;
                         }
                     }
-
+                    Hero.setInventoryItems(1);
                 }
             }
 

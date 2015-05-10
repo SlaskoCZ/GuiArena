@@ -1116,6 +1116,11 @@ public class MainClass extends javax.swing.JFrame {
         menuFileLoadMenu.add(menuFileLoadMenuLoad5);
 
         menuFileLoadMenuLoad4.setText("Load");
+        menuFileLoadMenuLoad4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileLoadMenuLoad4ActionPerformed(evt);
+            }
+        });
         menuFileLoadMenu.add(menuFileLoadMenuLoad4);
 
         menuFileLoadMenuLoad3.setText("Load");
@@ -1127,9 +1132,19 @@ public class MainClass extends javax.swing.JFrame {
         menuFileLoadMenu.add(menuFileLoadMenuLoad3);
 
         menuFileLoadMenuLoad2.setText("Load");
+        menuFileLoadMenuLoad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileLoadMenuLoad2ActionPerformed(evt);
+            }
+        });
         menuFileLoadMenu.add(menuFileLoadMenuLoad2);
 
         menuFileLoadMenuLoad1.setText("Load");
+        menuFileLoadMenuLoad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileLoadMenuLoad1ActionPerformed(evt);
+            }
+        });
         menuFileLoadMenu.add(menuFileLoadMenuLoad1);
 
         menuFile.add(menuFileLoadMenu);
@@ -1311,14 +1326,14 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuArenaMenuButtonOpponentConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
         System.out.println("ADD Opponent");
         if (enemyNumber > 0) {
-            
+
             System.out.println("adding oponent number: " + enemyNumber);
             Enemy[] temp = new Enemy[enemyNumber];
             System.arraycopy(enemy, 0, temp, 0, enemy.length);
             enemyNumber++;
             enemy = new Enemy[enemyNumber];
             System.arraycopy(temp, 0, enemy, 0, temp.length);
-            enemy[enemyNumber-1] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+            enemy[enemyNumber - 1] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
         } else if (enemyNumber == 0) {
             System.out.println("Making fist opponent");
             enemyNumber++;
@@ -1567,15 +1582,15 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_mainMenuHospitalMenuButtonImplantsVitalityActionPerformed
 
     private void menuFileSaveMenuSave3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveMenuSave3ActionPerformed
-     Metods.SaveAndLoad.save(3);
+        Metods.SaveAndLoad.save(3);
     }//GEN-LAST:event_menuFileSaveMenuSave3ActionPerformed
 
     private void menuFileLoadMenuLoad3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad3ActionPerformed
-        // TODO add your handling code here:
+        Metods.SaveAndLoad.load(3);
     }//GEN-LAST:event_menuFileLoadMenuLoad3ActionPerformed
 
     private void menuFileLoadMenuLoad5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad5ActionPerformed
-        // TODO add your handling code here:
+        Metods.SaveAndLoad.load(5);
     }//GEN-LAST:event_menuFileLoadMenuLoad5ActionPerformed
 
     private void menuFileSaveMenuSave5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveMenuSave5ActionPerformed
@@ -1587,12 +1602,24 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_menuFileSaveMenuSave4ActionPerformed
 
     private void menuFileSaveMenuSave2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveMenuSave2ActionPerformed
-      Metods.SaveAndLoad.save(2);
+        Metods.SaveAndLoad.save(2);
     }//GEN-LAST:event_menuFileSaveMenuSave2ActionPerformed
 
     private void menuFileSaveMenuSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveMenuSave1ActionPerformed
         Metods.SaveAndLoad.save(1);
     }//GEN-LAST:event_menuFileSaveMenuSave1ActionPerformed
+
+    private void menuFileLoadMenuLoad4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad4ActionPerformed
+        Metods.SaveAndLoad.load(4);
+    }//GEN-LAST:event_menuFileLoadMenuLoad4ActionPerformed
+
+    private void menuFileLoadMenuLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad2ActionPerformed
+        Metods.SaveAndLoad.load(2);
+    }//GEN-LAST:event_menuFileLoadMenuLoad2ActionPerformed
+
+    private void menuFileLoadMenuLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad1ActionPerformed
+        Metods.SaveAndLoad.load(1);
+    }//GEN-LAST:event_menuFileLoadMenuLoad1ActionPerformed
     public void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
@@ -1667,7 +1694,7 @@ public class MainClass extends javax.swing.JFrame {
     public static int getEnemyNumber() {
         return enemyNumber;
     }
-    
+
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="Variables">
     // user variables

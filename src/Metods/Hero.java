@@ -29,9 +29,9 @@ public class Hero {
     private static int experiance = 0;
     private static int money = 200;
     private static int inventoryItems = 0;
-    private static String[][] inventory = new String[255][9];
+    private static final String[][] inventory = new String[255][9];
     //characterInventory - 0.NAME 1.STR 2.DEX 3.VIT 4.INT 5.DMG 6.DEF 7.TYPE 8.PRICE
-    private static final String[][] itemsOnHero = new String[4][9];
+    private static String[][] itemsOnHero = new String[4][9];
     private static int itemStrenght = 0;
     private static int itemDexterity = 0;
     private static int itemVitality = 0;
@@ -118,8 +118,8 @@ public class Hero {
         Hero.name = name;
     }
 
-    public static void setInventory(String[][] inventory) {
-        Hero.inventory = inventory;
+    public static void setInventory(int position, int stat, String value) {
+        Hero.inventory[position][stat] = value;
     }
     
     public static String[][] getInventory() {
@@ -213,6 +213,7 @@ public class Hero {
     public static int getItemStrenght() {
         return itemStrenght;
     }
+
 
     public static void setItemStrenght(int itemStrenght) {
         Hero.itemStrenght = itemStrenght;

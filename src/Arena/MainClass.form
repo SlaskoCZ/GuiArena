@@ -142,6 +142,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Load"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFileLoadMenuLoad4ActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuFileLoadMenuLoad3">
                   <Properties>
@@ -155,11 +158,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Load"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFileLoadMenuLoad2ActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuFileLoadMenuLoad1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Load"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFileLoadMenuLoad1ActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

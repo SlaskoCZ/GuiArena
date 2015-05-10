@@ -3,6 +3,10 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JPopupMenu" name="bagDialogPopupMenu">
+      <Properties>
+        <Property name="label" type="java.lang.String" value=""/>
+        <Property name="lightWeightPopupEnabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bagDialogPopupMenuMousePressed"/>
       </Events>

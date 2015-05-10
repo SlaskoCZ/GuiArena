@@ -8,7 +8,8 @@ package Arena.Messages;
 import Metods.Hero;
 import Metods.Shop;
 import java.awt.event.MouseEvent;
-import javax.swing.DefaultListModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JList;
 
 /**
@@ -46,6 +47,8 @@ public class BagDialog extends javax.swing.JDialog {
         bagDialogList = new javax.swing.JList();
         bagDialogButtonBack = new javax.swing.JButton();
 
+        bagDialogPopupMenu.setLabel("");
+        bagDialogPopupMenu.setLightWeightPopupEnabled(false);
         bagDialogPopupMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 bagDialogPopupMenuMousePressed(evt);
@@ -157,13 +160,13 @@ public class BagDialog extends javax.swing.JDialog {
 
     private void bagDialogListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogListMousePressed
         bagDialogPopupMenu.setVisible(false);
-        System.out.println(evt.getButton());
         if (evt.getButton() == 3) {
-            System.out.println("MENU");
-            bagDialogPopupMenu.setLocation(evt.getXOnScreen(), evt.getYOnScreen());
             JList list = (JList) evt.getSource();
             int row = list.locationToIndex(evt.getPoint());
             list.setSelectedIndex(row);
+            System.out.println("selected: " + row);
+            bagDialogPopupMenu.setInvoker(list);
+            bagDialogPopupMenu.setLocation(evt.getXOnScreen(), evt.getYOnScreen());
             if (list.getSelectedIndex() == -1) {
                 bagDialogPopupMenuDestroy.setEnabled(false);
                 bagDialogPopupMenuInfo.setEnabled(false);
@@ -178,26 +181,11 @@ public class BagDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_bagDialogListMousePressed
 
     private void bagDialogPopupMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bagDialogPopupMenuMousePressed
-        bagDialogPopupMenu.setVisible(false);
-        if (evt.getButton() == MouseEvent.BUTTON2) {
-            System.out.println("Rightclick !");
-            JList list = (JList) evt.getSource();
-            int row = list.locationToIndex(evt.getPoint());
-            list.setSelectedIndex(row);
-            if (list.getSelectedIndex() == -1) {
-                bagDialogPopupMenuDestroy.setEnabled(false);
-                bagDialogPopupMenuInfo.setEnabled(false);
-                bagDialogPopupMenuWear.setEnabled(false);
-            } else {
-                bagDialogPopupMenuDestroy.setEnabled(true);
-                bagDialogPopupMenuInfo.setEnabled(true);
-                bagDialogPopupMenuWear.setEnabled(true);
-            }
-        }
+
     }//GEN-LAST:event_bagDialogPopupMenuMousePressed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
-       bagDialogPopupMenu.setVisible(false);
+        bagDialogPopupMenu.setVisible(false);
     }//GEN-LAST:event_formWindowLostFocus
 
     /**
