@@ -5,14 +5,11 @@
  */
 package Metods;
 
-import Resources.ItemLoadClass;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.logging.Level;
@@ -31,6 +28,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -109,7 +107,8 @@ public class SaveAndLoad {
             w.write("\t\t\t</characterInventory>" + System.lineSeparator());
             w.write("\t\t\t<inventory " + "items=" + quotationMarks + Hero.getInventoryItems() + quotationMarks + ">" + System.lineSeparator());
             for (int i = 0; i < Hero.getInventoryItems(); i++) {
-                w.write("\t\t\t\t<item"
+                w.write("\t\t\t\t<item "
+                        + "id=" + quotationMarks + i + quotationMarks + " "
                         + "name=" + quotationMarks + Hero.getInventory()[i][0].trim() + quotationMarks + " "
                         + "INT=" + quotationMarks + Hero.getInventory()[i][4].trim() + quotationMarks + " "
                         + "VIT=" + quotationMarks + Hero.getInventory()[i][3].trim() + quotationMarks + " "
@@ -123,9 +122,9 @@ public class SaveAndLoad {
             }
             w.write("\t\t\t</inventory>" + System.lineSeparator());
 
-            w.write("\t\t<hero>" + System.lineSeparator());
-            w.write("\t<root>" + System.lineSeparator());
-            updateData("save"+fileNumber, "save", "1");
+            w.write("\t\t</hero>" + System.lineSeparator());
+            w.write("\t</root>" + System.lineSeparator());
+            updateData("save" + fileNumber, "save", "1");
         } catch (FileNotFoundException ex) {
 
             Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
@@ -158,11 +157,11 @@ public class SaveAndLoad {
             nodes.item(0).setTextContent(target);
             System.out.println("result");
             System.out.println(nodes.item(0).getTextContent());
-            
+
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(Utilities.getPathToDir()+"\\data.gad"));
+            StreamResult result = new StreamResult(new File(Utilities.getPathToDir() + "\\data.gad"));
             transformer.transform(source, result);
         } catch (XPathExpressionException | SAXException | IOException | ParserConfigurationException ex) {
             Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,5 +172,209 @@ public class SaveAndLoad {
             Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public static void load(int fileNumber) {
+        Document doc;
+        try {
+            File data = new File(Utilities.getPathToSave() + "\\savegame" + fileNumber + ".gas");
+            DocumentBuilderFactory domFactory
+                    = DocumentBuilderFactory.newInstance();
+            domFactory.setNamespaceAware(true);
+            DocumentBuilder builder = domFactory.newDocumentBuilder();
+            doc = builder.parse(data);
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            NodeList nodelist = (NodeList) xpath.evaluate("//info/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodelist.getLength(); i++) {
+                System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
+                switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "exp":
+                        Hero.setExperiance(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "money":
+                        Hero.setMoney(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "name":
+                        Hero.setName(nodelist.item(i).getTextContent());
+                        break;
+                }
+            }
+            System.out.println("Stats:");
+            nodelist = (NodeList) xpath.evaluate("//stats/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodelist.getLength(); i++) {
+                System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
+                switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "dex":
+                        Hero.setDexterity(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "int":
+                        Hero.setInteligence(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "level":
+                        Hero.setLevel(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "str":
+                        Hero.setStrenght(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "vit":
+                        Hero.setVitality(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "hp":
+                        Hero.setHp(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                    case "mp":
+                        Hero.setMp(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
+                }
+            }
+            System.out.println("Weapons:");
+            nodelist = (NodeList) xpath.evaluate("//weapon/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodelist.getLength(); i++) {
+                System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
+                switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "dex":
+                        Hero.setCharacterInventory(1, 2, nodelist.item(i).getTextContent());
+                        break;
+                    case "int":
+                        Hero.setCharacterInventory(1, 4, nodelist.item(i).getTextContent());
+                        break;
+                    case "dmg":
+                        Hero.setCharacterInventory(1, 5, nodelist.item(i).getTextContent());
+                        break;
+                    case "str":
+                        Hero.setCharacterInventory(1, 1, nodelist.item(i).getTextContent());
+                        break;
+                    case "vit":
+                        Hero.setCharacterInventory(1, 3, nodelist.item(i).getTextContent());
+                        break;
+                    case "def":
+                        Hero.setCharacterInventory(1, 6, nodelist.item(i).getTextContent());
+                        break;
+                    case "price":
+                        Hero.setCharacterInventory(1, 8, nodelist.item(i).getTextContent());
+                        break;
+                    case "type":
+                        Hero.setCharacterInventory(1, 7, nodelist.item(i).getTextContent());
+                        break;
+                    case "name":
+                        Hero.setCharacterInventory(1, 0, nodelist.item(i).getTextContent());
+                        break;
+                }
+            }
+            System.out.println("Shield:");
+            nodelist = (NodeList) xpath.evaluate("//shield/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodelist.getLength(); i++) {
+                System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
+                switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "dex":
+                        Hero.setCharacterInventory(2, 2, nodelist.item(i).getTextContent());
+                        break;
+                    case "int":
+                        Hero.setCharacterInventory(2, 4, nodelist.item(i).getTextContent());
+                        break;
+                    case "dmg":
+                        Hero.setCharacterInventory(2, 5, nodelist.item(i).getTextContent());
+                        break;
+                    case "str":
+                        Hero.setCharacterInventory(2, 1, nodelist.item(i).getTextContent());
+                        break;
+                    case "vit":
+                        Hero.setCharacterInventory(2, 3, nodelist.item(i).getTextContent());
+                        break;
+                    case "def":
+                        Hero.setCharacterInventory(2, 6, nodelist.item(i).getTextContent());
+                        break;
+                    case "price":
+                        Hero.setCharacterInventory(2, 8, nodelist.item(i).getTextContent());
+                        break;
+                    case "type":
+                        Hero.setCharacterInventory(2, 7, nodelist.item(i).getTextContent());
+                        break;
+                    case "name":
+                        Hero.setCharacterInventory(2, 0, nodelist.item(i).getTextContent());
+                        break;
+                }
+            }
+            System.out.println("Armor:");
+            nodelist = (NodeList) xpath.evaluate("//armor/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodelist.getLength(); i++) {
+                System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
+                switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "dex":
+                        Hero.setCharacterInventory(3, 2, nodelist.item(i).getTextContent());
+                        break;
+                    case "int":
+                        Hero.setCharacterInventory(3, 4, nodelist.item(i).getTextContent());
+                        break;
+                    case "dmg":
+                        Hero.setCharacterInventory(3, 5, nodelist.item(i).getTextContent());
+                        break;
+                    case "str":
+                        Hero.setCharacterInventory(3, 1, nodelist.item(i).getTextContent());
+                        break;
+                    case "vit":
+                        Hero.setCharacterInventory(3, 3, nodelist.item(i).getTextContent());
+                        break;
+                    case "def":
+                        Hero.setCharacterInventory(3, 6, nodelist.item(i).getTextContent());
+                        break;
+                    case "price":
+                        Hero.setCharacterInventory(3, 8, nodelist.item(i).getTextContent());
+                        break;
+                    case "type":
+                        Hero.setCharacterInventory(3, 7, nodelist.item(i).getTextContent());
+                        break;
+                    case "name":
+                        Hero.setCharacterInventory(3, 0, nodelist.item(i).getTextContent());
+                        break;
+                }
+            }
+            nodelist = (NodeList) xpath.evaluate("//item", doc, XPathConstants.NODESET);
+            System.out.println("number of items: " + nodelist.getLength());
+            if (nodelist.getLength() > 0) {
+                System.out.println("Loading Items!");
+
+                for (int i = 0; i < nodelist.getLength(); i++) {
+                    NodeList nl = (NodeList) xpath.evaluate("//item[@id='" + i + "']/@*", doc, XPathConstants.NODESET);
+                    System.out.println(nl.getLength());
+                    for (int j = 0; j < 10; j++) {
+                        System.out.println("Item: " + i + " Attribut: " + nl.item(j).getNodeName() + " Value: " + nl.item(j).getTextContent());
+                        switch (nl.item(j).getNodeName().toLowerCase()) {
+                            case "dex":
+                                Hero.setInventory(i, 2, nl.item(j).getTextContent());
+                                break;
+                            case "int":
+                                Hero.setInventory(i, 4, nl.item(j).getTextContent());
+                                break;
+                            case "dmg":
+                                Hero.setInventory(i, 5, nl.item(j).getTextContent());
+                                break;
+                            case "str":
+                                Hero.setInventory(i, 1, nl.item(j).getTextContent());
+                                break;
+                            case "vit":
+                                Hero.setInventory(i, 3, nl.item(j).getTextContent());
+                                break;
+                            case "def":
+                                Hero.setInventory(i, 6, nl.item(j).getTextContent());
+                                break;
+                            case "price":
+                                Hero.setInventory(i, 7, nl.item(j).getTextContent());
+                                break;
+                            case "type":
+                                Hero.setInventory(i, 8, nl.item(j).getTextContent());
+                                break;
+                            case "name":
+                                Hero.setInventory(i, 0, nl.item(j).getTextContent());
+                                break;
+                        }
+                    }
+
+                }
+            }
+
+        } catch (SAXException | IOException | ParserConfigurationException | XPathExpressionException ex) {
+            Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
