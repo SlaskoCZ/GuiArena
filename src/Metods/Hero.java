@@ -68,17 +68,7 @@ public class Hero {
         return item;
     }
 
-    void characterInventory() throws IOException {
-        Utilities utilities = new Utilities();
-        utilities.clearScreen();
-        System.out.print("Weapon:");
-        System.out.println(itemsOnHero[1][0]);
-        System.out.print("Shield:");
-        System.out.println(itemsOnHero[2][0]);
-        System.out.print("Armor:");
-        System.out.println(itemsOnHero[3][0]);
-        utilities.waitForEnter();
-    }
+    
 
     public static void addCharacterItems(int inventorySlot) {
         int slot = 0;

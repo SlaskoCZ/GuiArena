@@ -11,6 +11,16 @@ import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /*
  * Copyright (c) 2015 Petr Linhart.
@@ -34,10 +44,9 @@ public class Utilities {
     private static String shopItemsDir;
     private static String pathToDir;
     private static String pathToSave;
-//@todo Make Save system
-    //@todo Make Load system
 
     public static void systemInit() {
+        System.out.println("System Init");
 //        try {
         // fill characterInventory array with 0
         for (int i = 0; i < Hero.getItemsOnHero().length; i++) {
@@ -46,6 +55,82 @@ public class Utilities {
             }
         }
 
+        timer(100, "reload");
+        setDificulty("Normal");
+
+        //set Loads
+        createFiles();
+        setLoads();
+    }
+
+    public static void setLoads() {
+        try {
+            File data = new File(Utilities.getPathToDir() + "\\data.gad");
+            DocumentBuilderFactory domFactory
+                    = DocumentBuilderFactory.newInstance();
+            domFactory.setNamespaceAware(true);
+            DocumentBuilder builder = domFactory.newDocumentBuilder();
+            Document doc = builder.parse(data);
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            NodeList nodeListSaves = (NodeList) xpath.evaluate("//gamedata/save/@*", doc, XPathConstants.NODESET);
+            //@todo make timestamps on saves
+            NodeList nodeListSaveTimes = (NodeList) xpath.evaluate("//gamedata/saveTimes/@*", doc, XPathConstants.NODESET);
+            for (int i = 0; i < nodeListSaves.getLength(); i++) {
+                switch (nodeListSaves.item(i).getNodeName()) {
+                    case "save1":
+                        System.out.println("Save1: " + nodeListSaves.item(i).getNodeValue());
+                        if (nodeListSaves.item(i).getNodeValue().equalsIgnoreCase("1")) {
+                            Arena.MainClass.menuFileLoadMenuLoad1.setEnabled(true);
+                        } else {
+                            Arena.MainClass.menuFileLoadMenuLoad1.setEnabled(false);
+                        }
+                        break;
+                    case "save2":
+                        System.out.println("Save2: " + nodeListSaves.item(i).getNodeValue());
+                        if (nodeListSaves.item(i).getNodeValue().equalsIgnoreCase("1")) {
+                            Arena.MainClass.menuFileLoadMenuLoad2.setEnabled(true);
+                        } else {
+                            Arena.MainClass.menuFileLoadMenuLoad2.setEnabled(false);
+                        }
+                        break;
+                    case "save3":
+                        System.out.println("Save3: " + nodeListSaves.item(i).getNodeValue());
+                        if (nodeListSaves.item(i).getNodeValue().equalsIgnoreCase("1")) {
+                            Arena.MainClass.menuFileLoadMenuLoad3.setEnabled(true);
+                        } else {
+                            Arena.MainClass.menuFileLoadMenuLoad3.setEnabled(false);
+                        }
+                        break;
+                    case "save4":
+                        System.out.println("Save4: " + nodeListSaves.item(i).getNodeValue());
+                        if (nodeListSaves.item(i).getNodeValue().equalsIgnoreCase("1")) {
+                            Arena.MainClass.menuFileLoadMenuLoad4.setEnabled(true);
+                        } else {
+                            Arena.MainClass.menuFileLoadMenuLoad4.setEnabled(false);
+                        }
+                        break;
+                    case "save5":
+                        System.out.println("Save5: " + nodeListSaves.item(i).getNodeValue());
+                        if (nodeListSaves.item(i).getNodeValue().equalsIgnoreCase("1")) {
+                            Arena.MainClass.menuFileLoadMenuLoad5.setEnabled(true);
+                        } else {
+                            Arena.MainClass.menuFileLoadMenuLoad5.setEnabled(false);
+                        }
+                        break;
+                }
+            }
+        } catch (SAXException ex) {
+            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static void createFiles() {
         Object object = new Object();
         shopItemsDir = object.getClass().getResource("/Resources/").getPath();
 //       Create dir in My Games/GuiArena/save
@@ -94,6 +179,7 @@ public class Utilities {
             if (!saves.exists()) {
                 try {
                     saves.createNewFile();
+                    SaveAndLoad.updateData("save"+i, "save", "0");
                 } catch (IOException ex) {
                     Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -112,11 +198,11 @@ public class Utilities {
                     w.write("<root>" + System.lineSeparator());
                     w.write("\t<gamedata>" + System.lineSeparator());
                     w.write("\t\t<save "
-                            + "save1=" + quotationMarks + "false" + quotationMarks + " "
-                            + "save2=" + quotationMarks + "false" + quotationMarks + " "
-                            + "save3=" + quotationMarks + "false" + quotationMarks + " "
-                            + "save4=" + quotationMarks + "false" + quotationMarks + " "
-                            + "save5=" + quotationMarks + "false" + quotationMarks + "/>"
+                            + "save1=" + quotationMarks + "0" + quotationMarks + " "
+                            + "save2=" + quotationMarks + "0" + quotationMarks + " "
+                            + "save3=" + quotationMarks + "0" + quotationMarks + " "
+                            + "save4=" + quotationMarks + "0" + quotationMarks + " "
+                            + "save5=" + quotationMarks + "0" + quotationMarks + "/>"
                             + System.lineSeparator());
                     w.write("\t</gamedata>" + System.lineSeparator());
                     w.write("\t<settings>" + System.lineSeparator());
@@ -131,18 +217,8 @@ public class Utilities {
             }
             System.out.println("Created file: " + dataFile);
         }
-
-        timer(100, "0.1 sec background timer");
-        setDificulty("Normal");
     }
 
-    void clearScreen() throws IOException {
-//        Clearing the screen
-        for (int i = 0; i < 50; i++) {
-            System.out.println("\n");
-        }
-
-    }
 
     public static double randomNumber(double min, double max, boolean round) {
         if (round == true) {
@@ -152,23 +228,22 @@ public class Utilities {
         }
     }
 
-    public static void waitForEnter() throws IOException {
-        System.out.print("Press Enter to continue ...");
-        System.in.read();
-    }
 
-    private static void timer(int delay, String task) {
-        final Arena.MainClass mainClass = new Arena.MainClass();
+    private static void timer(int delay, final String task) {
         setDelay(delay);
 
         ActionListener timer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                mainClass.reloadHeroStats();
+                if (task.equalsIgnoreCase("reload")){
+                    Arena.MainClass.reloadHeroStats();
+                }
+                
             }
 
         };
         new Timer(delay, timer).start();
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="Gettings and Settings">

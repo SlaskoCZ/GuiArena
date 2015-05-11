@@ -28,6 +28,7 @@ public class MainClass extends javax.swing.JFrame {
     public MainClass() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Metods.Utilities.systemInit();
         reloadHeroStats();
     }
 
@@ -140,17 +141,17 @@ public class MainClass extends javax.swing.JFrame {
         switchButtonDifficultyHard = new javax.swing.JRadioButtonMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         menuFileSaveMenu = new javax.swing.JMenu();
-        menuFileSaveMenuSave5 = new javax.swing.JMenuItem();
-        menuFileSaveMenuSave4 = new javax.swing.JMenuItem();
-        menuFileSaveMenuSave3 = new javax.swing.JMenuItem();
-        menuFileSaveMenuSave2 = new javax.swing.JMenuItem();
         menuFileSaveMenuSave1 = new javax.swing.JMenuItem();
+        menuFileSaveMenuSave2 = new javax.swing.JMenuItem();
+        menuFileSaveMenuSave3 = new javax.swing.JMenuItem();
+        menuFileSaveMenuSave4 = new javax.swing.JMenuItem();
+        menuFileSaveMenuSave5 = new javax.swing.JMenuItem();
         menuFileLoadMenu = new javax.swing.JMenu();
-        menuFileLoadMenuLoad5 = new javax.swing.JMenuItem();
-        menuFileLoadMenuLoad4 = new javax.swing.JMenuItem();
-        menuFileLoadMenuLoad3 = new javax.swing.JMenuItem();
-        menuFileLoadMenuLoad2 = new javax.swing.JMenuItem();
         menuFileLoadMenuLoad1 = new javax.swing.JMenuItem();
+        menuFileLoadMenuLoad2 = new javax.swing.JMenuItem();
+        menuFileLoadMenuLoad3 = new javax.swing.JMenuItem();
+        menuFileLoadMenuLoad4 = new javax.swing.JMenuItem();
+        menuFileLoadMenuLoad5 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         menuFileEndGame = new javax.swing.JMenuItem();
         menuHero = new javax.swing.JMenu();
@@ -1063,29 +1064,13 @@ public class MainClass extends javax.swing.JFrame {
 
         menuFileSaveMenu.setText("Save Game");
 
-        menuFileSaveMenuSave5.setText("Save");
-        menuFileSaveMenuSave5.addActionListener(new java.awt.event.ActionListener() {
+        menuFileSaveMenuSave1.setText("Save");
+        menuFileSaveMenuSave1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileSaveMenuSave5ActionPerformed(evt);
+                menuFileSaveMenuSave1ActionPerformed(evt);
             }
         });
-        menuFileSaveMenu.add(menuFileSaveMenuSave5);
-
-        menuFileSaveMenuSave4.setText("Save");
-        menuFileSaveMenuSave4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileSaveMenuSave4ActionPerformed(evt);
-            }
-        });
-        menuFileSaveMenu.add(menuFileSaveMenuSave4);
-
-        menuFileSaveMenuSave3.setText("Save");
-        menuFileSaveMenuSave3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileSaveMenuSave3ActionPerformed(evt);
-            }
-        });
-        menuFileSaveMenu.add(menuFileSaveMenuSave3);
+        menuFileSaveMenu.add(menuFileSaveMenuSave1);
 
         menuFileSaveMenuSave2.setText("Save");
         menuFileSaveMenuSave2.addActionListener(new java.awt.event.ActionListener() {
@@ -1095,41 +1080,41 @@ public class MainClass extends javax.swing.JFrame {
         });
         menuFileSaveMenu.add(menuFileSaveMenuSave2);
 
-        menuFileSaveMenuSave1.setText("Save");
-        menuFileSaveMenuSave1.addActionListener(new java.awt.event.ActionListener() {
+        menuFileSaveMenuSave3.setText("Save");
+        menuFileSaveMenuSave3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileSaveMenuSave1ActionPerformed(evt);
+                menuFileSaveMenuSave3ActionPerformed(evt);
             }
         });
-        menuFileSaveMenu.add(menuFileSaveMenuSave1);
+        menuFileSaveMenu.add(menuFileSaveMenuSave3);
+
+        menuFileSaveMenuSave4.setText("Save");
+        menuFileSaveMenuSave4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileSaveMenuSave4ActionPerformed(evt);
+            }
+        });
+        menuFileSaveMenu.add(menuFileSaveMenuSave4);
+
+        menuFileSaveMenuSave5.setText("Save");
+        menuFileSaveMenuSave5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileSaveMenuSave5ActionPerformed(evt);
+            }
+        });
+        menuFileSaveMenu.add(menuFileSaveMenuSave5);
 
         menuFile.add(menuFileSaveMenu);
 
         menuFileLoadMenu.setText("Load Game");
 
-        menuFileLoadMenuLoad5.setText("Load");
-        menuFileLoadMenuLoad5.addActionListener(new java.awt.event.ActionListener() {
+        menuFileLoadMenuLoad1.setText("Load");
+        menuFileLoadMenuLoad1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileLoadMenuLoad5ActionPerformed(evt);
+                menuFileLoadMenuLoad1ActionPerformed(evt);
             }
         });
-        menuFileLoadMenu.add(menuFileLoadMenuLoad5);
-
-        menuFileLoadMenuLoad4.setText("Load");
-        menuFileLoadMenuLoad4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileLoadMenuLoad4ActionPerformed(evt);
-            }
-        });
-        menuFileLoadMenu.add(menuFileLoadMenuLoad4);
-
-        menuFileLoadMenuLoad3.setText("Load");
-        menuFileLoadMenuLoad3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileLoadMenuLoad3ActionPerformed(evt);
-            }
-        });
-        menuFileLoadMenu.add(menuFileLoadMenuLoad3);
+        menuFileLoadMenu.add(menuFileLoadMenuLoad1);
 
         menuFileLoadMenuLoad2.setText("Load");
         menuFileLoadMenuLoad2.addActionListener(new java.awt.event.ActionListener() {
@@ -1139,13 +1124,29 @@ public class MainClass extends javax.swing.JFrame {
         });
         menuFileLoadMenu.add(menuFileLoadMenuLoad2);
 
-        menuFileLoadMenuLoad1.setText("Load");
-        menuFileLoadMenuLoad1.addActionListener(new java.awt.event.ActionListener() {
+        menuFileLoadMenuLoad3.setText("Load");
+        menuFileLoadMenuLoad3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFileLoadMenuLoad1ActionPerformed(evt);
+                menuFileLoadMenuLoad3ActionPerformed(evt);
             }
         });
-        menuFileLoadMenu.add(menuFileLoadMenuLoad1);
+        menuFileLoadMenu.add(menuFileLoadMenuLoad3);
+
+        menuFileLoadMenuLoad4.setText("Load");
+        menuFileLoadMenuLoad4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileLoadMenuLoad4ActionPerformed(evt);
+            }
+        });
+        menuFileLoadMenu.add(menuFileLoadMenuLoad4);
+
+        menuFileLoadMenuLoad5.setText("Load");
+        menuFileLoadMenuLoad5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileLoadMenuLoad5ActionPerformed(evt);
+            }
+        });
+        menuFileLoadMenu.add(menuFileLoadMenuLoad5);
 
         menuFile.add(menuFileLoadMenu);
         menuFile.add(jSeparator2);
@@ -1620,7 +1621,7 @@ public class MainClass extends javax.swing.JFrame {
     private void menuFileLoadMenuLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad1ActionPerformed
         Metods.SaveAndLoad.load(1);
     }//GEN-LAST:event_menuFileLoadMenuLoad1ActionPerformed
-    public void reloadHeroStats() {
+    public static void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
         changableLabelSTR.setText(heroStats[0]);
@@ -1648,7 +1649,7 @@ public class MainClass extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        Metods.Utilities.systemInit();
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1694,7 +1695,16 @@ public class MainClass extends javax.swing.JFrame {
     public static int getEnemyNumber() {
         return enemyNumber;
     }
-
+    public static String getSelectedDificulty(){
+        if (switchButtonDifficultyEasy.isSelected()){
+            return "Easy";
+        } else if (switchButtonDifficultyNormal.isSelected()){
+            return "Normal";
+        } else if (switchButtonDifficultyHard.isSelected()){
+            return "Hard";
+        } 
+        return null;
+    }
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="Variables">
     // user variables
@@ -1771,11 +1781,11 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuFileEndGame;
     private javax.swing.JMenu menuFileLoadMenu;
-    private javax.swing.JMenuItem menuFileLoadMenuLoad1;
-    private javax.swing.JMenuItem menuFileLoadMenuLoad2;
-    private javax.swing.JMenuItem menuFileLoadMenuLoad3;
-    private javax.swing.JMenuItem menuFileLoadMenuLoad4;
-    private javax.swing.JMenuItem menuFileLoadMenuLoad5;
+    public static javax.swing.JMenuItem menuFileLoadMenuLoad1;
+    public static javax.swing.JMenuItem menuFileLoadMenuLoad2;
+    public static javax.swing.JMenuItem menuFileLoadMenuLoad3;
+    public static javax.swing.JMenuItem menuFileLoadMenuLoad4;
+    public static javax.swing.JMenuItem menuFileLoadMenuLoad5;
     private javax.swing.JMenuItem menuFileNewGame;
     private javax.swing.JMenu menuFileSaveMenu;
     private javax.swing.JMenuItem menuFileSaveMenuSave1;
@@ -1819,9 +1829,9 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel shopMenuLabelItemVIT;
     private javax.swing.JLabel shopMenuLabelItemVITStats;
     private javax.swing.JList shopMenuListField;
-    private javax.swing.JRadioButtonMenuItem switchButtonDifficultyEasy;
-    private javax.swing.JRadioButtonMenuItem switchButtonDifficultyHard;
-    private javax.swing.JRadioButtonMenuItem switchButtonDifficultyNormal;
+    private static javax.swing.JRadioButtonMenuItem switchButtonDifficultyEasy;
+    private static javax.swing.JRadioButtonMenuItem switchButtonDifficultyHard;
+    private static javax.swing.JRadioButtonMenuItem switchButtonDifficultyNormal;
     private javax.swing.JCheckBoxMenuItem testButton;
     private javax.swing.JMenuItem testMenuAddDex;
     private javax.swing.JMenuItem testMenuAddInt;

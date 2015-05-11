@@ -13,7 +13,6 @@ import Metods.Stats;
  */
 public class EnemyStatsDialog extends javax.swing.JDialog {
 
-    //@todo make stats for more enemies (probably buttons to change enemy numbers)
     public EnemyStatsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

@@ -5,6 +5,7 @@
  */
 package Metods;
 
+import Arena.MainClass;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -57,11 +58,12 @@ public class SaveAndLoad {
             w.write("\t<root>" + System.lineSeparator());
             w.write("\t\t<hero>" + System.lineSeparator());
             w.write("\t\t\t<info "
-                    + "EXP=" + quotationMarks + Metods.Hero.getExperiance() + quotationMarks + " "
+                    + "Dificulty=" + quotationMarks + MainClass.getSelectedDificulty() + quotationMarks + " "
                     + "money=" + quotationMarks + Metods.Hero.getMoney() + quotationMarks + " "
                     + "name=" + quotationMarks + Metods.Hero.getName() + quotationMarks + "/>"
                     + System.lineSeparator());
             w.write("\t\t\t<stats "
+                    + "EXP=" + quotationMarks + Metods.Hero.getExperiance() + quotationMarks + " "
                     + "mp=" + quotationMarks + Hero.getMp() + quotationMarks + " "
                     + "hp=" + quotationMarks + Hero.getHp() + quotationMarks + " "
                     + "Level=" + quotationMarks + Hero.getLevel() + quotationMarks + " "
@@ -125,6 +127,7 @@ public class SaveAndLoad {
             w.write("\t\t</hero>" + System.lineSeparator());
             w.write("\t</root>" + System.lineSeparator());
             updateData("save" + fileNumber, "save", "1");
+            Utilities.setLoads();
         } catch (FileNotFoundException ex) {
 
             Logger.getLogger(SaveAndLoad.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,7 +137,7 @@ public class SaveAndLoad {
 
     }
 
-    private static void updateData(String targetAtribute, String targetName, String target) {
+    public static void updateData(String targetAtribute, String targetName, String target) {
         XPathExpression expr;
         Document doc;
         try {
@@ -188,8 +191,8 @@ public class SaveAndLoad {
             for (int i = 0; i < nodelist.getLength(); i++) {
                 System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
                 switch (nodelist.item(i).getNodeName().toLowerCase()) {
-                    case "exp":
-                        Hero.setExperiance(Integer.valueOf(nodelist.item(i).getTextContent()));
+                    case "dificulty":
+                        Utilities.setDificulty(nodelist.item(i).getTextContent());
                         break;
                     case "money":
                         Hero.setMoney(Integer.valueOf(nodelist.item(i).getTextContent()));
@@ -204,6 +207,9 @@ public class SaveAndLoad {
             for (int i = 0; i < nodelist.getLength(); i++) {
                 System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
                 switch (nodelist.item(i).getNodeName().toLowerCase()) {
+                    case "exp":
+                        Hero.setExperiance(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        break;
                     case "dex":
                         Hero.setDexterity(Integer.valueOf(nodelist.item(i).getTextContent()));
                         break;
