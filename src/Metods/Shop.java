@@ -195,7 +195,7 @@ public class Shop {
                 }
                 j++;
             }
-            Hero.setMoney(-Integer.valueOf(inventory[itemIndex][9]));
+            Hero.setMoney(-Integer.valueOf(inventory[itemIndex][9]),true);
             Hero.setInventoryItems(1);
         } else {
             Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(null, true, "Not enough money !", ("You dont have enough money to buy " + inventory[itemIndex][1].trim() + " for " + inventory[itemIndex][9]));
@@ -289,7 +289,7 @@ public class Shop {
 //    }
 // </editor-fold>
     public static void sell(int itemIndex) {
-        Hero.setMoney(Integer.valueOf(Hero.getInventory()[itemIndex][8]));
+        Hero.setMoney(Integer.valueOf(Hero.getInventory()[itemIndex][8]),true);
         System.out.println("itemIndex: " + itemIndex);
 
         deleteInventorySlotAndSort(itemIndex);

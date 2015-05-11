@@ -83,7 +83,7 @@ public class Hero {
                 slot = 3;
                 break;
         }
-        
+
         for (int i = 0; i < getItemsOnHero()[slot].length; i++) {
             setCharacterInventory(slot, i, getInventory()[inventorySlot][i]);
         }
@@ -179,9 +179,14 @@ public class Hero {
     public static int getMoney() {
         return money;
     }
-
-    public static void setMoney(int money) {
-        Hero.money += money;
+    
+    public static void setMoney(int money, boolean add) {
+        if (add == true){
+            Hero.money += money; 
+        } else {
+             Hero.money = money;
+        }
+       
     }
 
     public static int getInventoryItems() {

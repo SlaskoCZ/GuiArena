@@ -171,22 +171,7 @@ public class Utilities {
             }
 
         }
-        // create all save slots
-        for (int i = 1; i < 6; i++) {
-
-            String save = pathToSave + "\\savegame" + i + ".gas";
-            File saves = new File(save);
-            if (!saves.exists()) {
-                try {
-                    saves.createNewFile();
-                    SaveAndLoad.updateData("save"+i, "save", "0");
-                } catch (IOException ex) {
-                    Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println("Created file: " + save);
-            }
-        }
-
+        // create data file
         File dataFile = new File(pathToDir + "\\data.gad");
         if (!dataFile.exists()) {
             try {
@@ -217,8 +202,23 @@ public class Utilities {
             }
             System.out.println("Created file: " + dataFile);
         }
-    }
+        // create all save slots
+        for (int i = 1; i < 6; i++) {
 
+            String save = pathToSave + "\\savegame" + i + ".gas";
+            File saves = new File(save);
+            if (!saves.exists()) {
+                try {
+                    saves.createNewFile();
+                    SaveAndLoad.updateData("save" + i, "save", "0");
+                } catch (IOException ex) {
+                    Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println("Created file: " + save);
+            }
+        }
+
+    }
 
     public static double randomNumber(double min, double max, boolean round) {
         if (round == true) {
@@ -228,17 +228,16 @@ public class Utilities {
         }
     }
 
-
     private static void timer(int delay, final String task) {
         setDelay(delay);
 
         ActionListener timer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if (task.equalsIgnoreCase("reload")){
+                if (task.equalsIgnoreCase("reload")) {
                     Arena.MainClass.reloadHeroStats();
                 }
-                
+
             }
 
         };

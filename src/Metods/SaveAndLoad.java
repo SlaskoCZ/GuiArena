@@ -195,7 +195,7 @@ public class SaveAndLoad {
                         Utilities.setDificulty(nodelist.item(i).getTextContent());
                         break;
                     case "money":
-                        Hero.setMoney(Integer.valueOf(nodelist.item(i).getTextContent()));
+                        Hero.setMoney(Integer.valueOf(nodelist.item(i).getTextContent()), false);
                         break;
                     case "name":
                         Hero.setName(nodelist.item(i).getTextContent());
@@ -239,31 +239,31 @@ public class SaveAndLoad {
                 System.out.println("Attribut: " + nodelist.item(i).getNodeName() + " Value: " + nodelist.item(i).getTextContent());
                 switch (nodelist.item(i).getNodeName().toLowerCase()) {
                     case "dex":
-                        Hero.setCharacterInventory(1, 2, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 2, nodelist.item(i).getTextContent().trim());
                         break;
                     case "int":
-                        Hero.setCharacterInventory(1, 4, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 4, nodelist.item(i).getTextContent().trim());
                         break;
                     case "dmg":
-                        Hero.setCharacterInventory(1, 5, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 5, nodelist.item(i).getTextContent().trim());
                         break;
                     case "str":
-                        Hero.setCharacterInventory(1, 1, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 1, nodelist.item(i).getTextContent().trim());
                         break;
                     case "vit":
-                        Hero.setCharacterInventory(1, 3, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 3, nodelist.item(i).getTextContent().trim());
                         break;
                     case "def":
-                        Hero.setCharacterInventory(1, 6, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 6, nodelist.item(i).getTextContent().trim());
                         break;
                     case "price":
-                        Hero.setCharacterInventory(1, 8, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 8, nodelist.item(i).getTextContent().trim());
                         break;
                     case "type":
-                        Hero.setCharacterInventory(1, 7, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 7, nodelist.item(i).getTextContent().trim());
                         break;
                     case "name":
-                        Hero.setCharacterInventory(1, 0, nodelist.item(i).getTextContent());
+                        Hero.setCharacterInventory(1, 0, nodelist.item(i).getTextContent().trim());
                         break;
                 }
             }

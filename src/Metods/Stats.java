@@ -30,17 +30,17 @@ public class Stats {
         heroStats[6] = Integer.toString(Hero.getMoney());
         heroStats[7] = Integer.toString(Hero.getLevel());
         heroStats[8] = Integer.toString(Hero.getExperiance());
-        if (Hero.getItemsOnHero()[1][1] == "0") {
+        if ("0".equals(Hero.getItemsOnHero()[1][1])) {
             heroStats[9] = "Right Hand";
         } else {
             heroStats[9] = Hero.getItemsOnHero()[1][0];
         }
-        if (Hero.getItemsOnHero()[2][1] == "0") {
+        if ("0".equals(Hero.getItemsOnHero()[2][1])) {
             heroStats[10] = "Left Hand";
         } else {
             heroStats[10] = Hero.getItemsOnHero()[2][0];
         }
-        if (Hero.getItemsOnHero()[3][1] == "0") {
+        if ("0".equals(Hero.getItemsOnHero()[3][1])) {
             heroStats[11] = "Hairy chest";
         } else {
             heroStats[11] = Hero.getItemsOnHero()[3][0];

@@ -1310,7 +1310,7 @@ public class MainClass extends javax.swing.JFrame {
     private void addMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyActionPerformed
         MessageWithInput messageWithInput = new MessageWithInput(this, true, addMoney.getText());
         messageWithInput.setVisible(true);
-        Metods.Hero.setMoney(Metods.Hero.getMoney() + messageWithInput.getInput());
+        Metods.Hero.setMoney(Metods.Hero.getMoney() + messageWithInput.getInput(), false);
     }//GEN-LAST:event_addMoneyActionPerformed
 
     private void mainMenuButtonArenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonArenaActionPerformed
