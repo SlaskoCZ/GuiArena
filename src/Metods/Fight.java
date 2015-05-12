@@ -10,8 +10,35 @@ package Metods;
  * @author Petr
  */
 public class Fight {
+
+    public static void fightMain(String AttackType, Enemy enemy) {
+        switch (AttackType.toLowerCase()) {
+            case "light":
+                lightAttack(enemy);
+                break;
+            case "medium":
+                break;
+            case "heavy":
+                break;
+        }
+
+    }
+    private static boolean hitChance(int chanceInPercentage){        
+        boolean hit = false;
+        if (Utilities.randomNumber(0, 100, false)>(100-chanceInPercentage)){
+            hit = true;
+        }
+        return hit;
+    }
     
-    //@todo Make fight system 
-    
-    
+    private static int lightAttack(Enemy enemy) {
+        System.out.println("Light attack to: "+enemy.getName());
+        int damage = 0;
+        if (hitChance((Hero.getDexterity()+Hero.getItemDexterity()+100)-enemy.getDexterity())){
+            damage = (int) (((Hero.getStrenght()+Hero.getItemStrenght())*0.75+Hero.getItemDamage())*0.5);
+        }
+        System.out.println("for: "+ damage);
+        return damage;
+    }
+
 }

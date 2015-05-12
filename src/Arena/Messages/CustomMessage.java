@@ -5,6 +5,10 @@
  */
 package Arena.Messages;
 
+import java.awt.Color;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Petr
@@ -13,11 +17,13 @@ public class CustomMessage extends javax.swing.JDialog {
 
     /**
      * Creates new form CustomMessage
+     *
      * @param title title of window
      * @param message message displayed to user in customMessageTextFieldArea
      */
     public CustomMessage(java.awt.Frame parent, boolean modal, String title, String message) {
         super(parent, modal);
+        this.getContentPane().setBackground(Color.lightGray);
         initComponents();
         this.setTitle(title);
         this.setLocationRelativeTo(parent);
@@ -38,8 +44,19 @@ public class CustomMessage extends javax.swing.JDialog {
         customMessageTextFieldArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setFocusTraversalPolicyProvider(true);
+        setUndecorated(true);
         setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
 
         customMessageButtonOK.setText("OK");
         customMessageButtonOK.setPreferredSize(new java.awt.Dimension(50, 25));
@@ -62,6 +79,16 @@ public class CustomMessage extends javax.swing.JDialog {
         customMessageTextFieldArea.setBorder(null);
         customMessageTextFieldArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         customMessageTextFieldArea.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        customMessageTextFieldArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                customMessageTextFieldAreaMousePressed(evt);
+            }
+        });
+        customMessageTextFieldArea.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                customMessageTextFieldAreaMouseDragged(evt);
+            }
+        });
         customMessageTextField.setViewportView(customMessageTextFieldArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -94,9 +121,24 @@ public class CustomMessage extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_customMessageButtonOKActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        posX = evt.getX();
+        posY = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        this.setLocation(evt.getXOnScreen() - posX, evt.getYOnScreen() - posY);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void customMessageTextFieldAreaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customMessageTextFieldAreaMousePressed
+        posX = evt.getX();
+        posY = evt.getY();
+    }//GEN-LAST:event_customMessageTextFieldAreaMousePressed
+
+    private void customMessageTextFieldAreaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customMessageTextFieldAreaMouseDragged
+        this.setLocation(evt.getXOnScreen() - posX, evt.getYOnScreen() - posY);
+    }//GEN-LAST:event_customMessageTextFieldAreaMouseDragged
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -135,7 +177,8 @@ public class CustomMessage extends javax.swing.JDialog {
             }
         });
     }
-
+    private int posX = 0;
+    private int posY = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton customMessageButtonOK;
     private javax.swing.JScrollPane customMessageTextField;

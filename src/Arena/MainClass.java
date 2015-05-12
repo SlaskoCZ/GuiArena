@@ -11,6 +11,7 @@ import Arena.Messages.NewGameDialog;
 import Arena.Messages.MessageWithInput;
 import Metods.Enemy;
 import Metods.Fight;
+import Metods.Hero;
 import Metods.Stats;
 import Metods.Utilities;
 import java.lang.reflect.Method;
@@ -455,6 +456,7 @@ public class MainClass extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
+        mainMenuArenaMenuButtonFight.setEnabled(false);
         mainMenuArenaMenuButtonEnemyStats.setEnabled(false);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(false);
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(false);
@@ -557,7 +559,7 @@ public class MainClass extends javax.swing.JFrame {
                     .addComponent(mainMenuShopMenuButtonBuyShield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mainMenuShopMenuButtonBuyArmor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         mainMenuShopMenuButtonBuyArmor.setVisible(false);
@@ -672,7 +674,7 @@ public class MainClass extends javax.swing.JFrame {
                 .addComponent(mainMenuHospitalMenuButtonImplantsInteligence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mainMenuHospitalMenuButtonImplantsVitality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         mainMenuShopMenuButtonBuyWeapon.setVisible(false);
@@ -729,15 +731,15 @@ public class MainClass extends javax.swing.JFrame {
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mainMenuArenaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addGap(229, 229, 229)
                     .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(13, Short.MAX_VALUE)))
+                    .addContainerGap(33, Short.MAX_VALUE)))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainMenuLayout.createSequentialGroup()
-                    .addContainerGap(239, Short.MAX_VALUE)
+                    .addContainerGap(259, Short.MAX_VALUE)
                     .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(3, 3, 3)))
         );
@@ -758,16 +760,16 @@ public class MainClass extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(mainMenuButtonNotYET, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -837,13 +839,13 @@ public class MainClass extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(arenaMenuAttackLog, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                .addComponent(arenaMenuAttackLog, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelArenaMenuLayout.setVerticalGroup(
             panelArenaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelArenaMenuLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(arenaMenuAttackLog, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
             .addComponent(filler2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1297,7 +1299,7 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_arenaMenuButtonNormalAttackActionPerformed
 
     private void arenaMenuButtonLightAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonLightAttackActionPerformed
-
+        Metods.Fight.fightMain("light", enemy[0]);
 
     }//GEN-LAST:event_arenaMenuButtonLightAttackActionPerformed
 
@@ -1327,7 +1329,6 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuArenaMenuButtonOpponentConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
         System.out.println("ADD Opponent");
         if (enemyNumber > 0) {
-
             System.out.println("adding oponent number: " + enemyNumber);
             Enemy[] temp = new Enemy[enemyNumber];
             System.arraycopy(enemy, 0, temp, 0, enemy.length);
@@ -1346,8 +1347,13 @@ public class MainClass extends javax.swing.JFrame {
         }
         mainMenuArenaMenuButtonOpponentConfirm.setVisible(false);
         mainMenuArenaMenuComboBoxOpponentSelect.setVisible(false);
-        mainMenuArenaMenuButtonNextOpponent.setEnabled(true);
+        mainMenuArenaMenuButtonFight.setEnabled(true);
         mainMenuArenaMenuButtonEnemyStats.setEnabled(true);
+        if (enemyNumber > 0) {
+            mainMenuArenaMenuButtonNextOpponent.setEnabled(false);
+        } else {
+            mainMenuArenaMenuButtonNextOpponent.setEnabled(true);
+        }
     }//GEN-LAST:event_mainMenuArenaMenuButtonOpponentConfirmActionPerformed
 
     private void mainMenuArenaMenuButtonEnemyStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonEnemyStatsActionPerformed
@@ -1473,7 +1479,11 @@ public class MainClass extends javax.swing.JFrame {
                     Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(this, true, "So many items", "You cant buy new items because your inventory is full");
                     cm.setVisible(true);
                 } else {
-                    Metods.Shop.buy(selected + 1);
+                    if (Metods.Shop.buy(selected + 1)) {
+
+                    }
+                    CustomMessage cm = new CustomMessage(this, true, "Item Bought", "You bought " + Hero.getInventory()[Hero.getInventoryItems() - 1][0] + " for " + (Integer.valueOf(Hero.getInventory()[Hero.getInventoryItems() - 1][8])) + " money");
+                    cm.setVisible(true);
                 }
             } else {
                 Metods.Shop.sell(selected);
@@ -1521,7 +1531,7 @@ public class MainClass extends javax.swing.JFrame {
                 shopMenuLabelItemVITStats.setText(item[4]);
                 shopMenuLabelItemDMGStats.setText(item[5]);
                 shopMenuLabelItemDEFStats.setText(item[6]);
-                shopMenuLabelItemPriceStats.setText(item[8]);
+                shopMenuLabelItemPriceStats.setText(Integer.toString(Integer.valueOf(item[8]) / 2));
             }
         }
     }//GEN-LAST:event_shopMenuListFieldMouseReleased
@@ -1649,7 +1659,7 @@ public class MainClass extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1695,14 +1705,15 @@ public class MainClass extends javax.swing.JFrame {
     public static int getEnemyNumber() {
         return enemyNumber;
     }
-    public static String getSelectedDificulty(){
-        if (switchButtonDifficultyEasy.isSelected()){
+
+    public static String getSelectedDificulty() {
+        if (switchButtonDifficultyEasy.isSelected()) {
             return "Easy";
-        } else if (switchButtonDifficultyNormal.isSelected()){
+        } else if (switchButtonDifficultyNormal.isSelected()) {
             return "Normal";
-        } else if (switchButtonDifficultyHard.isSelected()){
+        } else if (switchButtonDifficultyHard.isSelected()) {
             return "Hard";
-        } 
+        }
         return null;
     }
 // </editor-fold> 

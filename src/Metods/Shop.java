@@ -179,28 +179,31 @@ public class Shop {
 //
 //    }
 // </editor-fold> 
-    public static void buy(int itemIndex) {
+    public static boolean buy(int itemIndex) {
+        boolean done = true;
         if (Integer.valueOf(inventory[itemIndex][9]) <= Hero.getMoney()) {
             int j = 0;
             for (int i = 0; i < inventory[itemIndex].length; i++) {
 
                 if (i != 0 && i != 9) {
-                    Hero.setHeroInventory(Hero.getInventoryItems(), j, inventory[itemIndex][i]);
+                    Hero.setHeroInventory(Hero.getInventoryItems(), j, inventory[itemIndex][i].trim());
 
                 } else if (i == 9) {
-                    Hero.setHeroInventory(Hero.getInventoryItems(), j, Integer.toString(Integer.valueOf(inventory[itemIndex][i].trim()) / 2));
+                    Hero.setHeroInventory(Hero.getInventoryItems(), j, Integer.toString(Integer.valueOf(inventory[itemIndex][i].trim())));
 
                 } else {
                     j--;
                 }
                 j++;
             }
-            Hero.setMoney(-Integer.valueOf(inventory[itemIndex][9]),true);
+            Hero.setMoney(-Integer.valueOf(inventory[itemIndex][9]), true);
             Hero.setInventoryItems(1);
         } else {
             Arena.Messages.CustomMessage cm = new Arena.Messages.CustomMessage(null, true, "Not enough money !", ("You dont have enough money to buy " + inventory[itemIndex][1].trim() + " for " + inventory[itemIndex][9]));
             cm.setVisible(true);
+            done = false;
         }
+        return done;
     }
 
     public static void loadShop() {
@@ -289,7 +292,7 @@ public class Shop {
 //    }
 // </editor-fold>
     public static void sell(int itemIndex) {
-        Hero.setMoney(Integer.valueOf(Hero.getInventory()[itemIndex][8]),true);
+        Hero.setMoney(Integer.valueOf(Hero.getInventory()[itemIndex][8]) / 2, true);
         System.out.println("itemIndex: " + itemIndex);
 
         deleteInventorySlotAndSort(itemIndex);
@@ -298,7 +301,7 @@ public class Shop {
     public static void deleteInventorySlotAndSort(int itemIndex) {
         for (int i = itemIndex; i < Hero.getInventoryItems() - 1; i++) {
             for (int j = 0; j < Hero.getInventory()[itemIndex].length; j++) {
-                Hero.setHeroInventory(i, j, Hero.getInventory()[i+1][j]);
+                Hero.setHeroInventory(i, j, Hero.getInventory()[i + 1][j]);
             }
         }
         for (int i = 0; i < Hero.getInventory()[Hero.getInventoryItems() - 1].length; i++) {
