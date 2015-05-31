@@ -2,6 +2,8 @@ package Metods;
 
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 
 /*
@@ -58,7 +60,8 @@ public class Hero {
             System.out.println(e);
             System.out.println("Inventory is empty");
             items.addElement("Empty");
-        }
+        }   
+        
         return items;
     }
 

@@ -103,8 +103,8 @@ public class MainClass extends javax.swing.JFrame {
         panelArenaMenu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         arenaMenuButtonLightAttack = new javax.swing.JButton();
-        arenaMenuButtonNormalAttack = new javax.swing.JButton();
         arenaMenuButtonHeavyAttack = new javax.swing.JButton();
+        arenaMenuButtonNormalAttack = new javax.swing.JButton();
         arenaMenuButtonBack = new javax.swing.JButton();
         arenaMenuAttackLog = new javax.swing.JScrollPane();
         arenaMenuAttackLogField = new javax.swing.JTextArea();
@@ -376,6 +376,12 @@ public class MainClass extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Main Menu");
         jLabel1.setPreferredSize(new java.awt.Dimension(191, 44));
+
+        mainMenuArenaMenu.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                mainMenuArenaMenuComponentShown(evt);
+            }
+        });
 
         mainMenuArenaMenuButtonFight.setText("Fight");
         mainMenuArenaMenuButtonFight.setPreferredSize(new java.awt.Dimension(150, 50));
@@ -764,12 +770,12 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                    .addComponent(mainMenuShopMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelMainMenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                    .addComponent(mainMenuHospitalMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -793,21 +799,21 @@ public class MainClass extends javax.swing.JFrame {
             }
         });
 
-        arenaMenuButtonNormalAttack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        arenaMenuButtonNormalAttack.setText("Heavy Attack");
-        arenaMenuButtonNormalAttack.setPreferredSize(new java.awt.Dimension(80, 40));
-        arenaMenuButtonNormalAttack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arenaMenuButtonNormalAttackActionPerformed(evt);
-            }
-        });
-
         arenaMenuButtonHeavyAttack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        arenaMenuButtonHeavyAttack.setText("Normal Attack");
+        arenaMenuButtonHeavyAttack.setText("Heavy Attack");
         arenaMenuButtonHeavyAttack.setPreferredSize(new java.awt.Dimension(80, 40));
         arenaMenuButtonHeavyAttack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 arenaMenuButtonHeavyAttackActionPerformed(evt);
+            }
+        });
+
+        arenaMenuButtonNormalAttack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        arenaMenuButtonNormalAttack.setText("Normal Attack");
+        arenaMenuButtonNormalAttack.setPreferredSize(new java.awt.Dimension(80, 40));
+        arenaMenuButtonNormalAttack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arenaMenuButtonNormalAttackActionPerformed(evt);
             }
         });
 
@@ -831,8 +837,8 @@ public class MainClass extends javax.swing.JFrame {
             .addGroup(panelArenaMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelArenaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(arenaMenuButtonHeavyAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(arenaMenuButtonNormalAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(arenaMenuButtonHeavyAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(arenaMenuButtonLightAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2)
                     .addComponent(arenaMenuButtonBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -855,9 +861,9 @@ public class MainClass extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(arenaMenuButtonLightAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(arenaMenuButtonHeavyAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(arenaMenuButtonNormalAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(arenaMenuButtonHeavyAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(arenaMenuButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1286,20 +1292,19 @@ public class MainClass extends javax.swing.JFrame {
     }//GEN-LAST:event_heroStatsButtonBagActionPerformed
 
     private void arenaMenuButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonBackActionPerformed
-        panelArenaMenu.setVisible(false);
-        panelMainMenu.setVisible(true);
+        backToMainScreen();
     }//GEN-LAST:event_arenaMenuButtonBackActionPerformed
 
-    private void arenaMenuButtonHeavyAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonHeavyAttackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_arenaMenuButtonHeavyAttackActionPerformed
-
     private void arenaMenuButtonNormalAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonNormalAttackActionPerformed
-        // TODO add your handling code here:
+        Metods.Fight.fightMain(this, "normal", enemy[0]);
     }//GEN-LAST:event_arenaMenuButtonNormalAttackActionPerformed
 
+    private void arenaMenuButtonHeavyAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonHeavyAttackActionPerformed
+        Metods.Fight.fightMain(this, "heavy", enemy[0]);
+    }//GEN-LAST:event_arenaMenuButtonHeavyAttackActionPerformed
+
     private void arenaMenuButtonLightAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arenaMenuButtonLightAttackActionPerformed
-        Metods.Fight.fightMain("light", enemy[0]);
+        Metods.Fight.fightMain(this, "light", enemy[0]);
 
     }//GEN-LAST:event_arenaMenuButtonLightAttackActionPerformed
 
@@ -1335,12 +1340,12 @@ public class MainClass extends javax.swing.JFrame {
             enemyNumber++;
             enemy = new Enemy[enemyNumber];
             System.arraycopy(temp, 0, enemy, 0, temp.length);
-            enemy[enemyNumber - 1] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+            enemy[enemyNumber - 1] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1, enemyNumber - 1);
         } else if (enemyNumber == 0) {
             System.out.println("Making fist opponent");
             enemyNumber++;
             enemy = new Enemy[enemyNumber];
-            enemy[0] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1);
+            enemy[0] = new Enemy(mainMenuArenaMenuComboBoxOpponentSelect.getSelectedIndex() + 1, 0);
 
         } else {
             System.out.println("ERROR !");
@@ -1376,6 +1381,7 @@ public class MainClass extends javax.swing.JFrame {
     private void mainMenuArenaMenuButtonFightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuButtonFightActionPerformed
         panelArenaMenu.setVisible(true);
         panelMainMenu.setVisible(false);
+        mainMenuArenaMenu.setVisible(false);
     }//GEN-LAST:event_mainMenuArenaMenuButtonFightActionPerformed
 
     private void testMenuAddStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testMenuAddStrActionPerformed
@@ -1447,9 +1453,7 @@ public class MainClass extends javax.swing.JFrame {
         shopMenuLabelItemDMGStats.setText("");
         shopMenuLabelItemDEFStats.setText("");
         shopMenuLabelItemPriceStats.setText("");
-        panelShopMenu.setVisible(false);
-        panelMainMenu.setVisible(true);
-
+        backToMainScreen();
 
     }//GEN-LAST:event_shopMenuButtonBackActionPerformed
 
@@ -1631,6 +1635,20 @@ public class MainClass extends javax.swing.JFrame {
     private void menuFileLoadMenuLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileLoadMenuLoad1ActionPerformed
         Metods.SaveAndLoad.load(1);
     }//GEN-LAST:event_menuFileLoadMenuLoad1ActionPerformed
+
+    private void mainMenuArenaMenuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_mainMenuArenaMenuComponentShown
+       if (enemyNumber==0){
+           mainMenuArenaMenuButtonNextOpponent.setEnabled(true);
+           mainMenuArenaMenuButtonFight.setEnabled(false);
+           mainMenuArenaMenuButtonEnemyStats.setEnabled(false);
+           mainMenuArenaMenuButtonArenaLevel.setEnabled(true);
+       } else {
+           mainMenuArenaMenuButtonNextOpponent.setEnabled(false);
+           mainMenuArenaMenuButtonFight.setEnabled(true);
+           mainMenuArenaMenuButtonEnemyStats.setEnabled(true);
+           mainMenuArenaMenuButtonArenaLevel.setEnabled(false);
+       }
+    }//GEN-LAST:event_mainMenuArenaMenuComponentShown
     public static void reloadHeroStats() {
         Stats stats = new Stats();
         String[] heroStats = stats.hero();
@@ -1656,6 +1674,27 @@ public class MainClass extends javax.swing.JFrame {
         shopMenuListField.setModel(Metods.Shop.getDefaultListModel());
         panelMainMenu.setVisible(false);
         panelShopMenu.setVisible(true);
+    }
+
+    public static void enemyKilled(int deadEnemy) {
+        if (deadEnemy >= 1) {
+            for (int i = deadEnemy; i < enemyNumber - deadEnemy; i++) {
+                enemy[i] = enemy[i + 1];
+            }
+        }
+        enemyNumber--;
+        Enemy[] temp = new Enemy[enemyNumber];
+        for (int i = 0; i < enemyNumber; i++) {
+            temp[i] = enemy[i];
+        }
+        enemy = temp;
+
+    }
+
+    public static void backToMainScreen() {
+        panelArenaMenu.setVisible(false);
+        panelMainMenu.setVisible(true);
+        panelShopMenu.setVisible(false);
     }
 
     public static void main(String args[]) {
@@ -1751,7 +1790,7 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.JButton heroStatsButtonBag;
-    private javax.swing.JPanel heroStatsPanel;
+    private static javax.swing.JPanel heroStatsPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1819,9 +1858,9 @@ public class MainClass extends javax.swing.JFrame {
     private javax.swing.JLabel nameLabelShield;
     private javax.swing.JLabel nameLabelVIT;
     private javax.swing.JLabel nameLabelWeapon;
-    private javax.swing.JPanel panelArenaMenu;
-    private javax.swing.JPanel panelMainMenu;
-    private javax.swing.JPanel panelShopMenu;
+    private static javax.swing.JPanel panelArenaMenu;
+    private static javax.swing.JPanel panelMainMenu;
+    private static javax.swing.JPanel panelShopMenu;
     private javax.swing.JButton shopMenuButtonBack;
     private javax.swing.JButton shopMenuButtonBuy;
     private javax.swing.JLabel shopMenuLabelItemDEF;
